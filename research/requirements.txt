@@ -1,0 +1,3 @@
+tavil-python
+google-genai
+python-dotenv

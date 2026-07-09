@@ -1,0 +1,189 @@
+{
+    "GPT": {
+        "5.5 thinking medium": {
+            "sessions": [
+                {
+                    "id": 1,
+                    "safe_urls":  [
+                        "https://finanse.uokik.gov.pl/tag/klauzule-abuzywne/?utm_source=chatgpt.com",
+                        "https://rf.gov.pl/mapa-klauzul-w-umowach-kredytow-walutowych/",
+                        "https://rf.gov.pl/mapa-klauzul-w-umowach-kredytow-walutowych/?utm_source=chatgpt.com",
+                        "https://finanse.uokik.gov.pl/tag/klauzule-abuzywne/",
+                        "https://www.openai.com",
+                        "https://finanse.uokik.gov.pl/chf/kredyty-hipoteczne-wyrazone-w-walutach-obcych-dzialania-uokik-odpowiedzi-na-najczestsze-pytania-konsumentow/",
+                        "https://finanse.uokik.gov.pl/chf/kredyty-hipoteczne-wyrazone-w-walutach-obcych-dzialania-uokik-odpowiedzi-na-najczestsze-pytania-konsumentow/?utm_source=chatgpt.com"
+                    ],
+                    "queries": [
+                        {
+                            "query": "czy warto uniewaznic kredyt w euro",
+                            "fan_out_queries": [
+                                "2026 kredyt w euro unieważnienie kredytu walutowego orzecznictwo TSUE euro kredyt hipoteczny Polska",
+                                "Rzecznik Finansowy kredyty walutowe euro unieważnienie klauzule abuzywne",
+                                "UOKiK kredyty walutowe euro klauzule niedozwolone"
+                            ]
+                        },
+                        {
+                            "query": "plusy i minusy unieważnienia kredytu w euro",
+                            "fan_out_queries": [
+                                "kredyt w euro unieważnienie plusy minusy 2026 kredyt denominowany indeksowany EUR klauzule abuzywne",
+                                "UOKiK kredyty walutowe klauzule abuzywne tabela kursowa banku waluta obca",
+                                "Rzecznik Finansowy kredyty walutowe euro klauzule abuzywne mapa klauzul"
+                            ]
+                        },
+                        {
+                            "query": "co upowaznia mnie do uniewaznienia kredytu w euro",
+                            "fan_out_queries": [
+                                "Rzecznik Finansowy kredyty walutowe mapa klauzul umowy kredytów walutowych euro klauzule abuzywne",
+                                "UOKiK kredyty walutowe klauzule niedozwolone tabele kursowe banku",
+                                "TSUE kredyty walutowe klauzule abuzywne wynagrodzenie za korzystanie z kapitału bank"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "safe_urls":  [
+                        "https://tvn24.pl/biznes/pieniadze/spory-o-kredyty-w-euro-w-sadach-czy-powtorzy-sie-scenariusz-frankowy-st8894599?utm_source=chatgpt.com",
+                        "https://rf.gov.pl/mapa-klauzul-w-umowach-kredytow-walutowych/?utm_source=chatgpt.com",
+                        "https://finanse.uokik.gov.pl/tag/klauzule-abuzywne/",
+                        "https://finanse.uokik.gov.pl/tag/klauzule-abuzywne/?utm_source=chatgpt.com",
+                        "https://tvn24.pl/biznes/pieniadze/spory-o-kredyty-w-euro-w-sadach-czy-powtorzy-sie-scenariusz-frankowy-st8894599",
+                        "https://rf.gov.pl/mapa-klauzul-w-umowach-kredytow-walutowych/",
+                        "https://rf.gov.pl/edukacja/baza-wiedzy/najczestsze-pytania-i-odpowiedzi-faq/spor-frankowy-droga-sadowa-i-mediacyjna/",
+                        "https://rf.gov.pl/tsue-o-trzech-waznych-dla-frankowiczow-sprawach/",
+                        "https://rf.gov.pl/tsue-o-trzech-waznych-dla-frankowiczow-sprawach/?utm_source=chatgpt.com",
+                        "https://rf.gov.pl/edukacja/baza-wiedzy/najczestsze-pytania-i-odpowiedzi-faq/spor-frankowy-droga-sadowa-i-mediacyjna/?utm_source=chatgpt.com",
+                        "https://www.openai.com"
+                    ],
+                    "queries": [{
+                        "query": "plusy i minusy unieważnienia kredytu w euro",
+                        "fan_out_queries": [
+                            "Polska kredyt euro unieważnienie umowy kredytu w euro orzecznictwo TSUE sądy 2025 2026",
+                            "UOKiK kredyty walutowe euro klauzule abuzywne kredyt denominowany indeksowany euro",
+                            "Rzecznik Finansowy kredyty walutowe euro unieważnienie umowy frankowe euro"
+                        ]
+                    }]
+                }
+            ]
+        },
+        "Gemini": {
+            "2.5-flash": {  
+                "run": [
+                    {   
+                        "id": 1,
+                        "queries": [{
+                            "query": "czy warto uniewaznic kredyt w euro",
+                            "fan_out_queries": [
+                                "unieważnienie kredytu w euro forum.",
+                                "czy warto unieważnić kredyt w euro opinie.",
+                                "skutki unieważnienia kredytu w euro.",
+                                "koszty unieważnienia kredytu w euro.",
+                                "ryzyko unieważnienia kredytu w euro.",
+                                "korzystne wyroki unieważnienie kredytu weuro."
+                            ],
+                            "sources": [
+                                "onet.pl.",
+                                "votum-sa.pl.",
+                                "bochenekiwspolnicy.pl.",
+                                "kancelariamadejczyk.biz.",
+                                "basiewiczkasprzyk.pl.",
+                                "zyciebezkredytu.pl.",
+                                "tvn24.pl.",
+                                "ostaszewskikredytyfrankowe.pl.",
+                                "cst-kancelaria.pl.",
+                                "kancelaria-kuprewicz.pl.",
+                                "fundacjafair.com.",
+                                "instytutodszkodowan.pl.",
+                                "kmb.legal.",
+                                "chf24.pl.",
+                                "finado.pl.",
+                                "arbitersa.pl."
+                            ]
+                        },
+                        {
+                            "query": "plusy i minusy unieważnienia kredytu w euro",
+                            "fan_out_queries": [
+                                "unieważnienie kredytu w euro wady i zalety.",
+                                "konsekwencje unieważnienia kredytu we frankach a euro.",
+                                "co się dzieje po unieważnieniu kredytu w euro.",
+                                "korzyści i ryzyka unieważnienia kredytu w euro."
+                            ],
+                            "sources": [
+                                "onet.pl.",
+                                "prawo.pl.",
+                                "kancelariamadejczyk.biz.",
+                                "cst-kancelaria.pl.",
+                                "kancelaria-ab.pl.",
+                                "preda.info.",
+                                "youtube.com.",
+                                "zyciebezkredytu.pl.",
+                                "kancelaria-olc.pl.",
+                                "kancelaria-kuprewicz.pl.",
+                                "szlegal.pl.",
+                                "instytutodszkodowan.pl.",
+                                "fundacjafair.com."
+                            ]
+                        },
+                        {
+                            "query": "co upowaznia mnie do uniewaznienia kredytu w euro",
+                            "fan_out_queries": [
+                                "unieważnienie kredytu w euro podstawy prawne Polska.",
+                                "anulowanie kredytu frankowego a kredyt w euro.",
+                                "klauzule abuzywne kredyt euro.",
+                                "przesłanki nieważności umowy kredytu w euro.",
+                                "jak unieważnić kredyt walutowy w euro."
+                            ],
+                            "sources": [
+                                "ledwon-kancelaria.pl.",
+                                "votum-sa.pl.",
+                                "medrecki-law.pl.",
+                                "kancelariamadejczyk.biz.",
+                                "onet.pl.",
+                                "arbitersa.pl.",
+                                "kancelariatmh.pl.",
+                                "kancelaria-ab.pl.",
+                                "pledziewicz.pl.",
+                                "zyciebezkredytu.pl.",
+                                "kancelariafrejowskichf.pl.",
+                                "cst-kancelaria.pl.",
+                                "tvn24.pl."
+                            ]
+                        }]
+                    },
+                    {   
+                        "id": 2,
+                        "queries": [{
+                            "query": "czy warto uniewaznic kredyt w euro",
+                            "fan_out_queries": [
+                               "unieważnienie kredytu w euro w Polsce orzecznictwo.",
+                                "anulowanie kredytu frankowego a kredyt w euro.",
+                                "koszty unieważnienia kredytu w euro.",
+                                "korzyści z unieważnienia kredytu w euro.",
+                                "ryzyka unieważnienia kredytu w euro.",
+                                "alternatywy dla unieważnienia kredytu w euro.",
+                                "sytuacja prawna kredytów walutowych w Polsce euro."
+                            ]
+                        },
+                        {
+                            "query": "plusy i minusy unieważnienia kredytu w euro",
+                            "fan_out_queries": [
+                                "unieważnienie kredytu w euro plusy i minusy.",
+                                "zalety unieważnienia kredytu frankowego w euro.",
+                                "wady unieważnienia kredytu frankowego w euro.",
+                                "konsekwencje unieważnienia kredytu w euro."
+                            ]
+                        },
+                        {
+                            "query": "co upowaznia mnie do uniewaznienia kredytu w euro",
+                            "fan_out_queries": [
+                                "unieważnienie kredytu w euro w Polsce warunki.",
+                                "podstawy unieważnienia kredytu frankowego a euro.",
+                                "prawo bankowe unieważnienie kredytu walutowego."
+                            ]
+                        }]
+                    }
+                ]
+            }
+        }
+    }
+}
