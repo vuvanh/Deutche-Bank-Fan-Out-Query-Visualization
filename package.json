@@ -1,0 +1,19 @@
+{
+  "name": "dentons-db-ai-visibility-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Interactive scrollytelling demo: AI visibility of Deutsche Bank's narrative on EUR loan annulment queries. Dentons Innovation Team.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3-hierarchy": "^3.1.2",
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

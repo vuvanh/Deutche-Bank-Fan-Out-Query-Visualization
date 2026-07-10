@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Visibility — Dentons × Deutsche Bank</title>
+  <meta name="description" content="Interaktywne demo: jak pytania kredytobiorców o kredyty w euro przechodzą przez modele AI i jak zwiększyć widoczność wyważonego stanowiska banku." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/dentons_logo.png" />
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+
+  <!-- ======================= STICKY NAV ======================= -->
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#top" aria-label="Dentons — do początku strony">
+        <img src="/dentons_logo.png" alt="Dentons" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#mechanizm">Mechanizm</a></li>
+        <li><a href="#zrodla">Źródła</a></li>
+        <li><a href="#luka">Luka</a></li>
+        <li><a href="#zasady">Zasady gry</a></li>
+        <li><a href="#rekomendacje" class="nav__link--cta">Rekomendacje</a></li>
+        <li><a href="#monitoring">Monitoring</a></li>
+      </ul>
+    </div>
+    <div class="nav__progress" aria-hidden="true">
+      <div class="nav__progress-fill" id="progress-fill"></div>
+      <div class="nav__progress-arrow" id="progress-arrow"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======================= S0 — HERO ======================= -->
+    <section class="section section--dark hero" id="hero" data-act="1">
+      <div class="hero__stream" id="hero-stream" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <p class="eyebrow">Dentons × Deutsche Bank · AI Visibility</p>
+        <h1 class="hero__title">Zanim klient zadzwoni do banku, <em>zapytał AI</em></h1>
+        <p class="hero__context">
+          „Czy mogę unieważnić kredyt w euro?" — to pytanie Państwa klienci zadają dziś
+          ChatGPT, Gemini i Perplexity. Sprawdziliśmy, co słyszą w odpowiedzi — i kto te
+          odpowiedzi kształtuje.
+        </p>
+        <div class="hero__anchor">
+          <span class="badge badge--todo">Liczba kotwicząca — do uzupełnienia po researchu</span>
+          <span class="hero__anchor-value" id="hero-number">[ DO UZUPEŁNIENIA ]</span>
+          <span class="hero__anchor-note">
+            np. udział zapytań konsumenckich kierowanych do chatbotów lub liczba spraw
+            sądowych dotyczących kredytów EUR — wartość zostanie podana ze źródłem i datą.
+          </span>
+        </div>
+        <div class="hero__ctas">
+          <a class="btn btn--gold" href="#mechanizm">Zobacz, jak AI odpowiada</a>
+          <a class="btn btn--ghost" href="#rekomendacje">Przejdź do rekomendacji →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= S1 — JOURNEY ======================= -->
+    <section class="section" id="problem" data-act="1">
+      <div class="section__inner">
+        <p class="eyebrow">Akt 1 · Problem</p>
+        <h2 class="section-title">Nowa ścieżka klienta: od pytania do pozwu</h2>
+        <p class="section-lead">
+          Odpowiedź AI jest dziś pierwszym „doradcą" kredytobiorcy. Jej ton i źródła
+          wpływają na decyzję o pozwie — zanim ktokolwiek z banku zdąży porozmawiać
+          z klientem.
+        </p>
+
+        <div class="journey" id="journey">
+          <div class="journey__step">
+            <span class="journey__num">1</span>
+            <h3>Klient pyta chatbota</h3>
+            <p>Zamiast wpisywać hasło w wyszukiwarkę, zadaje pełne pytanie: „czy warto unieważnić kredyt w euro?".</p>
+          </div>
+          <div class="journey__step">
+            <span class="journey__num">2</span>
+            <h3>Model przeszukuje sieć</h3>
+            <p>Chatbot samodzielnie generuje serię zapytań pomocniczych i pobiera źródła internetowe.</p>
+          </div>
+          <div class="journey__step">
+            <span class="journey__num">3</span>
+            <h3>Otrzymuje syntezę źródeł</h3>
+            <p>W pobranych wynikach dominują domeny wyspecjalizowane w prowadzeniu pozwów przeciw bankom.</p>
+          </div>
+          <div class="journey__step">
+            <span class="journey__num">4</span>
+            <h3>Decyzja zapada bez banku</h3>
+            <p>Z gotową narracją klient trafia do kancelarii — pierwszą rozmowę z bankiem zastąpiła odpowiedź AI.</p>
+          </div>
+        </div>
+
+        <figure class="journey-quote">
+          <span class="badge badge--illustrative">Przykład ilustracyjny — nie jest cytatem z modelu</span>
+          <blockquote>
+            „Tak, istnieje możliwość unieważnienia kredytu w euro. Sądy coraz częściej
+            orzekają na korzyść kredytobiorców…"
+          </blockquote>
+          <figcaption class="method-note">
+            Tak może brzmieć pierwszy akapit odpowiedzi, którą klient czyta przed
+            jakimkolwiek kontaktem z bankiem.
+          </figcaption>
+        </figure>
+
+        <a class="next-cue" href="#mechanizm">Co dokładnie dzieje się po wpisaniu pytania?</a>
+      </div>
+    </section>
+
+    <!-- ======================= S2 — FAN-OUT ======================= -->
+    <section class="section section--dark" id="mechanizm" data-act="2">
+      <div class="section__inner">
+        <p class="eyebrow">Akt 2 · Mechanizm</p>
+        <h2 class="section-title">Jedno pytanie. Kilkanaście wyszukiwań. Zero głosu banku.</h2>
+        <p class="section-lead">
+          To nie są zapytania użytkownika. To zapytania, które model wygenerował sam —
+          tzw. fan-out. Widoczność banku zależy od obecności w całej tej przestrzeni,
+          nie tylko pod dosłownym pytaniem klienta.
+        </p>
+
+        <div class="fanout-stage" id="fanout-stage">
+          <div class="fanout-controls">
+            <div class="fanout-questions" id="fanout-questions" role="tablist" aria-label="Wybierz pytanie przykładowe"></div>
+            <div class="model-toggle" id="model-toggle" role="group" aria-label="Przełącz model AI">
+              <button type="button" data-model="gpt" class="is-active">ChatGPT</button>
+              <button type="button" data-model="gemini">Gemini</button>
+            </div>
+          </div>
+
+          <div class="fanout-canvas" id="fanout-canvas" aria-live="polite">
+            <!-- SVG paths + nodes injected by src/sections/fanout.js -->
+          </div>
+
+          <div class="insight-box" id="fanout-insight">
+            <h3>Wniosek</h3>
+            <p id="fanout-insight-text"></p>
+          </div>
+        </div>
+
+        <a class="next-cue" href="#zrodla">Zobacz, jakie źródła wygrywają te wyszukiwania</a>
+      </div>
+    </section>
+
+    <!-- ======================= S3 — SOURCES MAP ======================= -->
+    <section class="section" id="zrodla" data-act="3">
+      <div class="section__inner">
+        <p class="eyebrow">Akt 3 · Dowód</p>
+        <h2 class="section-title">Kto dziś odpowiada w imieniu banku?</h2>
+        <p class="section-lead">
+          Kategoryzacja domen faktycznie pobranych przez modele w naszym researchu.
+          W wynikach dominują domeny wyspecjalizowane w pozwach. Głos banku — dane,
+          ryzyka, zniuansowane stanowisko — jest w tym ekosystemie praktycznie nieobecny.
+        </p>
+
+        <div class="treemap-wrap">
+          <div class="treemap" id="treemap"></div>
+          <div class="treemap-tooltip" id="treemap-tooltip" role="status"></div>
+          <div class="treemap-legend" id="treemap-legend"></div>
+          <p class="method-note" id="treemap-note"></p>
+        </div>
+
+        <div class="nuance-card">
+          <h3>Ważny niuans: pobranie źródła ≠ zacytowanie go</h3>
+          <p>
+            Modele czerpią kontekst szeroko (np. z forów), ale cytują wąsko — głównie źródła
+            autorytatywne. W analizie 1,4 mln promptów ok. <strong>88%</strong> adresów URL
+            cytowanych przez ChatGPT pochodziło wprost ze standardowych wyników wyszukiwania,
+            a Reddit — mimo <strong>67,8%</strong> udziału w niecytowanych URL-ach — osiągał
+            wskaźnik cytowań zaledwie <strong>1,93%</strong>. Dlatego strategia celuje w bycie
+            <em>cytowanym</em>, nie tylko <em>pobieranym</em>.
+          </p>
+          <cite>Źródło: Ahrefs, „Why ChatGPT cites pages", badanie 1,4 mln promptów —
+            <a href="https://ahrefs.com/blog/why-chatgpt-cites-pages/" target="_blank" rel="noopener">ahrefs.com</a>.
+            Dane zewnętrzne — do weryfikacji przed prezentacją.</cite>
+        </div>
+
+        <a class="next-cue" href="#luka">Jak duża jest ta luka?</a>
+      </div>
+    </section>
+
+    <!-- ======================= S4 — VISIBILITY GAP ======================= -->
+    <section class="section section--dark" id="luka" data-act="3">
+      <div class="section__inner">
+        <p class="eyebrow">Akt 3 · Kulminacja</p>
+        <h2 class="section-title">Luka widoczności</h2>
+        <p class="section-lead">
+          Modele AI nie wybierają stron w sporze. Syntetyzują to, co znajdą.
+          Dziś znajdują głównie jedną perspektywę — nie dlatego, że AI jest stronnicze,
+          lecz dlatego, że jedna strona publikuje, a druga milczy.
+        </p>
+
+        <div class="cloud-filters" id="cloud-filters" role="group" aria-label="Filtruj frazy">
+          <button type="button" class="chip is-active" data-filter="all">Wszystkie frazy</button>
+          <button type="button" class="chip" data-filter="claim">Pro-pozwowe</button>
+          <button type="button" class="chip" data-filter="neutral">Neutralne / faktograficzne</button>
+        </div>
+
+        <div class="cloud" id="cloud"></div>
+
+        <div class="cloud-legend">
+          <span><i style="background:#ff9d94"></i>narracja pro-pozwowa</span>
+          <span><i style="background:#cdaede"></i>frazy neutralne / faktograficzne</span>
+        </div>
+
+        <p class="sov-note">
+          <span class="badge badge--todo">Share of Voice — do uzupełnienia po researchu</span><br /><br />
+          Udział głosu banku względem narracji pro-pozwowej pokazujemy na tym etapie
+          jakościowo — wielkością i liczebnością fraz. Wartości procentowe podamy po
+          domknięciu metodologii pomiaru.
+        </p>
+
+        <a class="next-cue" href="#zasady">Dobra wiadomość: zasady gry są znane</a>
+      </div>
+    </section>
+
+    <!-- ======================= S5 — ENGINE RULES ======================= -->
+    <section class="section section--tint" id="zasady" data-act="4">
+      <div class="section__inner">
+        <p class="eyebrow">Akt 4 · Szansa</p>
+        <h2 class="section-title">Silniki AI nagradzają konkretne cechy treści. To dobra wiadomość.</h2>
+        <p class="section-lead">
+          Modele preferują treści wyważone, faktograficzne, ustrukturyzowane, z widocznym
+          autorstwem i potwierdzeniem w wielu źródłach. To naturalna przewaga instytucji,
+          która ma dane, ekspertów i autorytet — jeśli udostępni je w formacie czytelnym
+          dla maszyn.
+        </p>
+
+        <div class="engines" id="engines"></div>
+
+        <div class="common-denominator">
+          <strong>Wspólny mianownik wszystkich silników:</strong> bezpośrednia odpowiedź na
+          początku tekstu, weryfikowalny autor, dane zamiast przymiotników, spójność
+          stanowiska w wielu źródłach.
+        </div>
+
+        <a class="next-cue" href="#rekomendacje">Przełóżmy to na plan działania</a>
+      </div>
+    </section>
+
+    <!-- ======================= S6 — RECOMMENDATIONS ======================= -->
+    <section class="section" id="rekomendacje" data-act="5">
+      <div class="section__inner">
+        <p class="eyebrow">Akt 5 · Plan działania</p>
+        <h2 class="section-title">Rekomendacje: 30 dni · 90 dni · 6 miesięcy</h2>
+        <p class="section-lead">
+          Pierwszy krok nie wymaga ani nowych treści, ani budżetu mediowego: to audyt, czy
+          strona banku jest w ogóle technicznie dostępna dla wyszukiwarek AI. Bywa, że nie
+          jest — i to unieważnia wszystkie pozostałe działania.
+        </p>
+
+        <div class="owner-filters" id="owner-filters" role="group" aria-label="Filtruj działania po właścicielu">
+          <button type="button" class="chip chip--light is-active" data-owner="all">Wszyscy właściciele</button>
+          <button type="button" class="chip chip--light" data-owner="IT">IT</button>
+          <button type="button" class="chip chip--light" data-owner="Content">Content</button>
+          <button type="button" class="chip chip--light" data-owner="PR">PR</button>
+          <button type="button" class="chip chip--light" data-owner="Legal">Legal</button>
+        </div>
+
+        <div class="matrix-layout">
+          <div>
+            <div class="matrix" id="matrix"></div>
+            <div class="matrix-legend" id="matrix-legend"></div>
+            <p class="method-note">
+              Pozycje punktów odzwierciedlają oceny wpływu i trudności z raportu
+              strategicznego Dentons (rozdz. „Priorytetyzacja roadmapy"). Kliknij punkt,
+              aby zobaczyć kartę działania.
+            </p>
+          </div>
+          <aside class="action-card" id="action-card" aria-live="polite">
+            <p class="placeholder">Kliknij działanie na macierzy, aby zobaczyć jego kartę:
+              opis, uzasadnienie mechaniką AI, właściciela i horyzont czasowy.</p>
+          </aside>
+        </div>
+
+        <div class="roadmap" id="roadmap">
+          <h3>Roadmapa wdrożenia</h3>
+          <div class="roadmap-track" aria-hidden="true">
+            <svg viewBox="0 0 1100 70" preserveAspectRatio="none">
+              <path class="roadmap-line" id="roadmap-line"
+                d="M 10 35 H 1058 l -16 -10 m 16 10 l -16 10" />
+              <circle cx="10" cy="35" r="6" fill="#702082" class="roadmap-ms" />
+              <circle cx="376" cy="35" r="6" fill="#a05eb5" class="roadmap-ms" />
+              <circle cx="742" cy="35" r="6" fill="#f1b434" class="roadmap-ms" />
+            </svg>
+          </div>
+          <div class="roadmap-cols" id="roadmap-cols"></div>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Zastrzeżenie:</strong> żadne działanie nie gwarantuje określonej treści
+          odpowiedzi AI. Celem jest systematyczne zwiększanie obecności rzetelnego,
+          wyważonego stanowiska banku w źródłach, z których korzystają modele. Realizacja
+          działań contentowych i PR pozostaje po stronie banku i jego agencji.
+        </div>
+
+        <a class="next-cue" href="#monitoring">Jak zmierzymy efekt?</a>
+      </div>
+    </section>
+
+    <!-- ======================= S7 — MONITORING ======================= -->
+    <section class="section section--tint" id="monitoring" data-act="5">
+      <div class="section__inner">
+        <p class="eyebrow">Akt 5 · Pomiar</p>
+        <h2 class="section-title">Monitoring: pomiar zamiast wiary</h2>
+        <p class="section-lead">
+          Co miesiąc zadajemy modelom ten sam zestaw pytań konsumenckich i mierzymy, jak
+          zmienia się obecność stanowiska banku. Strategia bez pomiaru to opinia.
+        </p>
+
+        <div class="dashboard" id="dashboard">
+          <span class="dashboard__badge badge badge--illustrative">Przykładowy widok raportu — wartości ilustracyjne</span>
+          <div class="kpi-row" id="kpi-row"></div>
+          <div class="trend-chart" id="trend-chart">
+            <div class="trend-tooltip" id="trend-tooltip"></div>
+          </div>
+        </div>
+
+        <p class="method-strip">
+          <strong>Metodyka:</strong> stały zestaw ok. 50 promptów referencyjnych —
+          sformułowanych z perspektywy konsumenta — testowany co miesiąc w głównych
+          modelach (ChatGPT, Gemini, Perplexity, Copilot, Claude). Raportujemy zmianę
+          miesiąc do miesiąca; wszystkie wartości na tej makiecie są ilustracyjne.
+        </p>
+
+        <a class="next-cue" href="#kontakt">Porozmawiajmy o wdrożeniu</a>
+      </div>
+    </section>
+
+    <!-- ======================= S8 — CLOSING ======================= -->
+    <section class="section closing" id="kontakt" data-act="5">
+      <div class="section__inner">
+        <div class="closing__logo">
+          <img src="/dentons_logo.png" alt="Dentons" />
+        </div>
+        <h2 class="section-title">Dentons × Deutsche Bank: rola i następny krok</h2>
+        <p class="section-lead">
+          Dentons projektuje strategię, insighty i architekturę działań. Bank i jego
+          agencja PR odpowiadają za wykonanie. Następny krok: warsztat roboczy
+          (Legal + PR + Digital/IT) i budowa promptowego benchmarku.
+        </p>
+
+        <div class="role-blocks">
+          <div class="role-block">
+            <h3>Strategia</h3>
+            <p>Architektura działań contentowych, PR-owych i technicznych oparta na
+              mechanice modeli: fan-out, retrieval, cytowania. Priorytety, właściciele,
+              horyzonty.</p>
+          </div>
+          <div class="role-block">
+            <h3>Insighty</h3>
+            <p>Własny research przestrzeni zapytań i źródeł — powtarzany cyklicznie, aby
+              rekomendacje odpowiadały temu, jak modele faktycznie szukają i cytują.</p>
+          </div>
+          <div class="role-block">
+            <h3>Nadzór i pomiar</h3>
+            <p>Benchmark ok. 50 promptów, raportowanie Share of Answer, Citation Rate
+              i sentymentu narracyjnego. Efekt mierzalny jak każdy projekt biznesowy.</p>
+          </div>
+        </div>
+
+        <div class="closing__cta">
+          <a class="btn" href="mailto:innovation@dentons.com?subject=Warsztat%20AI%20Visibility">Umówmy warsztat strategiczny</a>
+          <span class="method-note">Warsztat roboczy: Legal + PR + Digital/IT, 90 minut.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section__inner">
+      <span>Materiał demonstracyjny Dentons. Nie stanowi porady prawnej.</span>
+      <span>Materiał nie obiecuje wpływu na treść odpowiedzi generowanych przez modele AI;
+        opisuje działania zwiększające widoczność rzetelnego stanowiska banku w ekosystemie
+        źródeł wykorzystywanych przez wyszukiwarki i modele.</span>
+      <span>Dane fan-out i kategoryzacja źródeł: research własny Dentons (research/report.json).
+        Wartości oznaczone „do uzupełnienia" zostaną dostarczone po domknięciu researchu.</span>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
