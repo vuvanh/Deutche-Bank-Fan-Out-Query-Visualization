@@ -1125,6 +1125,19 @@ button {
   .treemap { height: 420px; }
 }
 
+/* Compact pinned fan-out on short screens (13" laptops ~800px tall):
+   the whole pinned view must fit the viewport. */
+@media (max-height: 940px) {
+  #mechanizm { padding-top: 40px; padding-bottom: 40px; }
+  #mechanizm .section-title { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: 10px; max-width: none; }
+  #mechanizm .section-lead { font-size: 0.95rem; margin-bottom: 18px; }
+  #mechanizm .fanout-controls { margin-bottom: 12px; }
+  #mechanizm .fanout-canvas { min-height: 430px; }
+  #mechanizm .fanout-node { font-size: 0.78rem; padding: 8px 12px; max-width: 225px; }
+  #mechanizm .insight-box { margin-top: 14px; padding: 14px 20px; }
+  #mechanizm .next-cue { margin-top: 16px; }
+}
+
 /* ============================================================
    Reduced motion: everything readable with zero animation.
    JS also checks this and skips GSAP setup entirely.
