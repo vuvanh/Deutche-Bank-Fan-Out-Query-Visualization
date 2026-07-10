@@ -1,0 +1,53 @@
+{
+  "_comment": "Source categories for S3 treemap. domains = unique domains actually retrieved in research/report.json (Gemini 'sources' + GPT 'safe_urls'). Tile size = number of unique observed domains (real, sample-based). Percent shares intentionally absent: DO_UZUPELNIENIA after full research.",
+  "share": "DO_UZUPELNIENIA",
+  "methodNote": "Wielkość pola = liczba unikalnych domen zaobserwowanych w naszym researchu (próbka: 3 pytania × 2 modele, research/report.json). Udziały procentowe — do uzupełnienia po researchu na pełnym benchmarku promptów.",
+  "categories": [
+    {
+      "id": "kancelarie",
+      "label": "Kancelarie i serwisy odszkodowawcze",
+      "color": "#da291c",
+      "textColor": "#ffffff",
+      "domains": [
+        "votum-sa.pl", "bochenekiwspolnicy.pl", "kancelariamadejczyk.biz",
+        "basiewiczkasprzyk.pl", "ostaszewskikredytyfrankowe.pl", "cst-kancelaria.pl",
+        "kancelaria-kuprewicz.pl", "kmb.legal", "ledwon-kancelaria.pl",
+        "medrecki-law.pl", "kancelariatmh.pl", "kancelaria-ab.pl", "pledziewicz.pl",
+        "kancelariafrejowskichf.pl", "kancelaria-olc.pl", "szlegal.pl",
+        "zyciebezkredytu.pl", "instytutodszkodowan.pl", "fundacjafair.com",
+        "arbitersa.pl", "chf24.pl", "finado.pl", "preda.info"
+      ]
+    },
+    {
+      "id": "media",
+      "label": "Media i portale",
+      "color": "#a05eb5",
+      "textColor": "#ffffff",
+      "domains": ["onet.pl", "tvn24.pl", "prawo.pl", "youtube.com"]
+    },
+    {
+      "id": "regulatorzy",
+      "label": "Regulatorzy i instytucje",
+      "color": "#00a9e0",
+      "textColor": "#0b2b36",
+      "domains": ["finanse.uokik.gov.pl", "rf.gov.pl"]
+    },
+    {
+      "id": "fora",
+      "label": "Fora i społeczności",
+      "color": "#9ea2a2",
+      "textColor": "#232525",
+      "domains": [],
+      "status": "DO_UZUPELNIENIA",
+      "note": "Gemini generuje zapytania typu „forum / opinie”; konkretne domeny forów — do uzupełnienia po researchu."
+    },
+    {
+      "id": "bank",
+      "label": "Bank",
+      "color": "#f1b434",
+      "textColor": "#3c1053",
+      "domains": [],
+      "emptyMessage": "0 domen banku zaobserwowanych w pobranych źródłach. To jest luka widoczności."
+    }
+  ]
+}

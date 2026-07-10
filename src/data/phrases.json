@@ -1,0 +1,28 @@
+{
+  "_comment": "Phrase cloud for S4. weight = approximate number of occurrences of the phrase across all observed fan-out queries in research/report.json (computed from real query texts, not invented). tone: claim = pro-lawsuit framing, neutral = factual/regulatory framing.",
+  "methodNote": "Wielkość frazy = liczba wystąpień w zaobserwowanych zapytaniach fan-out (research/report.json). Nie jest to jeszcze pomiar Share of Voice.",
+  "phrases": [
+    { "text": "unieważnienie kredytu w euro", "weight": 28, "tone": "claim" },
+    { "text": "klauzule abuzywne", "weight": 11, "tone": "neutral" },
+    { "text": "UOKiK", "weight": 5, "tone": "neutral" },
+    { "text": "orzecznictwo TSUE", "weight": 5, "tone": "neutral" },
+    { "text": "Rzecznik Finansowy", "weight": 4, "tone": "neutral" },
+    { "text": "skutki i konsekwencje unieważnienia", "weight": 4, "tone": "neutral" },
+    { "text": "wady i zalety / plusy i minusy", "weight": 4, "tone": "neutral" },
+    { "text": "kredyt we frankach a euro", "weight": 3, "tone": "claim" },
+    { "text": "korzystne wyroki", "weight": 3, "tone": "claim" },
+    { "text": "kredyt denominowany / indeksowany", "weight": 3, "tone": "neutral" },
+    { "text": "podstawy prawne unieważnienia", "weight": 3, "tone": "claim" },
+    { "text": "ryzyko unieważnienia", "weight": 3, "tone": "neutral" },
+    { "text": "koszty unieważnienia", "weight": 2, "tone": "neutral" },
+    { "text": "anulowanie kredytu frankowego", "weight": 2, "tone": "claim" },
+    { "text": "tabela kursowa banku", "weight": 2, "tone": "neutral" },
+    { "text": "mapa klauzul", "weight": 2, "tone": "neutral" },
+    { "text": "forum / opinie kredytobiorców", "weight": 2, "tone": "claim" },
+    { "text": "jak unieważnić kredyt walutowy", "weight": 1, "tone": "claim" },
+    { "text": "przesłanki nieważności umowy", "weight": 1, "tone": "claim" },
+    { "text": "alternatywy dla unieważnienia", "weight": 1, "tone": "neutral" },
+    { "text": "wynagrodzenie za korzystanie z kapitału", "weight": 1, "tone": "neutral" },
+    { "text": "sytuacja prawna kredytów walutowych", "weight": 1, "tone": "neutral" }
+  ]
+}

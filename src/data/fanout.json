@@ -1,0 +1,112 @@
+{
+  "_comment": "Fan-out queries observed in research/report.json. Query texts are verbatim (including typos) — hard rule: only actually observed queries are marked REAL. sourceType = the type of source the query leads to, shown as a branch label.",
+  "models": {
+    "gpt": { "label": "ChatGPT", "sub": "GPT-5.5 thinking · przez indeks Bing" },
+    "gemini": { "label": "Gemini", "sub": "Gemini 2.5 Flash · przez indeks Google" }
+  },
+  "sourceTypes": {
+    "regulator": "Regulator / instytucja",
+    "orzecznictwo": "Orzecznictwo / TSUE",
+    "poradnik": "Poradnik / serwis komercyjny",
+    "kancelarie": "Kancelarie / odszkodowania",
+    "fora": "Fora / opinie",
+    "media": "Media"
+  },
+  "questions": [
+    {
+      "id": "plusy-minusy",
+      "label": "Plusy i minusy unieważnienia kredytu w euro",
+      "featured": true,
+      "models": {
+        "gpt": {
+          "status": "REAL",
+          "queries": [
+            { "text": "kredyt w euro unieważnienie plusy minusy 2026 kredyt denominowany indeksowany EUR klauzule abuzywne", "sourceType": "poradnik" },
+            { "text": "UOKiK kredyty walutowe klauzule abuzywne tabela kursowa banku waluta obca", "sourceType": "regulator" },
+            { "text": "Rzecznik Finansowy kredyty walutowe euro klauzule abuzywne mapa klauzul", "sourceType": "regulator" },
+            { "text": "Polska kredyt euro unieważnienie umowy kredytu w euro orzecznictwo TSUE sądy 2025 2026", "sourceType": "orzecznictwo" },
+            { "text": "UOKiK kredyty walutowe euro klauzule abuzywne kredyt denominowany indeksowany euro", "sourceType": "regulator" },
+            { "text": "Rzecznik Finansowy kredyty walutowe euro unieważnienie umowy frankowe euro", "sourceType": "regulator" }
+          ]
+        },
+        "gemini": {
+          "status": "REAL",
+          "queries": [
+            { "text": "unieważnienie kredytu w euro wady i zalety", "sourceType": "poradnik" },
+            { "text": "konsekwencje unieważnienia kredytu we frankach a euro", "sourceType": "kancelarie" },
+            { "text": "co się dzieje po unieważnieniu kredytu w euro", "sourceType": "poradnik" },
+            { "text": "korzyści i ryzyka unieważnienia kredytu w euro", "sourceType": "poradnik" },
+            { "text": "unieważnienie kredytu w euro plusy i minusy", "sourceType": "poradnik" },
+            { "text": "zalety unieważnienia kredytu frankowego w euro", "sourceType": "kancelarie" },
+            { "text": "wady unieważnienia kredytu frankowego w euro", "sourceType": "kancelarie" },
+            { "text": "konsekwencje unieważnienia kredytu w euro", "sourceType": "poradnik" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "czy-warto",
+      "label": "Czy warto unieważnić kredyt w euro?",
+      "models": {
+        "gpt": {
+          "status": "REAL",
+          "queries": [
+            { "text": "2026 kredyt w euro unieważnienie kredytu walutowego orzecznictwo TSUE euro kredyt hipoteczny Polska", "sourceType": "orzecznictwo" },
+            { "text": "Rzecznik Finansowy kredyty walutowe euro unieważnienie klauzule abuzywne", "sourceType": "regulator" },
+            { "text": "UOKiK kredyty walutowe euro klauzule niedozwolone", "sourceType": "regulator" }
+          ]
+        },
+        "gemini": {
+          "status": "REAL",
+          "queries": [
+            { "text": "unieważnienie kredytu w euro forum", "sourceType": "fora" },
+            { "text": "czy warto unieważnić kredyt w euro opinie", "sourceType": "fora" },
+            { "text": "skutki unieważnienia kredytu w euro", "sourceType": "poradnik" },
+            { "text": "koszty unieważnienia kredytu w euro", "sourceType": "poradnik" },
+            { "text": "ryzyko unieważnienia kredytu w euro", "sourceType": "poradnik" },
+            { "text": "korzystne wyroki unieważnienie kredytu weuro", "sourceType": "kancelarie" },
+            { "text": "unieważnienie kredytu w euro w Polsce orzecznictwo", "sourceType": "orzecznictwo" },
+            { "text": "anulowanie kredytu frankowego a kredyt w euro", "sourceType": "kancelarie" },
+            { "text": "alternatywy dla unieważnienia kredytu w euro", "sourceType": "poradnik" },
+            { "text": "sytuacja prawna kredytów walutowych w Polsce euro", "sourceType": "orzecznictwo" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "co-upowaznia",
+      "label": "Co upoważnia mnie do unieważnienia kredytu w euro?",
+      "models": {
+        "gpt": {
+          "status": "REAL",
+          "queries": [
+            { "text": "Rzecznik Finansowy kredyty walutowe mapa klauzul umowy kredytów walutowych euro klauzule abuzywne", "sourceType": "regulator" },
+            { "text": "UOKiK kredyty walutowe klauzule niedozwolone tabele kursowe banku", "sourceType": "regulator" },
+            { "text": "TSUE kredyty walutowe klauzule abuzywne wynagrodzenie za korzystanie z kapitału bank", "sourceType": "orzecznictwo" }
+          ]
+        },
+        "gemini": {
+          "status": "REAL",
+          "queries": [
+            { "text": "unieważnienie kredytu w euro podstawy prawne Polska", "sourceType": "kancelarie" },
+            { "text": "anulowanie kredytu frankowego a kredyt w euro", "sourceType": "kancelarie" },
+            { "text": "klauzule abuzywne kredyt euro", "sourceType": "kancelarie" },
+            { "text": "przesłanki nieważności umowy kredytu w euro", "sourceType": "kancelarie" },
+            { "text": "jak unieważnić kredyt walutowy w euro", "sourceType": "kancelarie" },
+            { "text": "unieważnienie kredytu w euro w Polsce warunki", "sourceType": "poradnik" },
+            { "text": "podstawy unieważnienia kredytu frankowego a euro", "sourceType": "kancelarie" },
+            { "text": "prawo bankowe unieważnienie kredytu walutowego", "sourceType": "orzecznictwo" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "jak-wyglada-proces",
+      "label": "Jak wygląda proces unieważnienia kredytu w euro?",
+      "models": {
+        "gpt": { "status": "DO_UZUPELNIENIA", "queries": [] },
+        "gemini": { "status": "DO_UZUPELNIENIA", "queries": [] }
+      }
+    }
+  ]
+}

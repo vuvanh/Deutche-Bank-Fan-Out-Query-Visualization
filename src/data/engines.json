@@ -1,0 +1,53 @@
+{
+  "_comment": "S5 engine cards. Content condensed from research/search_engine_strategies.md and context/AI SEO dla Deutsche Bank.md. 'details' feeds the accordion for the digital/IT audience.",
+  "engines": [
+    {
+      "id": "google",
+      "name": "Google · Gemini · AI Overviews",
+      "sub": "retrieval przez indeks Google",
+      "seeks": [
+        "Semantyczne pokrycie tematu — synonimy, encje i kontekst zamiast powtarzania frazy",
+        "Sygnały E-E-A-T: weryfikowalny autor, źródła, odpowiedzialność za treść",
+        "Kompletność mobilna i dane strukturalne (Article, FAQPage)"
+      ],
+      "meaning": "Dla banku: treść musi być kompletna semantycznie i podpisana ekspertem. AI Overviews czerpie głównie ze stron, które już wygrywają w klasycznym wyszukiwaniu.",
+      "details": "Dla działu digital/IT: mobile-first indexing; passage ranking — kluczowe akapity 134–167 słów; wg analiz ok. 75% źródeł AIO pochodzi z TOP 12 wyników organicznych (dane zewnętrzne, do weryfikacji); dane strukturalne JSON-LD (Article, FAQPage, ClaimReview) redukują ryzyko błędnej interpretacji treści."
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT Search · Bing · Copilot",
+      "sub": "retrieval przez indeks Bing",
+      "seeks": [
+        "Wyraźne dopasowanie słów kluczowych: tytuł, H1/H2, URL, pierwszy akapit",
+        "Autorytet i świeżość domeny — wysoka pozycja w Bing to warunek wejścia",
+        "Strona, która natychmiast zaspokaja intencję pytania (engagement)"
+      ],
+      "meaning": "Dla banku: temat strony musi być nazwany wprost, nie tylko zasugerowany. ChatGPT w pytaniach prawno-finansowych szuka „urzędowo” — treść banku musi wyglądać wiarygodnie prawnie.",
+      "details": "Dla działu digital/IT: ChatGPT Search korzysta z indeksu Bing; IndexNow przyspiesza odkrywanie aktualizacji; wg badania Ahrefs (1,4 mln promptów) ok. 88% cytowanych URL-i pochodzi ze standardowych wyników wyszukiwania; cytaty pobierane są często z pierwszej 1/3 długości strony (BLUF)."
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "sub": "własne crawlery + zewnętrzne API",
+      "seeks": [
+        "Odpowiedź w pierwszych 100 słowach (zasada BLUF) — zero marketingowych wstępów",
+        "Świeżość: widoczne daty aktualizacji, reakcja na nowe wyroki",
+        "Tabele i zestawienia faktów zamiast „ścian tekstu”"
+      ],
+      "meaning": "Dla banku: nie wymaga potężnego autorytetu domeny — nagradza wąskie, gęste informacyjnie strony eksperckie. Szansa na szybkie efekty przy dobrze zbudowanym explainerze.",
+      "details": "Dla działu digital/IT: sześcioetapowy filtr (adekwatność semantyczna, świeżość, struktura, autorytet, wyrazistość encji, zaangażowanie); duży udział forów w retrievalu — tym ważniejsza obecność rzetelnych treści, które model może zacytować zamiast wątku forumowego."
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "sub": "wyszukiwanie przez API + wiedza z pre-treningu",
+      "seeks": [
+        "Kategoryczny obiektywizm: perspektywa „za i przeciw”, przyznawanie niepewności",
+        "Wskazywanie źródeł pierwotnych (regulatorzy, orzecznictwo)",
+        "Spójna, długoterminowa obecność informacji w otwartym internecie"
+      ],
+      "meaning": "Dla banku: język wyważony i analityczny to warunek wejścia — treści perswazyjne i jednostronne są odrzucane. Wyważone stanowisko banku jest tu naturalnie premiowane.",
+      "details": "Dla działu digital/IT: filtry odrzucają treści skrajne i nacechowane marketingowo; znaczenie ma także obecność w publikacjach branżowych i encyklopedycznych zasilających pre-trening, nie tylko bieżący retrieval."
+    }
+  ]
+}

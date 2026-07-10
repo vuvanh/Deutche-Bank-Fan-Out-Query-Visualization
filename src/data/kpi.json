@@ -1,0 +1,36 @@
+{
+  "_comment": "S7 dashboard mock. ALL VALUES ILLUSTRATIVE by design (architecture.md: 'Świadomie mockowe / ilustracyjne — zawsze oznaczone na ekranie'). The on-screen badge is rendered from index.html; every tile also carries illustrative: true.",
+  "illustrative": true,
+  "kpis": [
+    {
+      "id": "soa",
+      "name": "Share of Answer",
+      "definition": "Udział odpowiedzi AI (na benchmarku promptów), które uwzględniają stanowisko banku",
+      "value": 18, "unit": "%", "delta": "+6 p.p. m/m", "illustrative": true
+    },
+    {
+      "id": "citation-rate",
+      "name": "Citation Rate",
+      "definition": "Odsetek odpowiedzi cytujących domenę banku jako źródło",
+      "value": 7, "unit": "%", "delta": "+3 p.p. m/m", "illustrative": true
+    },
+    {
+      "id": "sentiment",
+      "name": "Sentyment narracyjny",
+      "definition": "Średnia wymowa odpowiedzi w skali od −1 (jednostronnie pro-pozwowa) do +1 (wyważona, z ryzykami)",
+      "value": 0.2, "unit": "", "decimals": 1, "delta": "+0.4 m/m", "illustrative": true
+    }
+  ],
+  "trend": {
+    "label": "Share of Answer — trend (wartości ilustracyjne)",
+    "unit": "%",
+    "points": [
+      { "month": "Sty", "value": 4 },
+      { "month": "Lut", "value": 5 },
+      { "month": "Mar", "value": 8 },
+      { "month": "Kwi", "value": 11 },
+      { "month": "Maj", "value": 15 },
+      { "month": "Cze", "value": 18 }
+    ]
+  }
+}
