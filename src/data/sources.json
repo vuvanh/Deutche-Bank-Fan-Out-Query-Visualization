@@ -1,13 +1,15 @@
 {
-  "_comment": "Source categories for S3 treemap. domains = unique domains actually retrieved in research/report.json (Gemini 'sources' + GPT 'safe_urls'). Tile size = number of unique observed domains (real, sample-based). Percent shares intentionally absent: DO_UZUPELNIENIA after full research.",
+  "_comment": "Source categories for the S3 donut infographic. domains = unique domains actually retrieved in research/report.json (Gemini 'sources' + GPT 'safe_urls'). chartValue = slice size; for zero/unknown categories a small visual sliver is used so the absence stays visible — countLabel always shows the real number.",
   "share": "DO_UZUPELNIENIA",
-  "methodNote": "Wielkość pola = liczba unikalnych domen zaobserwowanych w naszym researchu (próbka: 3 pytania × 2 modele, research/report.json). Udziały procentowe — do uzupełnienia po researchu na pełnym benchmarku promptów.",
+  "methodNote": "Wielkość wycinka = liczba unikalnych domen zaobserwowanych w naszym researchu (próbka: 3 pytania × 2 modele, research/report.json). Kategorie „Fora i społeczności” oraz „Bank” pokazane symbolicznie — rzeczywiste liczby na etykietach.",
   "categories": [
     {
       "id": "kancelarie",
       "label": "Kancelarie i serwisy odszkodowawcze",
-      "color": "#da291c",
+      "color": "#d32f2f",
       "textColor": "#ffffff",
+      "chartValue": 23,
+      "countLabel": "23 domeny",
       "domains": [
         "votum-sa.pl", "bochenekiwspolnicy.pl", "kancelariamadejczyk.biz",
         "basiewiczkasprzyk.pl", "ostaszewskikredytyfrankowe.pl", "cst-kancelaria.pl",
@@ -21,22 +23,28 @@
     {
       "id": "media",
       "label": "Media i portale",
-      "color": "#a05eb5",
+      "color": "#9c27b0",
       "textColor": "#ffffff",
+      "chartValue": 4,
+      "countLabel": "4 domeny",
       "domains": ["onet.pl", "tvn24.pl", "prawo.pl", "youtube.com"]
     },
     {
       "id": "regulatorzy",
       "label": "Regulatorzy i instytucje",
-      "color": "#00a9e0",
-      "textColor": "#0b2b36",
+      "color": "#0288d1",
+      "textColor": "#ffffff",
+      "chartValue": 2,
+      "countLabel": "2 domeny",
       "domains": ["finanse.uokik.gov.pl", "rf.gov.pl"]
     },
     {
       "id": "fora",
       "label": "Fora i społeczności",
-      "color": "#9ea2a2",
+      "color": "#9e9e9e",
       "textColor": "#232525",
+      "chartValue": 1,
+      "countLabel": "do uzupełnienia",
       "domains": [],
       "status": "DO_UZUPELNIENIA",
       "note": "Gemini generuje zapytania typu „forum / opinie”; konkretne domeny forów — do uzupełnienia po researchu."
@@ -44,8 +52,11 @@
     {
       "id": "bank",
       "label": "Bank",
-      "color": "#f1b434",
+      "color": "#fbc02d",
       "textColor": "#3c1053",
+      "chartValue": 0.35,
+      "countLabel": "0 domen",
+      "calloutLabel": "0",
       "domains": [],
       "emptyMessage": "0 domen banku zaobserwowanych w pobranych źródłach. To jest luka widoczności."
     }

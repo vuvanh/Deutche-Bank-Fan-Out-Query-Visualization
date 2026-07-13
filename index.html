@@ -37,23 +37,37 @@
 
     <!-- ======================= S0 — HERO ======================= -->
     <section class="section section--dark hero" id="hero" data-act="1">
-      <div class="hero__stream" id="hero-stream" aria-hidden="true"></div>
       <div class="hero__inner">
-        <p class="eyebrow">Dentons × Deutsche Bank · AI Visibility</p>
-        <h1 class="hero__title">Zanim klient zadzwoni do banku, <em>zapytał AI</em></h1>
-        <p class="hero__context">
-          „Czy mogę unieważnić kredyt w euro?" — to pytanie Państwa klienci zadają dziś
-          ChatGPT, Gemini i Perplexity. Sprawdziliśmy, co słyszą w odpowiedzi — i kto te
-          odpowiedzi kształtuje.
-        </p>
-        <div class="hero__anchor">
-          <span class="badge badge--todo">Liczba kotwicząca — do uzupełnienia po researchu</span>
-          <span class="hero__anchor-value" id="hero-number">[ DO UZUPEŁNIENIA ]</span>
-          <span class="hero__anchor-note">
-            np. udział zapytań konsumenckich kierowanych do chatbotów lub liczba spraw
-            sądowych dotyczących kredytów EUR — wartość zostanie podana ze źródłem i datą.
+        <h1 class="hero__title">Zanim klient wniósł pozew, <em>zapytał AI</em></h1>
+
+        <!-- Decorative ChatGPT-style prompt bar (non-interactive mockup) -->
+        <div class="chat-mock" aria-hidden="true">
+          <span class="chat-mock__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </span>
+          <span class="chat-mock__text">
+            <span id="hero-typewriter"></span><span class="chat-mock__cursor">|</span>
+          </span>
+          <span class="chat-mock__right">
+            <span class="chat-mock__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="2.5" width="6" height="12" rx="3" />
+                <path d="M5 11a7 7 0 0 0 14 0M12 18v3.5" />
+              </svg>
+            </span>
+            <span class="chat-mock__send">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19V5M6 11l6-6 6 6" />
+              </svg>
+            </span>
           </span>
         </div>
+
         <div class="hero__ctas">
           <a class="btn btn--gold" href="#mechanizm">Zobacz, jak AI odpowiada</a>
           <a class="btn btn--ghost" href="#rekomendacje">Przejdź do rekomendacji →</a>
@@ -67,81 +81,76 @@
         <p class="eyebrow">Akt 1 · Problem</p>
         <h2 class="section-title">Nowa ścieżka klienta: od pytania do pozwu</h2>
         <p class="section-lead">
-          Odpowiedź AI jest dziś pierwszym „doradcą" kredytobiorcy. Jej ton i źródła
-          wpływają na decyzję o pozwie — zanim ktokolwiek z banku zdąży porozmawiać
+          Odpowiedź AI jest dziś pierwszym doradcą kredytobiorcy. Jej ton i źródła
+          wpływają na decyzję o pozwie zanim ktokolwiek z banku zdąży porozmawiać
           z klientem.
         </p>
 
         <div class="journey" id="journey">
           <div class="journey__step">
-            <span class="journey__num">1</span>
+            <div class="journey__viz journey__viz--bots" aria-hidden="true">
+              <span class="bot-stack">
+                <img src="/gpt.png" alt="" loading="lazy" />
+                <img src="/claude.png" alt="" loading="lazy" />
+                <img src="/gemini.png" alt="" loading="lazy" />
+              </span>
+              <span class="bot-input"><i></i></span>
+            </div>
+            <span class="journey__num">01</span>
             <h3>Klient pyta chatbota</h3>
             <p>Zamiast wpisywać hasło w wyszukiwarkę, zadaje pełne pytanie: „czy warto unieważnić kredyt w euro?".</p>
           </div>
           <div class="journey__step">
-            <span class="journey__num">2</span>
+            <div class="journey__viz journey__viz--scan" aria-hidden="true">
+              <span class="scan-row"></span>
+              <span class="scan-row"></span>
+              <span class="scan-row"></span>
+              <svg class="scan-glass" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.2" stroke-linecap="round">
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="M15.5 15.5 L20.5 20.5" />
+              </svg>
+            </div>
+            <span class="journey__num">02</span>
             <h3>Model przeszukuje sieć</h3>
             <p>Chatbot samodzielnie generuje serię zapytań pomocniczych i pobiera źródła internetowe.</p>
           </div>
           <div class="journey__step">
-            <span class="journey__num">3</span>
+            <div class="journey__viz journey__viz--cloud" aria-hidden="true">
+              <span>Kredyt</span>
+              <span>Pozew</span>
+              <span>Ugoda</span>
+              <span>Orzecznictwo</span>
+            </div>
+            <span class="journey__num">03</span>
             <h3>Otrzymuje syntezę źródeł</h3>
             <p>W pobranych wynikach dominują domeny wyspecjalizowane w prowadzeniu pozwów przeciw bankom.</p>
           </div>
           <div class="journey__step">
-            <span class="journey__num">4</span>
-            <h3>Decyzja zapada bez banku</h3>
-            <p>Z gotową narracją klient trafia do kancelarii — pierwszą rozmowę z bankiem zastąpiła odpowiedź AI.</p>
+            <div class="journey__viz journey__viz--verdict" aria-hidden="true">
+              <svg viewBox="0 0 48 56" fill="none">
+                <rect class="verdict-doc" x="4" y="3" width="40" height="50" rx="5"
+                  stroke="currentColor" stroke-width="2.4" />
+                <path d="M13 15h22M13 23h22M13 31h14" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" opacity="0.35" />
+                <path class="verdict-check" d="M15 41l6 6 12.5-13" stroke="var(--purple-core)"
+                  stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="journey__num">04</span>
+            <h3>Klient podejmuje decyzję bez banku</h3>
+            <p>Z gotową narracją klient trafia do kancelarii. Pierwszą rozmowę z bankiem zastąpiła odpowiedź AI.</p>
           </div>
         </div>
-
-        <figure class="journey-quote">
-          <span class="badge badge--illustrative">Przykład ilustracyjny — nie jest cytatem z modelu</span>
-          <blockquote>
-            „Tak, istnieje możliwość unieważnienia kredytu w euro. Sądy coraz częściej
-            orzekają na korzyść kredytobiorców…"
-          </blockquote>
-          <figcaption class="method-note">
-            Tak może brzmieć pierwszy akapit odpowiedzi, którą klient czyta przed
-            jakimkolwiek kontaktem z bankiem.
-          </figcaption>
-        </figure>
 
         <a class="next-cue" href="#mechanizm">Co dokładnie dzieje się po wpisaniu pytania?</a>
       </div>
     </section>
 
-    <!-- ======================= S2 — FAN-OUT ======================= -->
+    <!-- ======================= S2 — (Akt 2 — treść tymczasowo usunięta) ======================= -->
     <section class="section section--dark" id="mechanizm" data-act="2">
       <div class="section__inner">
-        <p class="eyebrow">Akt 2 · Mechanizm</p>
-        <h2 class="section-title">Jedno pytanie. Kilkanaście wyszukiwań. Zero głosu banku.</h2>
-        <p class="section-lead">
-          To nie są zapytania użytkownika. To zapytania, które model wygenerował sam —
-          tzw. fan-out. Widoczność banku zależy od obecności w całej tej przestrzeni,
-          nie tylko pod dosłownym pytaniem klienta.
-        </p>
-
-        <div class="fanout-stage" id="fanout-stage">
-          <div class="fanout-controls">
-            <div class="fanout-questions" id="fanout-questions" role="tablist" aria-label="Wybierz pytanie przykładowe"></div>
-            <div class="model-toggle" id="model-toggle" role="group" aria-label="Przełącz model AI">
-              <button type="button" data-model="gpt" class="is-active">ChatGPT</button>
-              <button type="button" data-model="gemini">Gemini</button>
-            </div>
-          </div>
-
-          <div class="fanout-canvas" id="fanout-canvas" aria-live="polite">
-            <!-- SVG paths + nodes injected by src/sections/fanout.js -->
-          </div>
-
-          <div class="insight-box" id="fanout-insight">
-            <h3>Wniosek</h3>
-            <p id="fanout-insight-text"></p>
-          </div>
-        </div>
-
-        <a class="next-cue" href="#zrodla">Zobacz, jakie źródła wygrywają te wyszukiwania</a>
+        <!-- Treść Aktu 2 celowo pusta — do zaprojektowania na nowo. -->
       </div>
     </section>
 
@@ -151,31 +160,22 @@
         <p class="eyebrow">Akt 3 · Dowód</p>
         <h2 class="section-title">Kto dziś odpowiada w imieniu banku?</h2>
         <p class="section-lead">
-          Kategoryzacja domen faktycznie pobranych przez modele w naszym researchu.
-          W wynikach dominują domeny wyspecjalizowane w pozwach. Głos banku — dane,
-          ryzyka, zniuansowane stanowisko — jest w tym ekosystemie praktycznie nieobecny.
+          Kategoryzacja domen faktycznie pobranych przez modele w naszym researchu
         </p>
 
-        <div class="treemap-wrap">
-          <div class="treemap" id="treemap"></div>
-          <div class="treemap-tooltip" id="treemap-tooltip" role="status"></div>
-          <div class="treemap-legend" id="treemap-legend"></div>
-          <p class="method-note" id="treemap-note"></p>
+        <div class="donut-layout">
+          <div class="donut" id="donut">
+            <!-- SVG slices injected by src/sections/sourcesMap.js -->
+            <div class="donut-center" id="donut-center" role="status" aria-live="polite"></div>
+          </div>
+          <div class="donut-side">
+            <ul class="donut-legend" id="donut-legend"></ul>
+            <p class="method-note" id="donut-note"></p>
+          </div>
         </div>
 
-        <div class="nuance-card">
-          <h3>Ważny niuans: pobranie źródła ≠ zacytowanie go</h3>
-          <p>
-            Modele czerpią kontekst szeroko (np. z forów), ale cytują wąsko — głównie źródła
-            autorytatywne. W analizie 1,4 mln promptów ok. <strong>88%</strong> adresów URL
-            cytowanych przez ChatGPT pochodziło wprost ze standardowych wyników wyszukiwania,
-            a Reddit — mimo <strong>67,8%</strong> udziału w niecytowanych URL-ach — osiągał
-            wskaźnik cytowań zaledwie <strong>1,93%</strong>. Dlatego strategia celuje w bycie
-            <em>cytowanym</em>, nie tylko <em>pobieranym</em>.
-          </p>
-          <cite>Źródło: Ahrefs, „Why ChatGPT cites pages", badanie 1,4 mln promptów —
-            <a href="https://ahrefs.com/blog/why-chatgpt-cites-pages/" target="_blank" rel="noopener">ahrefs.com</a>.
-            Dane zewnętrzne — do weryfikacji przed prezentacją.</cite>
+        <div class="donut-domains" id="donut-domains" aria-live="polite" hidden>
+          <!-- per-category domain panel injected by src/sections/sourcesMap.js -->
         </div>
 
         <a class="next-cue" href="#luka">Jak duża jest ta luka?</a>

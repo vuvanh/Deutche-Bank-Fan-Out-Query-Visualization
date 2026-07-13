@@ -9,19 +9,13 @@
       "gemini": "Gemini szuka „poradnikowo”: pyta o wady i zalety, koszty, skutki i opinie. Te wyszukiwania wygrywają dziś treści kancelarii i serwisów odszkodowawczych. To drugie, odrębne pole optymalizacji — ta sama strona nie wygra obu automatycznie."
     }
   },
-  "heroStreamPhrases": [
-    "czy warto unieważnić kredyt w euro",
-    "unieważnienie kredytu w euro forum",
-    "klauzule abuzywne kredyt euro",
-    "koszty unieważnienia kredytu w euro",
-    "plusy i minusy unieważnienia kredytu",
-    "orzecznictwo TSUE kredyty walutowe",
-    "skutki unieważnienia kredytu w euro",
-    "jak unieważnić kredyt walutowy w euro",
-    "kredyt w euro a franki",
-    "przesłanki nieważności umowy kredytu",
-    "Rzecznik Finansowy kredyty walutowe",
-    "korzyści i ryzyka unieważnienia kredytu"
+  "heroPromptPhrases": [
+    "Unieważnienie kredytu w Euro",
+    "Czy warto unieważnić kredyt w Euro?",
+    "Co upoważnia mnie do unieważnienia kredytu w euro?",
+    "Jak unieważnić kredyt w Euro?",
+    "Jakie są koszty pozwu za kredyt w Euro?",
+    "Ugoda czy proces z bankiem w sprawach Euro?"
   ],
   "treemap": {
     "tooltipEmpty": "Brak zaobserwowanych domen w tej kategorii.",
