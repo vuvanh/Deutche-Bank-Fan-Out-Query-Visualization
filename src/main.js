@@ -15,14 +15,14 @@ import { initQueryFlow } from './sections/queryFlow.js';
 import { initSourcesMap } from './sections/sourcesMap.js';
 import { initPhraseCloud } from './sections/phraseCloud.js';
 import { initEngines } from './sections/engines.js';
-import { initBento } from './sections/bento.js';
+import { initRecommendations } from './sections/recommendations.js';
 import { initDashboard } from './sections/dashboard.js';
 
 initNav();
 initHero(copy);
 initJourney();
 initEngines(enginesData);
-initBento(recData);
+initRecommendations(recData);
 initDashboard(kpiData);
 initQueryFlow(fanoutData, copy);
 initSourcesMap(sourcesData, copy);

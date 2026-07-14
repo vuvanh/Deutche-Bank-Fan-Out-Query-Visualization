@@ -10,9 +10,9 @@ import { prefersReducedMotion } from '../lib/motion.js';
  * starts/ends on its idle frame, so the handover never jumps.
  */
 
-// step 1: full 3-logo crossfade (6s loop) · step 2: one magnifier sweep (4s)
-// step 3: word pulses incl. 1.05s stagger (~5s) · step 4: check strike + hold
-const STEP_DURATIONS = [6000, 4400, 5200, 3200];
+// step 1: full 3-logo crossfade (2s loop) · step 2: one magnifier sweep (~1.3s)
+// step 3: source cards merging into one doc (~1.75s) · step 4: check strike + hold
+const STEP_DURATIONS = [2000, 1470, 1750, 1070];
 
 export function initJourney() {
   const journey = document.getElementById('journey');
@@ -25,8 +25,8 @@ export function initJourney() {
       observer.disconnect();
       journey.classList.add('is-visible');
       if (!prefersReducedMotion) {
-        // let the entrance stagger finish (last step: 0.6s delay + 0.7s run)
-        setTimeout(startCycle, 1500);
+        // let the entrance stagger finish (last step: 0.2s delay + 0.23s run)
+        setTimeout(startCycle, 500);
       }
     }
   }, { threshold: 0.25 });

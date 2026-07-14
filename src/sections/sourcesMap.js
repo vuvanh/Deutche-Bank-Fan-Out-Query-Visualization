@@ -6,7 +6,8 @@ import { svgEl, htmlEl } from '../lib/svg.js';
  * research. Slice size = number of unique observed domains; zero/unknown
  * categories get a small visual sliver (chartValue in sources.json) with the
  * real number on the label. Hover on a slice or on the legend explodes the
- * slice, dims the rest and shows details in the donut hole.
+ * slice, dims the rest and shows details in the donut hole; a click selects
+ * the category and switches the domain panel below the chart.
  */
 
 const SIZE = 440;
@@ -137,7 +138,8 @@ export function initSourcesMap(sourcesData, copy) {
     ));
     const caption = htmlEl('span', 'donut-center__caption',
       'unikalnych domen pobranych przez modele');
-    const hint = htmlEl('span', 'donut-center__hint', 'najedź na wykres');
+    const hint = htmlEl('span', 'donut-center__hint',
+      'kliknij kategorię, aby zobaczyć domeny');
     centerBox.append(big, caption, hint);
   }
 
@@ -167,6 +169,8 @@ export function initSourcesMap(sourcesData, copy) {
     const item = htmlEl('li', 'donut-legend__item');
     item.dataset.category = cat.id;
     item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    item.style.setProperty('--cat-color', cat.color);
 
     const swatch = htmlEl('i');
     swatch.style.background = cat.color;
@@ -235,7 +239,10 @@ export function initSourcesMap(sourcesData, copy) {
     }
   }
 
-  /* ---------- shared highlight (chart ⇄ legend) ---------- */
+  /* ---------- shared highlight (chart ⇄ legend) ----------
+     Hover/focus only highlights (explode + donut-hole details); it never
+     touches the domain panel. A click selects the category (persistent
+     .is-selected state) and switches the domain panel below. */
 
   function highlight(id) {
     container.classList.add('has-hover');
@@ -246,10 +253,7 @@ export function initSourcesMap(sourcesData, copy) {
       item.classList.toggle('is-active', catId === id);
     }
     const active = slices.find((s) => s.cat.id === id);
-    if (active) {
-      renderCenterFor(active.cat);
-      renderDomainsPanel(active.cat);
-    }
+    if (active) renderCenterFor(active.cat);
   }
 
   function clearHighlight() {
@@ -259,19 +263,34 @@ export function initSourcesMap(sourcesData, copy) {
     renderCenterDefault();
   }
 
-  for (const { cat, path } of slices) {
-    path.addEventListener('mouseenter', () => highlight(cat.id));
-    path.addEventListener('mouseleave', clearHighlight);
-    path.addEventListener('focus', () => highlight(cat.id));
-    path.addEventListener('blur', clearHighlight);
+  function select(id) {
+    for (const { cat, path } of slices) {
+      path.classList.toggle('is-selected', cat.id === id);
+    }
+    for (const [catId, item] of legendItems) {
+      item.classList.toggle('is-selected', catId === id);
+      item.setAttribute('aria-pressed', String(catId === id));
+    }
+    const active = slices.find((s) => s.cat.id === id);
+    if (active) renderDomainsPanel(active.cat);
   }
 
-  for (const [catId, item] of legendItems) {
-    item.addEventListener('mouseenter', () => highlight(catId));
-    item.addEventListener('mouseleave', clearHighlight);
-    item.addEventListener('focus', () => highlight(catId));
-    item.addEventListener('blur', clearHighlight);
+  function bindInteractions(el, id) {
+    el.addEventListener('mouseenter', () => highlight(id));
+    el.addEventListener('mouseleave', clearHighlight);
+    el.addEventListener('focus', () => highlight(id));
+    el.addEventListener('blur', clearHighlight);
+    el.addEventListener('click', () => select(id));
+    el.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        select(id);
+      }
+    });
   }
+
+  for (const { cat, path } of slices) bindInteractions(path, cat.id);
+  for (const [catId, item] of legendItems) bindInteractions(item, catId);
 
   /* ---------- entrance animation ---------- */
 

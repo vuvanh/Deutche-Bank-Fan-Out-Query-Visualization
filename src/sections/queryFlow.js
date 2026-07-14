@@ -80,7 +80,15 @@ export function initQueryFlow(fanoutData, copy) {
         `${fanoutData.models[modelId].label} → zapytania do ${engine}`));
 
       model.queries.forEach((query, i) => {
-        const node = htmlEl('div', `qflow-node qflow-fanout qflow-fanout--${modelId}`);
+        // each query links to a live search for that exact phrase in the
+        // engine the model actually uses (GPT → Bing, Gemini → Google)
+        const node = htmlEl('a', `qflow-node qflow-fanout qflow-fanout--${modelId}`);
+        node.href = modelId === 'gpt'
+          ? `https://www.bing.com/search?q=${encodeURIComponent(query.text)}`
+          : `https://www.google.com/search?q=${encodeURIComponent(query.text)}`;
+        node.target = '_blank';
+        node.rel = 'noopener noreferrer';
+        node.title = `Otwórz to zapytanie w ${engine}`;
         node.appendChild(document.createTextNode(`„${query.text}”`));
         node.appendChild(htmlEl('span',
           `source-tag source-tag--${query.sourceType}`,

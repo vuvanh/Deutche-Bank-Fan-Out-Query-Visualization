@@ -23,7 +23,7 @@
         <li><a href="#zrodla">Źródła</a></li>
         <li><a href="#luka">Luka</a></li>
         <li><a href="#zasady">Zasady gry</a></li>
-        <li><a href="#rekomendacje" class="nav__link--cta">Rekomendacje</a></li>
+        <li><a href="#rekomendacje">Rekomendacje</a></li>
         <li><a href="#monitoring">Monitoring</a></li>
       </ul>
     </div>
@@ -78,7 +78,7 @@
     <!-- ======================= S1 - JOURNEY ======================= -->
     <section class="section" id="problem" data-act="1">
       <div class="section__inner">
-        <p class="eyebrow">Akt 1 · Problem</p>
+        <p class="eyebrow">1 · Problem</p>
         <h2 class="section-title">Nowa ścieżka klienta: od pytania do pozwu</h2>
         <p class="section-lead">
           Odpowiedź AI jest dziś pierwszym doradcą kredytobiorcy. Jej ton i źródła
@@ -116,11 +116,13 @@
             <p>Chatbot samodzielnie generuje serię zapytań pomocniczych i pobiera źródła internetowe.</p>
           </div>
           <div class="journey__step">
-            <div class="journey__viz journey__viz--cloud" aria-hidden="true">
-              <span>Kredyt</span>
-              <span>Pozew</span>
-              <span>Ugoda</span>
-              <span>Orzecznictwo</span>
+            <div class="journey__viz journey__viz--merge" aria-hidden="true">
+              <span class="merge-stage">
+                <span class="merge-doc merge-doc--1"></span>
+                <span class="merge-doc merge-doc--2"></span>
+                <span class="merge-doc merge-doc--3"></span>
+                <span class="merge-core"><i></i><i></i><i></i></span>
+              </span>
             </div>
             <span class="journey__num">03</span>
             <h3>Otrzymuje syntezę źródeł</h3>
@@ -150,7 +152,7 @@
     <!-- ======================= S2 - QUERY FLOW (fan-out) ======================= -->
     <section class="section section--dark" id="mechanizm" data-act="2">
       <div class="section__inner">
-        <p class="eyebrow">Akt 2 · Mechanizm</p>
+        <p class="eyebrow">2 · Mechanizm</p>
         <h2 class="section-title">Jedno pytanie. Kilkanaście wyszukiwań.</h2>
         <p class="section-lead">
           Zapytanie wpisane do czatu nie trafia do wyszukiwarki dosłownie. Model
@@ -191,10 +193,16 @@
 
         <div class="qflow-insights">
           <div class="qflow-insight qflow-insight--gpt">
+            <span class="qflow-insight__icon" aria-hidden="true">
+              <img src="/gpt.png" alt="" loading="lazy" />
+            </span>
             <h3>ChatGPT szuka „urzędowo"</h3>
             <p id="qflow-insight-gpt"></p>
           </div>
           <div class="qflow-insight qflow-insight--gemini">
+            <span class="qflow-insight__icon" aria-hidden="true">
+              <img src="/gemini.png" alt="" loading="lazy" />
+            </span>
             <h3>Gemini szuka „poradnikowo"</h3>
             <p id="qflow-insight-gemini"></p>
           </div>
@@ -207,7 +215,7 @@
     <!-- ======================= S3 - SOURCES MAP ======================= -->
     <section class="section" id="zrodla" data-act="3">
       <div class="section__inner">
-        <p class="eyebrow">Akt 3 · Dowód</p>
+        <p class="eyebrow">3 · Kategoryzacja</p>
         <h2 class="section-title">Kto dziś odpowiada w imieniu banku?</h2>
         <p class="section-lead">
           Kategoryzacja domen faktycznie pobranych przez modele w naszym researchu
@@ -233,9 +241,9 @@
     </section>
 
     <!-- ======================= S4 - VISIBILITY GAP ======================= -->
-    <section class="section section--dark" id="luka" data-act="3">
+    <section class="section section--dark" id="luka" data-act="4">
       <div class="section__inner">
-        <p class="eyebrow">Akt 3 · Kulminacja</p>
+        <p class="eyebrow">4 · Kulminacja</p>
         <h2 class="section-title">Luka widoczności</h2>
 
         <div class="cloud-filters" id="cloud-filters" role="group" aria-label="Filtruj frazy">
@@ -251,9 +259,9 @@
     </section>
 
     <!-- ======================= S5 - ENGINE RULES ======================= -->
-    <section class="section section--tint" id="zasady" data-act="4">
+    <section class="section section--tint" id="zasady" data-act="5">
       <div class="section__inner">
-        <p class="eyebrow">Akt 4 · Szansa</p>
+        <p class="eyebrow">5 · Szansa</p>
         <h2 class="section-title">Silniki AI nagradzają konkretne cechy treści. To dobra wiadomość.</h2>
         <p class="section-lead">
           Modele preferują treści wyważone, faktograficzne, ustrukturyzowane, z widocznym
@@ -265,9 +273,45 @@
         <div class="engines" id="engines"></div>
 
         <div class="common-denominator">
-          <strong>Wspólny mianownik wszystkich silników:</strong> bezpośrednia odpowiedź na
-          początku tekstu, weryfikowalny autor, dane zamiast przymiotników, spójność
-          stanowiska w wielu źródłach.
+          <p class="common-denominator__title">Wspólny mianownik wszystkich silników</p>
+          <ul class="common-denominator__list">
+            <li>
+              <span class="common-denominator__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16M12 20V9M7 14l5-5 5 5" />
+                </svg>
+              </span>
+              <span>Bezpośrednia odpowiedź na początku tekstu</span>
+            </li>
+            <li>
+              <span class="common-denominator__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 21v-1a4.5 4.5 0 0 0-4.5-4.5h-3A4.5 4.5 0 0 0 3 20v1M9 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM16 10l2 2 4-4.5" />
+                </svg>
+              </span>
+              <span>Weryfikowalny autor</span>
+            </li>
+            <li>
+              <span class="common-denominator__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 20h18M6 20v-6M12 20V6M18 20v-10" />
+                </svg>
+              </span>
+              <span>Dane zamiast przymiotników</span>
+            </li>
+            <li>
+              <span class="common-denominator__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.5 21 7.5l-9 5-9-5 9-5zM3 12.25l9 5 9-5M3 17l9 5 9-5" />
+                </svg>
+              </span>
+              <span>Spójność stanowiska w wielu źródłach</span>
+            </li>
+          </ul>
         </div>
 
         <a class="next-cue" href="#rekomendacje">Przełóżmy to na plan działania</a>
@@ -277,7 +321,7 @@
     <!-- ======================= S6 - RECOMMENDATIONS ======================= -->
     <section class="section" id="rekomendacje" data-act="5">
       <div class="section__inner">
-        <p class="eyebrow">Akt 5 · Plan działania</p>
+        <p class="eyebrow">5 · Plan działania</p>
         <h2 class="section-title">Rekomendacje: 30 dni · 90 dni · 6 miesięcy</h2>
         <p class="section-lead">
           Pierwszy krok nie wymaga ani nowych treści, ani budżetu mediowego: to audyt, czy
@@ -293,8 +337,17 @@
           <button type="button" class="chip chip--light" data-owner="Legal">Legal</button>
         </div>
 
-        <div class="bento" id="bento">
-          <!-- recommendation cards injected by src/sections/bento.js -->
+        <div class="recs" id="recs">
+          <!-- Master: guidepost timeline 30/90/180 (src/sections/recommendations.js) -->
+          <div class="recs__master" id="recs-master" role="tablist"
+            aria-orientation="vertical" aria-label="Działania według horyzontu czasowego"></div>
+
+          <!-- Detail: sticky glass panel; content swapped with a crossfade -->
+          <div class="recs__detail-col">
+            <div class="recs__detail" id="recs-detail" role="tabpanel" aria-live="polite">
+              <div class="recs__detail-stage" id="recs-detail-stage"></div>
+            </div>
+          </div>
         </div>
 
         <div class="disclaimer">
@@ -309,9 +362,9 @@
     </section>
 
     <!-- ======================= S7 - MONITORING ======================= -->
-    <section class="section section--tint" id="monitoring" data-act="5">
+    <section class="section section--tint" id="monitoring" data-act="6">
       <div class="section__inner">
-        <p class="eyebrow">Akt 5 · Pomiar</p>
+        <p class="eyebrow">6 · Pomiar</p>
         <h2 class="section-title">Monitoring: pomiar zamiast wiary</h2>
         <p class="section-lead">
           Co miesiąc zadajemy modelom ten sam zestaw pytań konsumenckich i mierzymy, jak
@@ -338,7 +391,7 @@
     </section>
 
     <!-- ======================= S8 - CLOSING ======================= -->
-    <section class="section closing" id="kontakt" data-act="5">
+    <section class="section closing" id="kontakt" data-act="6">
       <div class="section__inner">
         <div class="closing__logo">
           <img src="/dentons_logo.png" alt="Dentons" />
@@ -379,6 +432,7 @@
 
   <footer class="footer">
     <div class="section__inner">
+      <span>Wizualizacja przygotowana przez zespół Dentons: Innovation &amp; Intelligence.</span>
       <span>Materiał demonstracyjny Dentons. Nie stanowi porady prawnej.</span>
       <span>Materiał nie obiecuje wpływu na treść odpowiedzi generowanych przez modele AI;
         opisuje działania zwiększające widoczność rzetelnego stanowiska banku w ekosystemie

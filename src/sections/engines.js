@@ -22,12 +22,15 @@ function icon(className, pathD, viewBox = '0 0 24 24') {
 
 const CHECK = 'M4 12.5l5 5L20 6.5';
 const BULB = 'M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.5 1 2.5h6c0-1 .2-1.8 1-2.5A6 6 0 0 0 12 3z';
-const ARROW = 'M5 12h14M13 6l6 6-6 6';
+const EYE = 'M2.5 12C5.4 6.8 8.6 4.5 12 4.5s6.6 2.3 9.5 7.5c-2.9 5.2-6.1 7.5-9.5 7.5S5.4 17.2 2.5 12z M12 12m-3.1 0a3.1 3.1 0 1 0 6.2 0a3.1 3.1 0 1 0 -6.2 0';
+const CHEVRON = 'M6 9.5l6 6 6-6';
 
 /**
- * S5 - 3-column engine infographic: logo medallion overlapping the card,
- * accent-colored check lists, a highlighted "Dla banku" key takeaway and a
- * pill-button expander. Hover focus (scale + dim siblings) is pure CSS.
+ * S5 - 3-column engine infographic. Each card is a clearly sectioned fact
+ * sheet: flat logo + name header, a labelled check list of ranking signals,
+ * the "Dla banku" takeaway with a pulsing bulb, and a "Dla zainteresowanych"
+ * expander animated via the grid-rows trick so opening one card never
+ * stretches its siblings (the grid is align-items: start).
  */
 export function initEngines(enginesData) {
   const grid = document.getElementById('engines');
@@ -38,16 +41,23 @@ export function initEngines(enginesData) {
     card.style.setProperty('--accent', engine.accent);
     card.style.setProperty('--accent-soft', engine.accentSoft);
 
-    const medallion = htmlEl('span', 'engine-card__logo');
+    const head = htmlEl('header', 'engine-card__head');
+    const logo = htmlEl('span', 'engine-card__logo');
     const img = document.createElement('img');
     img.src = engine.logo;
     img.alt = '';
     img.loading = 'lazy';
-    medallion.appendChild(img);
-    card.appendChild(medallion);
+    logo.appendChild(img);
+    const headText = htmlEl('div', 'engine-card__head-text');
+    headText.appendChild(htmlEl('h3', '', engine.name));
+    headText.appendChild(htmlEl('p', 'engine-sub', engine.sub));
+    head.append(logo, headText);
+    card.appendChild(head);
 
-    card.appendChild(htmlEl('h3', '', engine.name));
-    card.appendChild(htmlEl('p', 'engine-sub', engine.sub));
+    const seeksLabel = htmlEl('span', 'engine-card__label');
+    seeksLabel.appendChild(icon('engine-card__label-icon', EYE));
+    seeksLabel.appendChild(document.createTextNode('Co premiuje ten silnik'));
+    card.appendChild(seeksLabel);
 
     const list = htmlEl('ul', 'engine-list');
     for (const point of engine.seeks) {
@@ -59,23 +69,34 @@ export function initEngines(enginesData) {
     card.appendChild(list);
 
     const takeaway = htmlEl('div', 'engine-meaning');
-    const takeawayHead = htmlEl('span', 'engine-meaning__label');
-    takeawayHead.appendChild(icon('engine-meaning__icon', BULB));
-    takeawayHead.appendChild(document.createTextNode('Dla banku'));
-    takeaway.appendChild(takeawayHead);
-    takeaway.appendChild(htmlEl('p', '', engine.meaning.replace(/^Dla banku:\s*/, '')));
+    const bulb = htmlEl('span', 'engine-meaning__bulb');
+    bulb.appendChild(icon('engine-meaning__icon', BULB));
+    const takeawayBody = htmlEl('div', 'engine-meaning__body');
+    takeawayBody.appendChild(htmlEl('span', 'engine-meaning__label', 'Dla banku'));
+    takeawayBody.appendChild(htmlEl('p', '', engine.meaning.replace(/^Dla banku:\s*/, '')));
+    takeaway.append(bulb, takeawayBody);
     card.appendChild(takeaway);
 
-    const details = htmlEl('details', 'engine-more');
-    const summary = htmlEl('summary');
-    summary.appendChild(htmlEl('span', '', 'Dla zainteresowanych'));
-    summary.appendChild(icon('engine-more__arrow', ARROW));
-    details.appendChild(summary);
-    details.appendChild(htmlEl('span', 'engine-more__label', engine.detailsLabel));
+    const more = htmlEl('div', 'engine-more');
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'engine-more__toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.appendChild(htmlEl('span', '', 'Dla zainteresowanych'));
+    toggle.appendChild(icon('engine-more__arrow', CHEVRON));
+    const body = htmlEl('div', 'engine-more__body');
+    const inner = htmlEl('div', 'engine-more__inner');
+    inner.appendChild(htmlEl('span', 'engine-more__label', engine.detailsLabel));
     const factList = htmlEl('ul', 'engine-more__list');
     for (const fact of engine.details) factList.appendChild(htmlEl('li', '', fact));
-    details.appendChild(factList);
-    card.appendChild(details);
+    inner.appendChild(factList);
+    body.appendChild(inner);
+    toggle.addEventListener('click', () => {
+      const open = more.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    more.append(toggle, body);
+    card.appendChild(more);
 
     grid.appendChild(card);
   }
@@ -88,7 +109,7 @@ export function initEngines(enginesData) {
       ease: 'power3.out',
       stagger: 0.12,
       scrollTrigger: { trigger: grid, start: 'top 78%' },
-      // inline transform/opacity must not linger - CSS hover scale needs them
+      // inline transform/opacity must not linger - CSS hover lift needs them
       clearProps: 'transform,opacity',
     });
   }
