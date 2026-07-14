@@ -2,7 +2,7 @@ import { drawPath, staggerIn, prefersReducedMotion, gsap } from '../lib/motion.j
 import { svgEl, htmlEl } from '../lib/svg.js';
 
 /**
- * S6 — impact × difficulty matrix (pure SVG scatter), action card on click,
+ * S6 - impact × difficulty matrix (pure SVG scatter), action card on click,
  * owner filter, and the 30/90/180 roadmap drawn on scroll.
  */
 export function initMatrix(recData, copy) {
@@ -78,7 +78,7 @@ export function initMatrix(recData, copy) {
       tabindex: 0,
       role: 'button',
     });
-    dot.setAttribute('aria-label', `${action.title} — wpływ ${action.impact} na 5, trudność ${action.difficulty} na 5`);
+    dot.setAttribute('aria-label', `${action.title}: wpływ ${action.impact} na 5, trudność ${action.difficulty} na 5`);
     dot.dataset.id = action.id;
 
     const select = () => {
@@ -129,7 +129,7 @@ export function initMatrix(recData, copy) {
     }
   }
 
-  // preselect the first quick win — the "Monday morning" action
+  // preselect the first quick win - the "Monday morning" action
   const first = recData.actions.find((a) => a.quickWin) ?? recData.actions[0];
   svg.querySelector(`.dot[data-id="${first.id}"]`)?.classList.add('is-selected');
   renderCard(first);

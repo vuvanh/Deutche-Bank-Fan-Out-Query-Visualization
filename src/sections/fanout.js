@@ -2,7 +2,7 @@ import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/motion.js';
 import { svgEl, htmlEl, curvedPath } from '../lib/svg.js';
 
 /**
- * S2 — fan-out simulator. Precomputed data only (no live model calls):
+ * S2 - fan-out simulator. Precomputed data only (no live model calls):
  * the user picks one of the researched consumer questions and toggles
  * ChatGPT ⇄ Gemini; the question node branches into the queries the model
  * actually generated (research/report.json → src/data/fanout.json).
@@ -146,7 +146,7 @@ export function initFanout(fanoutData, copy) {
     placeColumn(left, 'left');
     placeColumn(right, 'right');
 
-    // paths need final layout — measure on next frame
+    // paths need final layout - measure on next frame
     requestAnimationFrame(() => {
       const canvasRect = canvas.getBoundingClientRect();
       const centerRect = center.getBoundingClientRect();
@@ -171,7 +171,7 @@ export function initFanout(fanoutData, copy) {
 
   function playEntrance(svg, center, nodes) {
     gsap.from(center, { scale: 0.6, opacity: 0, duration: 0.45, ease: 'back.out(1.6)' });
-    // paths exist one frame later — animate them then
+    // paths exist one frame later - animate them then
     requestAnimationFrame(() => requestAnimationFrame(() => {
       nodes.forEach((node, i) => {
         const path = node._path;
@@ -212,7 +212,7 @@ export function initFanout(fanoutData, copy) {
     render({ animate: false });
 
     // Scrubbed reveal: the question "thinks", then branches appear in rhythm
-    // with the scroll — the user scrolls through the model's fan-out process.
+    // with the scroll - the user scrolls through the model's fan-out process.
     const section = document.getElementById('mechanizm');
     const center = canvas.querySelector('.fanout-center');
     const nodes = [...canvas.querySelectorAll('.fanout-node')];

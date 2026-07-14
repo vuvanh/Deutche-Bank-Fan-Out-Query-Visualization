@@ -1,7 +1,7 @@
 {
-  "_comment": "Source categories for the S3 donut infographic. domains = unique domains actually retrieved in research/report.json (Gemini 'sources' + GPT 'safe_urls'). chartValue = slice size; for zero/unknown categories a small visual sliver is used so the absence stays visible — countLabel always shows the real number.",
+  "_comment": "Source categories for the S3 donut infographic. domains = unique domains actually retrieved in research/report.json (Gemini 'sources' + GPT 'safe_urls'). chartValue = slice size; for zero/unknown categories a small visual sliver is used so the absence stays visible - countLabel always shows the real number.",
   "share": "DO_UZUPELNIENIA",
-  "methodNote": "Wielkość wycinka = liczba unikalnych domen zaobserwowanych w naszym researchu (próbka: 3 pytania × 2 modele, research/report.json). Kategorie „Fora i społeczności” oraz „Bank” pokazane symbolicznie — rzeczywiste liczby na etykietach.",
+  "methodNote": "Dane poglądowe dla przykładowego pytania. Wielkość wycinka = liczba unikalnych domen zaobserwowanych w naszym researchu (próbka: 3 pytania × 2 modele, research/report.json). Kategorie „Fora i społeczności” oraz „Bank” pokazane symbolicznie; rzeczywiste liczby na etykietach.",
   "categories": [
     {
       "id": "kancelarie",
@@ -47,7 +47,7 @@
       "countLabel": "do uzupełnienia",
       "domains": [],
       "status": "DO_UZUPELNIENIA",
-      "note": "Gemini generuje zapytania typu „forum / opinie”; konkretne domeny forów — do uzupełnienia po researchu."
+      "note": "Gemini generuje zapytania typu „forum / opinie”; konkretne domeny forów: do uzupełnienia po researchu."
     },
     {
       "id": "bank",

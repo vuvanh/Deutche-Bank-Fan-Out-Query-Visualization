@@ -1,5 +1,6 @@
 import './styles/main.css';
 
+import fanoutData from './data/fanout.json';
 import sourcesData from './data/sources.json';
 import phrasesData from './data/phrases.json';
 import enginesData from './data/engines.json';
@@ -10,18 +11,19 @@ import copy from './data/copy.json';
 import { initNav } from './sections/nav.js';
 import { initHero } from './sections/hero.js';
 import { initJourney } from './sections/journey.js';
+import { initQueryFlow } from './sections/queryFlow.js';
 import { initSourcesMap } from './sections/sourcesMap.js';
 import { initPhraseCloud } from './sections/phraseCloud.js';
 import { initEngines } from './sections/engines.js';
-import { initMatrix } from './sections/matrix.js';
+import { initBento } from './sections/bento.js';
 import { initDashboard } from './sections/dashboard.js';
 
 initNav();
 initHero(copy);
 initJourney();
 initEngines(enginesData);
-initMatrix(recData, copy);
+initBento(recData);
 initDashboard(kpiData);
+initQueryFlow(fanoutData, copy);
 initSourcesMap(sourcesData, copy);
 initPhraseCloud(phrasesData);
-// S2 (Akt 2 / fan-out) is intentionally empty for now — initFanout removed.

@@ -1,12 +1,12 @@
 {
-  "_comment": "Microcopy rendered by JS (strings that live next to data-driven visuals). Static section copy lives in index.html — both are content files editable without touching logic.",
+  "_comment": "Microcopy rendered by JS (strings that live next to data-driven visuals). Static section copy lives in index.html - both are content files editable without touching logic.",
   "fanout": {
     "centerLabel": "Pytanie klienta",
-    "todoBadge": "przykładowe — do uzupełnienia po researchu",
+    "todoBadge": "przykładowe, do uzupełnienia po researchu",
     "todoMessage": "Zapytania fan-out dla tego pytania zostaną dodane po domknięciu researchu. Pokazujemy wyłącznie faktycznie zaobserwowane zapytania.",
     "insights": {
-      "gpt": "ChatGPT szuka „urzędowo”: kieruje własne zapytania ku UOKiK, Rzecznikowi Finansowemu i orzecznictwu TSUE. Aby być widocznym w tej przestrzeni, treść banku musi wyglądać wiarygodnie prawnie — z autorami, źródłami i sygnaturami.",
-      "gemini": "Gemini szuka „poradnikowo”: pyta o wady i zalety, koszty, skutki i opinie. Te wyszukiwania wygrywają dziś treści kancelarii i serwisów odszkodowawczych. To drugie, odrębne pole optymalizacji — ta sama strona nie wygra obu automatycznie."
+      "gpt": "ChatGPT szuka „urzędowo”: kieruje własne zapytania ku UOKiK, Rzecznikowi Finansowemu i orzecznictwu TSUE. Aby być widocznym w tej przestrzeni, treść banku musi wyglądać wiarygodnie prawnie: z autorami, źródłami i sygnaturami.",
+      "gemini": "Gemini szuka „poradnikowo”: pyta o wady i zalety, koszty, skutki i opinie. Te wyszukiwania wygrywają dziś treści kancelarii i serwisów odszkodowawczych. To drugie, odrębne pole optymalizacji. Ta sama strona nie wygra obu automatycznie."
     }
   },
   "heroPromptPhrases": [
@@ -20,7 +20,7 @@
   "treemap": {
     "tooltipEmpty": "Brak zaobserwowanych domen w tej kategorii.",
     "bankClickTitle": "Tu powinna być narracja banku",
-    "bankClickBody": "W pobranych przez modele źródłach nie zaobserwowaliśmy ani jednej domeny banku. Dane, ryzyka i zniuansowane stanowisko — nie istnieją w tej przestrzeni."
+    "bankClickBody": "W pobranych przez modele źródłach nie zaobserwowaliśmy ani jednej domeny banku. Dane, ryzyka i zniuansowane stanowisko nie istnieją w tej przestrzeni."
   },
   "matrix": {
     "axisX": "Trudność wdrożenia →",

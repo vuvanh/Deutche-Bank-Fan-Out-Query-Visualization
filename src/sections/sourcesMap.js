@@ -2,7 +2,7 @@ import { gsap, prefersReducedMotion } from '../lib/motion.js';
 import { svgEl, htmlEl } from '../lib/svg.js';
 
 /**
- * S3 — donut infographic of source categories actually retrieved in the
+ * S3 - donut infographic of source categories actually retrieved in the
  * research. Slice size = number of unique observed domains; zero/unknown
  * categories get a small visual sliver (chartValue in sources.json) with the
  * real number on the label. Hover on a slice or on the legend explodes the

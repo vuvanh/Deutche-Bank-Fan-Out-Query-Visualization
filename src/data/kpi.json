@@ -1,5 +1,5 @@
 {
-  "_comment": "S7 dashboard mock. ALL VALUES ILLUSTRATIVE by design (architecture.md: 'Świadomie mockowe / ilustracyjne — zawsze oznaczone na ekranie'). The on-screen badge is rendered from index.html; every tile also carries illustrative: true.",
+  "_comment": "S7 dashboard mock. ALL VALUES ILLUSTRATIVE by design (architecture.md: 'Świadomie mockowe / ilustracyjne - zawsze oznaczone na ekranie'). The on-screen badge is rendered from index.html; every tile also carries illustrative: true.",
   "illustrative": true,
   "kpis": [
     {
@@ -22,7 +22,7 @@
     }
   ],
   "trend": {
-    "label": "Share of Answer — trend (wartości ilustracyjne)",
+    "label": "Share of Answer: trend (wartości ilustracyjne)",
     "unit": "%",
     "points": [
       { "month": "Sty", "value": 4 },

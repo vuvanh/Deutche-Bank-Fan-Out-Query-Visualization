@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Visibility — Dentons × Deutsche Bank</title>
+  <title>AI Visibility · Dentons × Deutsche Bank</title>
   <meta name="description" content="Interaktywne demo: jak pytania kredytobiorców o kredyty w euro przechodzą przez modele AI i jak zwiększyć widoczność wyważonego stanowiska banku." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" type="image/png" href="/dentons_logo.png" />
@@ -14,7 +14,7 @@
   <!-- ======================= STICKY NAV ======================= -->
   <header class="nav" id="top">
     <div class="nav__inner">
-      <a class="nav__logo" href="#top" aria-label="Dentons — do początku strony">
+      <a class="nav__logo" href="#top" aria-label="Dentons: do początku strony">
         <img src="/dentons_logo.png" alt="Dentons" />
       </a>
       <ul class="nav__links">
@@ -35,7 +35,7 @@
 
   <main>
 
-    <!-- ======================= S0 — HERO ======================= -->
+    <!-- ======================= S0 - HERO ======================= -->
     <section class="section section--dark hero" id="hero" data-act="1">
       <div class="hero__inner">
         <h1 class="hero__title">Zanim klient wniósł pozew, <em>zapytał AI</em></h1>
@@ -75,7 +75,7 @@
       </div>
     </section>
 
-    <!-- ======================= S1 — JOURNEY ======================= -->
+    <!-- ======================= S1 - JOURNEY ======================= -->
     <section class="section" id="problem" data-act="1">
       <div class="section__inner">
         <p class="eyebrow">Akt 1 · Problem</p>
@@ -147,14 +147,64 @@
       </div>
     </section>
 
-    <!-- ======================= S2 — (Akt 2 — treść tymczasowo usunięta) ======================= -->
+    <!-- ======================= S2 - QUERY FLOW (fan-out) ======================= -->
     <section class="section section--dark" id="mechanizm" data-act="2">
       <div class="section__inner">
-        <!-- Treść Aktu 2 celowo pusta — do zaprojektowania na nowo. -->
+        <p class="eyebrow">Akt 2 · Mechanizm</p>
+        <h2 class="section-title">Jedno pytanie. Kilkanaście wyszukiwań.</h2>
+        <p class="section-lead">
+          Zapytanie wpisane do czatu nie trafia do wyszukiwarki dosłownie. Model
+          samodzielnie przekształca je w serię konkretnych zapytań do Bing i Google
+          (tzw. fan-out) i dopiero na ich wynikach buduje odpowiedź.
+        </p>
+
+        <div class="qflow-questions" id="qflow-questions" role="tablist"
+          aria-label="Wybierz pytanie przykładowe"></div>
+
+        <div class="qflow" id="qflow">
+          <svg class="qflow__paths" id="qflow-paths" aria-hidden="true"></svg>
+
+          <div class="qflow__col qflow__col--input">
+            <span class="qflow__col-label">1 · Klient wpisuje do czatu</span>
+            <div class="qflow-node qflow-node--query" id="qflow-query"></div>
+          </div>
+
+          <div class="qflow__col qflow__col--models">
+            <span class="qflow__col-label">2 · Model przetwarza pytanie</span>
+            <div class="qflow-node qflow-node--model" id="qflow-model-gpt" data-model="gpt">
+              <h3>ChatGPT</h3>
+              <p class="qflow-node__sub">GPT-5.5 thinking</p>
+              <span class="qflow-engine qflow-engine--gpt">szuka przez Bing</span>
+            </div>
+            <div class="qflow-node qflow-node--model" id="qflow-model-gemini" data-model="gemini">
+              <h3>Gemini</h3>
+              <p class="qflow-node__sub">Gemini 2.5 Flash</p>
+              <span class="qflow-engine qflow-engine--gemini">szuka przez Google</span>
+            </div>
+          </div>
+
+          <div class="qflow__col qflow__col--fanouts">
+            <span class="qflow__col-label">3 · Faktyczne zapytania do wyszukiwarki</span>
+            <div id="qflow-fanouts"></div>
+          </div>
+        </div>
+
+        <div class="qflow-insights">
+          <div class="qflow-insight qflow-insight--gpt">
+            <h3>ChatGPT szuka „urzędowo"</h3>
+            <p id="qflow-insight-gpt"></p>
+          </div>
+          <div class="qflow-insight qflow-insight--gemini">
+            <h3>Gemini szuka „poradnikowo"</h3>
+            <p id="qflow-insight-gemini"></p>
+          </div>
+        </div>
+
+        <a class="next-cue" href="#zrodla">Zobacz, jakie źródła wygrywają te wyszukiwania</a>
       </div>
     </section>
 
-    <!-- ======================= S3 — SOURCES MAP ======================= -->
+    <!-- ======================= S3 - SOURCES MAP ======================= -->
     <section class="section" id="zrodla" data-act="3">
       <div class="section__inner">
         <p class="eyebrow">Akt 3 · Dowód</p>
@@ -182,16 +232,11 @@
       </div>
     </section>
 
-    <!-- ======================= S4 — VISIBILITY GAP ======================= -->
+    <!-- ======================= S4 - VISIBILITY GAP ======================= -->
     <section class="section section--dark" id="luka" data-act="3">
       <div class="section__inner">
         <p class="eyebrow">Akt 3 · Kulminacja</p>
         <h2 class="section-title">Luka widoczności</h2>
-        <p class="section-lead">
-          Modele AI nie wybierają stron w sporze. Syntetyzują to, co znajdą.
-          Dziś znajdują głównie jedną perspektywę — nie dlatego, że AI jest stronnicze,
-          lecz dlatego, że jedna strona publikuje, a druga milczy.
-        </p>
 
         <div class="cloud-filters" id="cloud-filters" role="group" aria-label="Filtruj frazy">
           <button type="button" class="chip is-active" data-filter="all">Wszystkie frazy</button>
@@ -201,23 +246,11 @@
 
         <div class="cloud" id="cloud"></div>
 
-        <div class="cloud-legend">
-          <span><i style="background:#ff9d94"></i>narracja pro-pozwowa</span>
-          <span><i style="background:#cdaede"></i>frazy neutralne / faktograficzne</span>
-        </div>
-
-        <p class="sov-note">
-          <span class="badge badge--todo">Share of Voice — do uzupełnienia po researchu</span><br /><br />
-          Udział głosu banku względem narracji pro-pozwowej pokazujemy na tym etapie
-          jakościowo — wielkością i liczebnością fraz. Wartości procentowe podamy po
-          domknięciu metodologii pomiaru.
-        </p>
-
         <a class="next-cue" href="#zasady">Dobra wiadomość: zasady gry są znane</a>
       </div>
     </section>
 
-    <!-- ======================= S5 — ENGINE RULES ======================= -->
+    <!-- ======================= S5 - ENGINE RULES ======================= -->
     <section class="section section--tint" id="zasady" data-act="4">
       <div class="section__inner">
         <p class="eyebrow">Akt 4 · Szansa</p>
@@ -225,7 +258,7 @@
         <p class="section-lead">
           Modele preferują treści wyważone, faktograficzne, ustrukturyzowane, z widocznym
           autorstwem i potwierdzeniem w wielu źródłach. To naturalna przewaga instytucji,
-          która ma dane, ekspertów i autorytet — jeśli udostępni je w formacie czytelnym
+          która ma dane, ekspertów i autorytet, jeśli udostępni je w formacie czytelnym
           dla maszyn.
         </p>
 
@@ -241,7 +274,7 @@
       </div>
     </section>
 
-    <!-- ======================= S6 — RECOMMENDATIONS ======================= -->
+    <!-- ======================= S6 - RECOMMENDATIONS ======================= -->
     <section class="section" id="rekomendacje" data-act="5">
       <div class="section__inner">
         <p class="eyebrow">Akt 5 · Plan działania</p>
@@ -249,7 +282,7 @@
         <p class="section-lead">
           Pierwszy krok nie wymaga ani nowych treści, ani budżetu mediowego: to audyt, czy
           strona banku jest w ogóle technicznie dostępna dla wyszukiwarek AI. Bywa, że nie
-          jest — i to unieważnia wszystkie pozostałe działania.
+          jest, a to unieważnia wszystkie pozostałe działania.
         </p>
 
         <div class="owner-filters" id="owner-filters" role="group" aria-label="Filtruj działania po właścicielu">
@@ -260,34 +293,8 @@
           <button type="button" class="chip chip--light" data-owner="Legal">Legal</button>
         </div>
 
-        <div class="matrix-layout">
-          <div>
-            <div class="matrix" id="matrix"></div>
-            <div class="matrix-legend" id="matrix-legend"></div>
-            <p class="method-note">
-              Pozycje punktów odzwierciedlają oceny wpływu i trudności z raportu
-              strategicznego Dentons (rozdz. „Priorytetyzacja roadmapy"). Kliknij punkt,
-              aby zobaczyć kartę działania.
-            </p>
-          </div>
-          <aside class="action-card" id="action-card" aria-live="polite">
-            <p class="placeholder">Kliknij działanie na macierzy, aby zobaczyć jego kartę:
-              opis, uzasadnienie mechaniką AI, właściciela i horyzont czasowy.</p>
-          </aside>
-        </div>
-
-        <div class="roadmap" id="roadmap">
-          <h3>Roadmapa wdrożenia</h3>
-          <div class="roadmap-track" aria-hidden="true">
-            <svg viewBox="0 0 1100 70" preserveAspectRatio="none">
-              <path class="roadmap-line" id="roadmap-line"
-                d="M 10 35 H 1058 l -16 -10 m 16 10 l -16 10" />
-              <circle cx="10" cy="35" r="6" fill="#f1b434" class="roadmap-ms" />
-              <circle cx="376" cy="35" r="6" fill="#a05eb5" class="roadmap-ms" />
-              <circle cx="742" cy="35" r="6" fill="#702082" class="roadmap-ms" />
-            </svg>
-          </div>
-          <div class="roadmap-cols" id="roadmap-cols"></div>
+        <div class="bento" id="bento">
+          <!-- recommendation cards injected by src/sections/bento.js -->
         </div>
 
         <div class="disclaimer">
@@ -301,7 +308,7 @@
       </div>
     </section>
 
-    <!-- ======================= S7 — MONITORING ======================= -->
+    <!-- ======================= S7 - MONITORING ======================= -->
     <section class="section section--tint" id="monitoring" data-act="5">
       <div class="section__inner">
         <p class="eyebrow">Akt 5 · Pomiar</p>
@@ -312,7 +319,7 @@
         </p>
 
         <div class="dashboard" id="dashboard">
-          <span class="dashboard__badge badge badge--illustrative">Przykładowy widok raportu — wartości ilustracyjne</span>
+          <span class="dashboard__badge badge badge--illustrative">Przykładowy widok raportu: wartości ilustracyjne</span>
           <div class="kpi-row" id="kpi-row"></div>
           <div class="trend-chart" id="trend-chart">
             <div class="trend-tooltip" id="trend-tooltip"></div>
@@ -320,8 +327,8 @@
         </div>
 
         <p class="method-strip">
-          <strong>Metodyka:</strong> stały zestaw ok. 50 promptów referencyjnych —
-          sformułowanych z perspektywy konsumenta — testowany co miesiąc w głównych
+          <strong>Metodyka:</strong> stały zestaw ok. 50 promptów referencyjnych,
+          sformułowanych z perspektywy konsumenta, testowany co miesiąc w głównych
           modelach (ChatGPT, Gemini, Perplexity, Copilot, Claude). Raportujemy zmianę
           miesiąc do miesiąca; wszystkie wartości na tej makiecie są ilustracyjne.
         </p>
@@ -330,7 +337,7 @@
       </div>
     </section>
 
-    <!-- ======================= S8 — CLOSING ======================= -->
+    <!-- ======================= S8 - CLOSING ======================= -->
     <section class="section closing" id="kontakt" data-act="5">
       <div class="section__inner">
         <div class="closing__logo">
@@ -352,7 +359,7 @@
           </div>
           <div class="role-block">
             <h3>Insighty</h3>
-            <p>Własny research przestrzeni zapytań i źródeł — powtarzany cyklicznie, aby
+            <p>Własny research przestrzeni zapytań i źródeł, powtarzany cyklicznie, aby
               rekomendacje odpowiadały temu, jak modele faktycznie szukają i cytują.</p>
           </div>
           <div class="role-block">

@@ -1,7 +1,7 @@
 import { gsap, prefersReducedMotion } from '../lib/motion.js';
 
 /**
- * S0 — hero. A decorative ChatGPT-style prompt bar types real consumer
+ * S0 - hero. A decorative ChatGPT-style prompt bar types real consumer
  * questions in an endless loop: type → hold → backspace → next phrase.
  */
 const TYPE_MS = 60;

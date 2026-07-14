@@ -2,7 +2,7 @@ import { gsap, prefersReducedMotion } from '../lib/motion.js';
 import { htmlEl } from '../lib/svg.js';
 
 /**
- * S4 — phrase cloud. Font size maps the phrase's real occurrence count in the
+ * S4 - phrase cloud. Font size maps the phrase's real occurrence count in the
  * observed fan-out queries; tone (claim / neutral) maps to color. The filter
  * dims the other tone instead of removing it, so the asymmetry stays visible.
  */

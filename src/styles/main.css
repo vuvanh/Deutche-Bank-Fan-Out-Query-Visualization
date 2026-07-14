@@ -1,5 +1,5 @@
-/* ============================================================
-   Dentons × Deutsche Bank — AI Visibility demo
+﻿/* ============================================================
+   Dentons × Deutsche Bank - AI Visibility demo
    Brand tokens from context/brand_guide.md. Content is Polish;
    code and class names are English.
    ============================================================ */
@@ -99,6 +99,7 @@ button {
 }
 
 .section--tint { background: var(--paper-tint); }
+
 
 .section__inner {
   max-width: var(--content-max);
@@ -320,7 +321,7 @@ button {
 }
 
 /* ============================================================
-   S0 — HERO
+   S0 - HERO
    ============================================================ */
 
 .hero {
@@ -361,10 +362,10 @@ button {
 .chat-mock {
   display: flex;
   align-items: center;
-  gap: 12px;
-  width: min(720px, 100%);
+  gap: 14px;
+  width: min(880px, 100%);
   margin: 0 auto 56px;
-  padding: 12px 12px 12px 18px;
+  padding: 18px 16px 18px 26px;
   background: #303030;
   border-radius: 999px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
@@ -383,7 +384,7 @@ button {
   flex: 1;
   min-width: 0;
   text-align: left;
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
   color: #ececec;
   white-space: nowrap;
   overflow: hidden;
@@ -413,8 +414,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: #fff;
   color: #0d0d0d;
@@ -425,7 +426,7 @@ button {
 }
 
 /* ============================================================
-   S1 — JOURNEY (minimal animated infographic)
+   S1 - JOURNEY (minimal animated infographic)
    ============================================================ */
 
 .journey {
@@ -443,14 +444,15 @@ button {
     transform 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
 }
 
-/* hover: the active step lifts and lights up, the rest recede */
-.journey__step:hover {
+/* auto-cycling selection (driven by journey.js): the current step lifts and
+   lights up, the rest recede; the loop hands over from step to step */
+.journey__step.is-current {
   background: #fff;
   box-shadow: var(--shadow-lift);
   transform: translateY(-5px);
 }
 
-.journey:hover .journey__step:not(:hover) { opacity: 0.45; }
+.journey.has-current .journey__step:not(.is-current) { opacity: 0.45; }
 
 /* entrance: steps slide in left→right once the section scrolls into view.
    fill-mode backwards (not forwards) so finished steps return to base styles
@@ -507,8 +509,10 @@ button {
 }
 
 /* ---------- shared animation stage above each step ----------
-   Everything is centered in its stage; the looping animation of a step
-   only plays while that step is hovered — idle steps show a static frame. */
+   Everything is centered in its stage. Each step's animation plays only
+   while that step is .is-current (journey.js cycles the selection). The
+   idle frame always equals the first/last keyframe, so nothing jumps
+   when an animation starts or the selection moves on. */
 
 .journey__viz {
   position: relative;
@@ -520,7 +524,9 @@ button {
   justify-content: center;
 }
 
-/* step 1: chatbot logos crossfading above a symbolic input box */
+/* step 1: chatbot logos crossfading above a symbolic input box.
+   Idle = first logo visible; the first image starts its loop mid-fade-in
+   (negative delay) so the loop begins exactly at the idle frame. */
 .bot-stack {
   position: relative;
   width: 52px;
@@ -538,12 +544,13 @@ button {
 
 .bot-stack img:first-child { opacity: 1; }
 
-.journey__step:hover .bot-stack img {
-  animation: bot-fade 9s infinite;
+.journey__step.is-current .bot-stack img {
+  animation: bot-fade 6s infinite;
 }
 
-.journey__step:hover .bot-stack img:nth-child(2) { animation-delay: 3s; }
-.journey__step:hover .bot-stack img:nth-child(3) { animation-delay: 6s; }
+.journey__step.is-current .bot-stack img:nth-child(1) { animation-delay: -0.42s; }
+.journey__step.is-current .bot-stack img:nth-child(2) { animation-delay: 1.58s; }
+.journey__step.is-current .bot-stack img:nth-child(3) { animation-delay: 3.58s; }
 
 @keyframes bot-fade {
   0% { opacity: 0; transform: scale(0.9); }
@@ -572,7 +579,7 @@ button {
   background: var(--purple-light);
 }
 
-.journey__step:hover .bot-input i {
+.journey__step.is-current .bot-input i {
   animation: caret-blink 1.1s steps(1) infinite;
 }
 
@@ -606,16 +613,20 @@ button {
   transform: translate(-50%, -50%);
 }
 
-.journey__step:hover .scan-glass {
-  animation: scan-sweep 2.4s ease-in-out infinite alternate;
+/* one full sweep: center → left → right → back to the idle center frame */
+.journey__step.is-current .scan-glass {
+  animation: scan-sweep 4s ease-in-out both;
 }
 
 @keyframes scan-sweep {
-  from { transform: translate(-84px, -58%); }
-  to { transform: translate(56px, -42%); }
+  0% { transform: translate(-50%, -50%); }
+  25% { transform: translate(-84px, -58%); }
+  75% { transform: translate(50px, -42%); }
+  100% { transform: translate(-50%, -50%); }
 }
 
-/* step 3: pulsing synthesis word cloud (static composition when idle) */
+/* step 3: pulsing synthesis word cloud (static composition when idle);
+   each word pulses once per selection, starting and ending at the idle frame */
 .journey__viz--cloud span {
   position: absolute;
   font-weight: 800;
@@ -623,8 +634,8 @@ button {
   opacity: 0.75;
 }
 
-.journey__step:hover .journey__viz--cloud span {
-  animation: word-pulse 5.2s infinite;
+.journey__step.is-current .journey__viz--cloud span {
+  animation: word-pulse 4s ease-in-out both;
 }
 
 .journey__viz--cloud span:nth-child(1) {
@@ -636,29 +647,29 @@ button {
   left: 52%; top: 52px;
   font-size: 1rem;
   color: var(--red);
-  animation-delay: 1.3s;
+  animation-delay: 0.35s;
 }
 
 .journey__viz--cloud span:nth-child(3) {
   left: 24%; bottom: 8px;
   font-size: 0.88rem;
   color: var(--purple-light);
-  animation-delay: 2.6s;
+  animation-delay: 0.7s;
 }
 
 .journey__viz--cloud span:nth-child(4) {
   left: 40%; top: 6px;
   font-size: 0.8rem;
   color: var(--ink-muted);
-  animation-delay: 3.9s;
+  animation-delay: 1.05s;
 }
 
 @keyframes word-pulse {
-  0% { opacity: 0; transform: scale(0.85); }
-  14% { opacity: 1; transform: scale(1.06); }
-  34% { opacity: 0.85; transform: scale(1); }
-  52% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 0; transform: scale(0.9); }
+  0% { opacity: 0.75; transform: scale(1); }
+  18% { opacity: 1; transform: scale(1.12); }
+  45% { opacity: 0.3; transform: scale(0.9); }
+  72% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.75; transform: scale(1); }
 }
 
 /* step 4: document with a checkmark snapping in (the decision is made) */
@@ -670,41 +681,32 @@ button {
 
 .verdict-check {
   stroke-dasharray: 30;
-  stroke-dashoffset: 0; /* idle: decision already stamped */
+  stroke-dashoffset: 0; /* idle: decision already stamped = end of animation */
   transform-origin: 24px 40px;
 }
 
-.journey__step:hover .verdict-check {
-  animation: check-strike 4.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+/* one decisive strike per selection, ending exactly at the idle frame */
+.journey__step.is-current .verdict-check {
+  animation: check-strike 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 @keyframes check-strike {
-  0%, 12% { stroke-dashoffset: 30; opacity: 1; transform: scale(0.7); }
-  26% { stroke-dashoffset: 0; opacity: 1; transform: scale(1.12); }
-  34% { transform: scale(1); }
-  78% { stroke-dashoffset: 0; opacity: 1; transform: scale(1); }
-  92%, 100% { stroke-dashoffset: 30; opacity: 0; transform: scale(0.9); }
+  0% { stroke-dashoffset: 30; opacity: 0; transform: scale(0.7); }
+  12% { opacity: 1; }
+  45% { stroke-dashoffset: 0; transform: scale(1.14); }
+  62% { transform: scale(1); }
+  100% { stroke-dashoffset: 0; opacity: 1; transform: scale(1); }
 }
 
 /* ============================================================
-   S2 — FAN-OUT SIMULATOR
+   S2 - QUERY FLOW (fan-out: prompt → model → search queries)
    ============================================================ */
 
-.fanout-stage { position: relative; }
-
-.fanout-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 26px;
-}
-
-.fanout-questions {
+.qflow-questions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-bottom: 36px;
 }
 
 .chip {
@@ -734,63 +736,88 @@ button {
   display: block;
 }
 
-.model-toggle {
-  display: inline-flex;
-  border: 1.5px solid rgba(246, 242, 250, 0.35);
-  border-radius: 999px;
-  overflow: hidden;
-}
+/* ---------- flow stage: 3 columns bridged by SVG curves ---------- */
 
-.model-toggle button {
-  border: 0;
-  background: transparent;
-  color: var(--ink-on-dark-soft);
-  font-weight: 700;
-  font-size: 0.92rem;
-  padding: 10px 22px;
-  transition: all 0.18s;
-}
-
-.model-toggle button.is-active {
-  background: var(--purple-light);
-  color: #fff;
-}
-
-.fanout-canvas {
+.qflow {
   position: relative;
-  width: 100%;
-  min-height: 560px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr) minmax(0, 1.5fr);
+  gap: 56px;
+  align-items: stretch;
+  transition: opacity 0.3s;
 }
 
-.fanout-canvas svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.qflow.is-pending { opacity: 0; }
 
-.fanout-canvas .branch-path {
-  fill: none;
-  stroke: var(--purple-light);
-  stroke-width: 1.6;
-  opacity: 0.85;
-}
-
-.fanout-center {
+.qflow__paths {
   position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 300px;
-  text-align: center;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.qflow-path {
+  fill: none;
+  stroke-width: 1.6;
+  opacity: 0.8;
+  transition: opacity 0.25s, stroke-width 0.25s;
+}
+
+.qflow-path--gpt { stroke: var(--gold); }
+.qflow-path--gemini { stroke: var(--blue); }
+
+.qflow__col {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* query + models vertically centered against the tall fan-out column */
+.qflow__col--input { justify-content: center; }
+.qflow__col--models { justify-content: center; gap: 56px; }
+
+.qflow__col-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-on-dark-muted);
+}
+
+.qflow__col--input .qflow__col-label,
+.qflow__col--models .qflow__col-label {
+  position: absolute;
+  top: 0;
+}
+
+.qflow-node {
+  background: rgba(246, 242, 250, 0.07);
+  border: 1px solid rgba(160, 94, 181, 0.55);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--ink-on-dark);
+  backdrop-filter: blur(2px);
+  transition: opacity 0.25s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.qflow-node--query {
   background: var(--gold);
+  border-color: var(--gold);
   color: var(--purple-xdark);
   font-weight: 700;
   font-size: 1rem;
-  line-height: 1.35;
-  padding: 16px 22px;
-  border-radius: 14px;
+  line-height: 1.4;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35);
-  z-index: 3;
 }
 
-.fanout-center small {
+.qflow-node--query small {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -798,24 +825,64 @@ button {
   margin-bottom: 4px;
 }
 
-.fanout-node {
-  position: absolute;
-  max-width: 250px;
-  background: rgba(246, 242, 250, 0.07);
-  border: 1px solid rgba(160, 94, 181, 0.55);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 0.84rem;
-  line-height: 1.4;
-  color: var(--ink-on-dark);
-  backdrop-filter: blur(2px);
-  z-index: 2;
+.qflow-node--model { cursor: pointer; }
+
+.qflow-node--model h3 { margin: 0; font-size: 1.05rem; }
+
+.qflow-node--model[data-model="gpt"] { border-color: rgba(241, 180, 52, 0.6); }
+.qflow-node--model[data-model="gemini"] { border-color: rgba(0, 169, 224, 0.6); }
+
+.qflow-node__sub {
+  margin: 2px 0 10px;
+  font-size: 0.76rem;
+  color: var(--ink-on-dark-muted);
 }
 
-.fanout-node .source-tag {
+.qflow-engine {
   display: inline-block;
-  margin-top: 6px;
   font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.qflow-engine--gpt { background: rgba(241, 180, 52, 0.22); color: #ffdf9e; }
+.qflow-engine--gemini { background: rgba(0, 169, 224, 0.22); color: #aee6f9; }
+
+/* fan-out column: model groups with compact query nodes */
+
+.qflow-group { margin-bottom: 22px; }
+.qflow-group:last-child { margin-bottom: 0; }
+
+.qflow-group__label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.qflow-group--gpt .qflow-group__label { color: var(--gold); }
+.qflow-group--gemini .qflow-group__label { color: var(--blue); }
+
+.qflow-fanout {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  padding: 9px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.qflow-fanout--gpt { border-color: rgba(241, 180, 52, 0.4); }
+.qflow-fanout--gemini { border-color: rgba(0, 169, 224, 0.4); }
+
+.qflow-fanout .source-tag {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -823,34 +890,48 @@ button {
   border-radius: 999px;
   background: rgba(160, 94, 181, 0.3);
   color: #e7d4f0;
+  vertical-align: 1px;
+  white-space: nowrap;
 }
 
-.fanout-node .source-tag--regulator { background: rgba(0, 169, 224, 0.28); color: #aee6f9; }
-.fanout-node .source-tag--kancelarie { background: rgba(218, 41, 28, 0.3); color: #ffb5ae; }
-.fanout-node .source-tag--media { background: rgba(241, 180, 52, 0.26); color: #ffdf9e; }
+.qflow-fanout .source-tag--regulator { background: rgba(0, 169, 224, 0.28); color: #aee6f9; }
+.qflow-fanout .source-tag--kancelarie { background: rgba(218, 41, 28, 0.3); color: #ffb5ae; }
+.qflow-fanout .source-tag--media { background: rgba(241, 180, 52, 0.26); color: #ffdf9e; }
 
-.fanout-empty {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  text-align: center;
-  color: var(--ink-on-dark-muted);
-  z-index: 4;
+/* hover focus: highlight the hovered chain, dim everything else */
+
+.qflow.has-focus .qflow-node:not(.is-active) { opacity: 0.22; }
+.qflow.has-focus .qflow-path:not(.is-active) { opacity: 0.1; }
+
+.qflow.has-focus .qflow-path.is-active {
+  opacity: 1;
+  stroke-width: 2.6;
 }
 
-.insight-box {
-  margin-top: 30px;
-  padding: 24px 28px;
+.qflow.has-focus .qflow-node.is-active {
+  border-color: currentColor;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+}
+
+/* model insights under the flow */
+
+.qflow-insights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 44px;
+}
+
+.qflow-insight {
+  padding: 22px 26px;
   border-radius: var(--radius);
   background: rgba(0, 0, 0, 0.22);
   border: 1px solid rgba(241, 180, 52, 0.4);
 }
 
-.insight-box h3 {
+.qflow-insight--gemini { border-color: rgba(0, 169, 224, 0.4); }
+
+.qflow-insight h3 {
   margin: 0 0 8px;
   font-size: 0.82rem;
   letter-spacing: 0.14em;
@@ -858,10 +939,14 @@ button {
   color: var(--gold);
 }
 
-.insight-box p { margin: 0; color: var(--ink-on-dark-soft); max-width: 74ch; }
+.qflow-insight--gemini h3 { color: var(--blue); }
+
+.qflow-insight p { margin: 0; color: var(--ink-on-dark-soft); font-size: 0.92rem; }
+
+.method-note--on-dark { color: var(--ink-on-dark-muted); }
 
 /* ============================================================
-   S3 — SOURCES DONUT INFOGRAPHIC
+   S3 - SOURCES DONUT INFOGRAPHIC
    ============================================================ */
 
 .donut-layout {
@@ -1107,7 +1192,7 @@ button {
 }
 
 /* ============================================================
-   S4 — PHRASE CLOUD
+   S4 - PHRASE CLOUD
    ============================================================ */
 
 .cloud-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
@@ -1155,56 +1240,217 @@ button {
 }
 
 /* ============================================================
-   S5 — ENGINE RULES
+   S5 - ENGINE RULES
    ============================================================ */
 
 .engines {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding-top: 36px; /* room for the overlapping logo medallions */
 }
 
 .engine-card {
+  position: relative;
   background: #fff;
-  border: 1px solid rgba(112, 32, 130, 0.14);
-  border-radius: var(--radius);
-  padding: 26px;
-  box-shadow: var(--shadow-card);
+  border-radius: 18px;
+  padding: 48px 30px 28px;
+  box-shadow: 0 4px 18px rgba(60, 16, 83, 0.07);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out),
+    opacity 0.3s var(--ease-out);
 }
 
-.engine-card h3 { margin: 0 0 4px; font-size: 1.15rem; }
-.engine-card .engine-sub { font-size: 0.82rem; color: var(--ink-muted); margin: 0 0 16px; }
-
-.engine-card ul { margin: 0 0 14px; padding-left: 20px; }
-.engine-card li { margin: 6px 0; font-size: 0.94rem; }
-
-.engine-card .engine-meaning {
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  background: var(--paper-tint);
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin: 0 0 14px;
+/* hover focus: the read card grows, its siblings recede */
+.engine-card:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 18px 44px rgba(60, 16, 83, 0.16);
+  z-index: 2;
 }
 
-.engine-card details { margin-top: auto; font-size: 0.88rem; }
+.engines:hover .engine-card:not(:hover) { opacity: 0.5; }
 
-.engine-card summary {
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--purple-core);
+/* logo medallion overlapping the card's top edge */
+.engine-card__logo {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(60, 16, 83, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.engine-card__logo img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.engine-card h3 {
+  margin: 0 0 4px;
+  font-size: 1.12rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.engine-card .engine-sub {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin: 0 0 22px;
+  text-align: center;
+}
+
+/* check list: custom accent-colored SVG marks instead of bullets */
+.engine-list {
   list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.engine-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.engine-list__check {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--accent, var(--purple-core));
+}
+
+/* "Dla banku" - the key takeaway, tinted with the model's accent */
+.engine-meaning {
+  margin: 0 0 18px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--accent-soft, var(--paper-tint));
+  border-left: 3px solid var(--accent, var(--purple-core));
+}
+
+.engine-meaning__label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
 }
 
-.engine-card summary::after { content: "+"; font-size: 1.1rem; }
-.engine-card details[open] summary::after { content: "–"; }
+.engine-meaning__icon {
+  width: 17px;
+  height: 17px;
+  color: var(--accent, var(--purple-core));
+}
 
-.engine-card details p { color: var(--ink-soft); margin: 10px 0 0; }
+.engine-card:hover .engine-meaning__icon {
+  animation: bulb-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes bulb-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.22); opacity: 0.75; }
+}
+
+.engine-meaning p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* "Dla zainteresowanych" - pill button that invites on hover */
+.engine-more { margin-top: auto; font-size: 0.88rem; }
+
+.engine-more summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent, var(--purple-core));
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out),
+    padding 0.25s var(--ease-out);
+}
+
+.engine-more summary::-webkit-details-marker { display: none; }
+
+.engine-more summary:hover {
+  background: var(--accent-soft, var(--paper-tint));
+  border-color: var(--accent, var(--purple-core));
+  padding-right: 24px;
+}
+
+.engine-more__arrow {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.engine-more summary:hover .engine-more__arrow { transform: translateX(5px); }
+
+.engine-more[open] .engine-more__arrow { transform: rotate(90deg); }
+.engine-more[open] summary:hover .engine-more__arrow { transform: rotate(90deg) translateY(-5px); }
+
+.engine-more__label {
+  display: block;
+  margin: 14px 4px 8px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.engine-more__list {
+  list-style: none;
+  margin: 0 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.engine-more__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.engine-more__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent, var(--purple-core));
+  opacity: 0.65;
+}
 
 .common-denominator {
   margin-top: 34px;
@@ -1218,7 +1464,7 @@ button {
 .common-denominator strong { color: var(--gold); }
 
 /* ============================================================
-   S6 — RECOMMENDATIONS
+   S6 - RECOMMENDATIONS
    ============================================================ */
 
 .owner-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 26px; }
@@ -1231,65 +1477,85 @@ button {
 .chip--light:hover { border-color: var(--purple-core); color: var(--purple-core); }
 .chip--light.is-active { background: var(--purple-core); border-color: var(--purple-core); color: #fff; }
 
-.matrix-layout {
+/* ---------- bento grid: asymmetric tiles, dense flow ---------- */
+
+.bento {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: dense;
+  gap: 20px;
   align-items: start;
 }
 
-.matrix {
+.bento-card {
   position: relative;
-  background: #fff;
-  border: 1px solid rgba(112, 32, 130, 0.14);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
-  padding: 10px;
+  grid-column: span 2;
+  background:
+    radial-gradient(340px 190px at 100% 0%, var(--h-glow, transparent), transparent 70%),
+    #fff;
+  border-radius: 24px;
+  padding: 26px 26px 22px;
+  box-shadow: 0 2px 10px rgba(60, 16, 83, 0.06);
+  cursor: default;
+  outline: none;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out),
+    opacity 0.45s var(--ease-out), filter 0.45s var(--ease-out);
+  /* soft horizon glow derived from the card's accent */
+  --h-glow: color-mix(in srgb, var(--h-color, var(--purple-light)) 12%, transparent);
 }
 
-.matrix svg { width: 100%; height: auto; display: block; }
+.bento-card--wide { grid-column: span 3; }
+.bento-card--hero { grid-column: span 4; }
 
-.matrix .dot {
-  cursor: pointer;
-  transition: transform 0.15s var(--ease-out);
-  transform-box: fill-box;
-  transform-origin: center;
+/* reveal on hover: lift + grow while the hidden panel unfolds */
+.bento-card:hover,
+.bento-card:focus-within {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 22px 48px rgba(60, 16, 83, 0.18);
+  z-index: 3;
 }
 
-.matrix .dot:hover { transform: scale(1.35); }
-.matrix .dot.is-selected { stroke: var(--purple-xdark); stroke-width: 2.5; }
-.matrix .dot.is-faded { opacity: 0.15; pointer-events: none; }
+.bento-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
 
-.matrix .axis-label {
-  font-size: 12px;
-  font-weight: 700;
+.bento-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  fill: var(--ink-muted);
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--h-color, var(--purple-core)) 14%, white);
+  color: color-mix(in srgb, var(--h-color, var(--purple-core)) 78%, black);
 }
 
-.matrix .quadrant-label { font-size: 11px; font-weight: 700; fill: var(--grey-light); text-transform: uppercase; letter-spacing: 0.06em; }
-
-.action-card {
-  background: #fff;
-  border: 1px solid rgba(112, 32, 130, 0.18);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
-  padding: 24px;
-  position: sticky;
-  top: calc(var(--nav-height) + 18px);
-  min-height: 300px;
+.bento-badge--qw {
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: #8a6413;
 }
 
-.action-card .placeholder { color: var(--ink-muted); font-size: 0.92rem; }
+.bento-card__title {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
 
-.action-card h3 { margin: 0 0 10px; font-size: 1.1rem; line-height: 1.35; }
-.action-card .action-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.bento-card__tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
-.pill {
-  font-size: 0.72rem;
+.bento-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: 999px;
@@ -1297,61 +1563,98 @@ button {
   color: var(--purple-core);
 }
 
-.pill--horizon { background: rgba(241, 180, 52, 0.18); color: #8a6413; }
-
-.action-card p { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 10px; }
-.action-card .action-why { font-size: 0.86rem; border-left: 3px solid var(--purple-light); padding-left: 12px; }
-
-.matrix-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; font-size: 0.82rem; color: var(--ink-soft); }
-.matrix-legend i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; margin-right: 6px; }
-
-/* roadmap */
-
-.roadmap { margin-top: 70px; }
-
-.roadmap h3 { font-size: 1.4rem; margin: 0 0 30px; }
-
-.roadmap-track { position: relative; padding: 0 0 10px; }
-
-.roadmap-track svg { width: 100%; height: 70px; display: block; }
-
-.roadmap-line {
-  stroke: var(--purple-light);
-  stroke-width: 3;
-  fill: none;
+/* department glyphs: same icon in card tags and filter chips */
+.owner-glyph {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
 }
 
-.roadmap-cols {
+.owner-filters .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.owner-filters .owner-glyph { width: 14px; height: 14px; }
+
+/* hidden content: unfolds via grid-template-rows 0fr -> 1fr */
+.bento-card__reveal {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.45s var(--ease-out), opacity 0.35s ease 0.05s,
+    margin-top 0.45s var(--ease-out);
+  margin-top: 0;
 }
 
-.roadmap-col h4 {
-  margin: 0 0 6px;
-  font-size: 1rem;
-  color: var(--purple-core);
+.bento-card:hover .bento-card__reveal,
+.bento-card:focus-within .bento-card__reveal {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 16px;
 }
 
-.roadmap-col .roadmap-window { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 700; }
+.bento-card__reveal-inner { overflow: hidden; }
 
-.roadmap-col ul { margin: 12px 0 0; padding: 0; list-style: none; }
-
-.roadmap-col li {
-  position: relative;
-  padding: 8px 0 8px 26px;
-  font-size: 0.9rem;
-  border-bottom: 1px solid rgba(112, 32, 130, 0.08);
+.bento-card__summary {
+  margin: 0 0 12px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
 }
 
-.roadmap-col li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 13px;
-  width: 15px; height: 10px;
-  background: var(--gold);
-  clip-path: polygon(0 0, 62% 0, 100% 50%, 62% 100%, 0 100%, 0 72%, 52% 72%, 68% 50%, 52% 28%, 0 28%);
+/* "why it works" glass panel */
+.bento-card__why {
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--h-color, var(--purple-light)) 7%, rgba(255, 255, 255, 0.75));
+  border: 1px solid color-mix(in srgb, var(--h-color, var(--purple-light)) 22%, transparent);
+  backdrop-filter: blur(6px);
 }
+
+.bento-card__why strong {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--h-color, var(--purple-core)) 74%, black);
+  margin-bottom: 5px;
+}
+
+.bento-card__why p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* touch devices have no hover: keep every card unfolded */
+@media (hover: none) {
+  .bento-card__reveal { grid-template-rows: 1fr; opacity: 1; margin-top: 16px; }
+}
+
+/* ---------- magic filtering: recede instead of disappear ---------- */
+
+.bento-card.is-muted {
+  transform: scale(0.95);
+  opacity: 0.2;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+.bento-card.is-focus {
+  animation: bento-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes bento-pulse {
+  0%, 100% { box-shadow: 0 4px 16px color-mix(in srgb, var(--h-color, var(--purple-core)) 22%, transparent); }
+  50% { box-shadow: 0 10px 34px color-mix(in srgb, var(--h-color, var(--purple-core)) 42%, transparent); }
+}
+
+/* hovered focus card: the lift shadow wins over the pulse */
+.bento-card.is-focus:hover { animation: none; }
 
 .disclaimer {
   margin-top: 54px;
@@ -1367,7 +1670,7 @@ button {
 .disclaimer strong { color: var(--purple-core); }
 
 /* ============================================================
-   S7 — KPI DASHBOARD
+   S7 - KPI DASHBOARD
    ============================================================ */
 
 .dashboard {
@@ -1445,7 +1748,7 @@ button {
 }
 
 /* ============================================================
-   S8 — CLOSING
+   S8 - CLOSING
    ============================================================ */
 
 .closing { padding-bottom: 60px; }
@@ -1483,7 +1786,7 @@ button {
 .footer .section__inner { display: flex; flex-direction: column; gap: 8px; }
 
 /* ============================================================
-   Responsive — must survive a 13" laptop (~1280×800) and degrade
+   Responsive - must survive a 13" laptop (~1280×800) and degrade
    gracefully below.
    ============================================================ */
 
@@ -1491,19 +1794,25 @@ button {
   .journey { grid-template-columns: repeat(2, 1fr); }
   .journey__step:nth-child(2)::after,
   .journey__step:nth-child(2)::before { display: none; }
-  .engines { grid-template-columns: 1fr; }
-  .matrix-layout { grid-template-columns: 1fr; }
-  .action-card { position: static; min-height: 0; }
+  .engines { grid-template-columns: 1fr; gap: 52px; }
+  .bento { grid-template-columns: repeat(2, 1fr); }
+  .bento-card { grid-column: span 1; }
+  .bento-card--wide, .bento-card--hero { grid-column: span 2; }
   .donut-layout { grid-template-columns: 1fr; gap: 30px; }
   .donut-legend { max-width: 520px; margin: 0 auto; width: 100%; }
+  .qflow { grid-template-columns: 1fr; gap: 30px; }
+  .qflow__col--input .qflow__col-label,
+  .qflow__col--models .qflow__col-label { position: static; }
+  .qflow__col--models { gap: 16px; }
+  .qflow-insights { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
   .nav__links a { padding: 8px 8px; font-size: 0.8rem; }
   .kpi-row { grid-template-columns: 1fr; }
   .role-blocks { grid-template-columns: 1fr; }
-  .roadmap-cols { grid-template-columns: 1fr; }
-  .fanout-canvas { min-height: 640px; }
+  .bento { grid-template-columns: 1fr; }
+  .bento-card, .bento-card--wide, .bento-card--hero { grid-column: span 1; }
 }
 
 @media (max-width: 720px) {

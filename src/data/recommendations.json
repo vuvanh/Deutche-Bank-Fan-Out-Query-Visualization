@@ -1,5 +1,5 @@
 {
-  "_comment": "S6 actions. impact/difficulty are 1-5 numeric translations of the verbal ratings in context/'AI SEO dla Deutsche Bank.md' chapter 9 (roadmap prioritization table) — documented in README. owners limited to IT/Content/PR/Legal per brief.",
+  "_comment": "S6 actions. impact/difficulty are 1-5 numeric translations of the verbal ratings in context/'AI SEO dla Deutsche Bank.md' chapter 9 (roadmap prioritization table) - documented in README. owners limited to IT/Content/PR/Legal per brief.",
   "scale": {
     "impact": "1 = umiarkowany … 5 = krytyczny (wg ocen słownych raportu strategicznego)",
     "difficulty": "1 = bardzo niska … 5 = bardzo wysoka"
@@ -16,7 +16,7 @@
       "impact": 5, "difficulty": 1, "horizon": 30, "quickWin": true,
       "owners": ["IT", "Legal"],
       "summary": "Zezwolić botom wyszukiwawczym AI (OAI-SearchBot, PerplexityBot, Claude-SearchBot, ChatGPT-User) na dostęp do witryny; sprawdzić, czy zapora (np. Cloudflare) nie blokuje ich bezwiednie. Decyzja o botach treningowych (GPTBot) pozostaje odrębną polityką banku.",
-      "why": "Blokada botów wyszukiwawczych fizycznie usuwa domenę banku ze wszystkich odpowiedzi generowanych na żywo — pozostawiając pole domenom kancelarii. Bez tego kroku żadne inne działanie nie działa."
+      "why": "Blokada botów wyszukiwawczych fizycznie usuwa domenę banku ze wszystkich odpowiedzi generowanych na żywo, pozostawiając pole domenom kancelarii. Bez tego kroku żadne inne działanie nie działa."
     },
     {
       "id": "llms-txt",
@@ -28,7 +28,7 @@
     },
     {
       "id": "explainer-eur-chf",
-      "title": "Explainer „Kredyt EUR vs CHF — różnice” oparty na danych",
+      "title": "Explainer „Kredyt EUR vs CHF: różnice” oparty na danych",
       "impact": 4, "difficulty": 2.5, "horizon": 30, "quickWin": true,
       "owners": ["Content", "Legal"],
       "summary": "Tabelaryczne zestawienie twardych danych: odmienne lata udzielania, mniejsza zmienność kursowa, EURIBOR vs LIBOR, rozróżnienia w orzecznictwie. Język analityczny, bez oceniania.",
@@ -56,15 +56,15 @@
       "impact": 3, "difficulty": 1.5, "horizon": 30, "quickWin": true,
       "owners": ["Content", "Legal"],
       "summary": "Stały zestaw naturalnych pytań konsumenckich (faktograficznych, procesowych, uzasadniających) testowany co miesiąc w głównych modelach.",
-      "why": "To wspólna miara efektu: Share of Answer, Citation Rate i sentyment liczone są zawsze na tym samym zestawie pytań — zmiana wskaźnika oznacza zmianę widoczności, nie zmianę metody."
+      "why": "To wspólna miara efektu: Share of Answer, Citation Rate i sentyment liczone są zawsze na tym samym zestawie pytań; zmiana wskaźnika oznacza zmianę widoczności, nie zmianę metody."
     },
     {
       "id": "content-hub",
       "title": "Centralny Content Hub o kredytach w euro",
       "impact": 4, "difficulty": 4, "horizon": 90,
       "owners": ["Content", "PR"],
-      "summary": "Dedykowana sekcja (pillar page) porządkująca pojęcia, dane makro, podstawy prawne i ryzyka — architektura „Entity-First”, bloki po ~150 słów, cytowane źródła (KNF, NBP).",
-      "why": "Buduje autorytet tematyczny domeny banku — najsilniejszy pojedynczy predyktor cytowania w ChatGPT i AI Overviews."
+      "summary": "Dedykowana sekcja (pillar page) porządkująca pojęcia, dane makro, podstawy prawne i ryzyka. Architektura „Entity-First”, bloki po ~150 słów, cytowane źródła (KNF, NBP).",
+      "why": "Buduje autorytet tematyczny domeny banku, najsilniejszy pojedynczy predyktor cytowania w ChatGPT i AI Overviews."
     },
     {
       "id": "schema-claimreview",
@@ -80,7 +80,7 @@
       "impact": 4, "difficulty": 3.5, "horizon": 90,
       "owners": ["PR"],
       "summary": "Analizy makroekonomiczne (stabilność EURIBOR, struktura kredytów) w mediach gospodarczych; doktrynalne omówienia wyroków w portalach prawniczych. Fakty i dane, bez konkluzji oceniających.",
-      "why": "Modele krzyżowo weryfikują twierdzenia między domenami. Stanowisko obecne tylko na stronie banku to „opinia odosobniona”; potwierdzone w wielu wiarygodnych źródłach — buduje konsensus informacyjny."
+      "why": "Modele krzyżowo weryfikują twierdzenia między domenami. Stanowisko obecne tylko na stronie banku to „opinia odosobniona”; potwierdzone w wielu wiarygodnych źródłach buduje konsensus informacyjny."
     },
     {
       "id": "eeat-authorship",
@@ -92,10 +92,10 @@
     },
     {
       "id": "risk-checklist",
-      "title": "Risk checklist: koszty i niepewności procesu — uczciwie „za i przeciw”",
+      "title": "Risk checklist: koszty i niepewności procesu, uczciwie „za i przeciw”",
       "impact": 3, "difficulty": 3, "horizon": 180,
       "owners": ["Content", "Legal"],
-      "summary": "Chłodna, matematyczna lista kontrolna: opłaty sądowe, czas trwania, zmienność orzecznictwa, scenariusze rozliczeń — po stronie klienta i banku.",
+      "summary": "Chłodna, matematyczna lista kontrolna: opłaty sądowe, czas trwania, zmienność orzecznictwa, scenariusze rozliczeń po stronie klienta i banku.",
       "why": "Modele (zwłaszcza Claude i Perplexity) premiują treści rzetelnie wyliczające ryzyka obu stron. Wyważona checklista ma większą szansę na cytowanie niż tekst perswazyjny."
     },
     {
@@ -112,7 +112,7 @@
       "impact": 2.5, "difficulty": 4, "horizon": 180,
       "owners": ["IT"],
       "summary": "Treści informacyjne w stabilnym HTML bez ukrywania tekstu za skryptami; czas ładowania poniżej 2 s.",
-      "why": "Crawlery AI mają drastyczne limity czasowe — jeśli nie przetworzą strony w krótkim oknie, ignorują ją mimo wysokiego autorytetu."
+      "why": "Crawlery AI mają drastyczne limity czasowe: jeśli nie przetworzą strony w krótkim oknie, ignorują ją mimo wysokiego autorytetu."
     },
     {
       "id": "white-paper",
@@ -120,7 +120,7 @@
       "impact": 3.5, "difficulty": 4.5, "horizon": 180,
       "owners": ["PR", "Legal"],
       "summary": "Zniuansowana analiza rynku kredytów walutowych we współpracy z partnerem branżowym; wersja HTML (executive summary) obok pełnego raportu.",
-      "why": "Publikacje z zewnętrznymi autorytetami zasilają bazy wiedzy modeli długoterminowo i uwiarygadniają neutralność stanowiska — dane wchodzą do pre-treningu kolejnych generacji modeli."
+      "why": "Publikacje z zewnętrznymi autorytetami zasilają bazy wiedzy modeli długoterminowo i uwiarygadniają neutralność stanowiska; dane wchodzą do pre-treningu kolejnych generacji modeli."
     }
   ]
 }

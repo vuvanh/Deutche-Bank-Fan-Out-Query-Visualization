@@ -2,7 +2,7 @@ import { countUp } from '../lib/motion.js';
 import { svgEl, htmlEl } from '../lib/svg.js';
 
 /**
- * S7 — KPI dashboard mock. Every value is illustrative and labelled as such
+ * S7 - KPI dashboard mock. Every value is illustrative and labelled as such
  * on screen (badge in index.html + per-tile data). Counters animate on enter.
  */
 export function initDashboard(kpiData) {
