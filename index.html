@@ -14,17 +14,22 @@
   <!-- ======================= STICKY NAV ======================= -->
   <header class="nav" id="top">
     <div class="nav__inner">
-      <a class="nav__logo" href="#top" aria-label="Dentons: do początku strony">
+      <a class="nav__logo" href="#top" aria-label="Dentons: do początku strony"
+        data-i18n-attr="aria-label:nav.logoAria">
         <img src="/dentons_logo.png" alt="Dentons" />
       </a>
       <ul class="nav__links">
-        <li><a href="#problem">Problem</a></li>
-        <li><a href="#mechanizm">Mechanizm</a></li>
-        <li><a href="#zrodla">Źródła</a></li>
-        <li><a href="#luka">Luka</a></li>
-        <li><a href="#zasady">Zasady gry</a></li>
-        <li><a href="#rekomendacje">Rekomendacje</a></li>
+        <li><a href="#problem" data-i18n="nav.problem">Problem</a></li>
+        <li><a href="#mechanizm" data-i18n="nav.mechanism">Mechanizm</a></li>
+        <li><a href="#zrodla" data-i18n="nav.sources">Źródła</a></li>
+        <li><a href="#luka" data-i18n="nav.gap">Luka</a></li>
+        <li><a href="#zasady" data-i18n="nav.rules">Zasady gry</a></li>
+        <li><a href="#rekomendacje" data-i18n="nav.recommendations">Rekomendacje</a></li>
       </ul>
+      <div class="lang-switch" id="lang-switch" role="group" aria-label="Zmień język strony">
+        <button type="button" class="lang-switch__btn" data-lang="pl" lang="pl">PL</button>
+        <button type="button" class="lang-switch__btn" data-lang="en" lang="en">EN</button>
+      </div>
     </div>
     <div class="nav__progress" aria-hidden="true">
       <div class="nav__progress-fill" id="progress-fill"></div>
@@ -37,10 +42,11 @@
     <!-- ======================= S0 - HERO ======================= -->
     <section class="section section--dark hero" id="hero" data-act="1">
       <div class="hero__inner">
-        <h1 class="hero__title">Zanim klient wniósł pozew, <em>zapytał AI</em></h1>
+        <h1 class="hero__title" data-i18n="hero.title">Zanim klient wniósł pozew, <em>zapytał AI</em></h1>
 
         <!-- ChatGPT-style prompt bar; clicking it starts the story (S1) -->
-        <a class="chat-mock" href="#problem" aria-label="Przejdź do sekcji: Problem">
+        <a class="chat-mock" href="#problem" aria-label="Przejdź do sekcji: Problem"
+          data-i18n-attr="aria-label:hero.chatAria">
           <span class="chat-mock__icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round">
@@ -68,8 +74,8 @@
         </a>
 
         <div class="hero__ctas">
-          <a class="btn btn--gold" href="#mechanizm">Zobacz, jak AI odpowiada</a>
-          <a class="btn btn--ghost" href="#rekomendacje">Przejdź do rekomendacji →</a>
+          <a class="btn btn--gold" href="#mechanizm" data-i18n="hero.ctaSee">Zobacz, jak AI odpowiada</a>
+          <a class="btn btn--ghost" href="#rekomendacje" data-i18n="hero.ctaRecs">Przejdź do rekomendacji →</a>
         </div>
       </div>
     </section>
@@ -77,9 +83,9 @@
     <!-- ======================= S1 - JOURNEY ======================= -->
     <section class="section" id="problem" data-act="1">
       <div class="section__inner">
-        <p class="eyebrow">1 · Problem</p>
-        <h2 class="section-title">Nowa ścieżka klienta: od pytania do pozwu</h2>
-        <p class="section-lead">
+        <p class="eyebrow" data-i18n="journey.eyebrow">1 · Problem</p>
+        <h2 class="section-title" data-i18n="journey.title">Nowa ścieżka klienta: od pytania do pozwu</h2>
+        <p class="section-lead" data-i18n="journey.lead">
           Odpowiedź AI jest dziś pierwszym doradcą kredytobiorcy. Jej ton i źródła
           wpływają na decyzję o pozwie zanim ktokolwiek z banku zdąży porozmawiać
           z klientem.
@@ -96,8 +102,8 @@
               <span class="bot-input"><i></i></span>
             </div>
             <span class="journey__num">01</span>
-            <h3>Klient pyta chatbota</h3>
-            <p>Zamiast wpisywać hasło w wyszukiwarkę, zadaje pełne pytanie: „czy warto unieważnić kredyt w euro?".</p>
+            <h3 data-i18n="journey.s1.title">Klient pyta chatbota</h3>
+            <p data-i18n="journey.s1.text">Zamiast wpisywać hasło w wyszukiwarkę, zadaje pełne pytanie: „czy warto unieważnić kredyt w euro?".</p>
           </div>
           <div class="journey__step">
             <div class="journey__viz journey__viz--scan" aria-hidden="true">
@@ -111,8 +117,8 @@
               </svg>
             </div>
             <span class="journey__num">02</span>
-            <h3>Model przeszukuje sieć</h3>
-            <p>Chatbot samodzielnie generuje serię zapytań pomocniczych i pobiera źródła internetowe.</p>
+            <h3 data-i18n="journey.s2.title">Model przeszukuje sieć</h3>
+            <p data-i18n="journey.s2.text">Chatbot samodzielnie generuje serię zapytań pomocniczych i pobiera źródła internetowe.</p>
           </div>
           <div class="journey__step">
             <div class="journey__viz journey__viz--merge" aria-hidden="true">
@@ -124,8 +130,8 @@
               </span>
             </div>
             <span class="journey__num">03</span>
-            <h3>Otrzymuje syntezę źródeł</h3>
-            <p>W pobranych wynikach dominują domeny wyspecjalizowane w prowadzeniu pozwów przeciw bankom.</p>
+            <h3 data-i18n="journey.s3.title">Otrzymuje syntezę źródeł</h3>
+            <p data-i18n="journey.s3.text">W pobranych wynikach dominują domeny wyspecjalizowane w prowadzeniu pozwów przeciw bankom.</p>
           </div>
           <div class="journey__step">
             <div class="journey__viz journey__viz--verdict" aria-hidden="true">
@@ -139,21 +145,21 @@
               </svg>
             </div>
             <span class="journey__num">04</span>
-            <h3>Klient podejmuje decyzję bez banku</h3>
-            <p>Z gotową narracją klient trafia do kancelarii. Pierwszą rozmowę z bankiem zastąpiła odpowiedź AI.</p>
+            <h3 data-i18n="journey.s4.title">Klient podejmuje decyzję bez banku</h3>
+            <p data-i18n="journey.s4.text">Z gotową narracją klient trafia do kancelarii. Pierwszą rozmowę z bankiem zastąpiła odpowiedź AI.</p>
           </div>
         </div>
 
-        <a class="next-cue" href="#mechanizm">Co dokładnie dzieje się po wpisaniu pytania?</a>
+        <a class="next-cue" href="#mechanizm" data-i18n="journey.cue">Co dokładnie dzieje się po wpisaniu pytania?</a>
       </div>
     </section>
 
     <!-- ======================= S2 - QUERY FLOW (fan-out) ======================= -->
     <section class="section section--dark" id="mechanizm" data-act="2">
       <div class="section__inner">
-        <p class="eyebrow">2 · Mechanizm</p>
-        <h2 class="section-title">Jedno pytanie. Kilkanaście wyszukiwań.</h2>
-        <p class="section-lead">
+        <p class="eyebrow" data-i18n="qflow.eyebrow">2 · Mechanizm</p>
+        <h2 class="section-title" data-i18n="qflow.title">Jedno pytanie. Kilkanaście wyszukiwań.</h2>
+        <p class="section-lead" data-i18n="qflow.lead">
           Zapytanie wpisane do czatu nie trafia do wyszukiwarki dosłownie. Model
           samodzielnie przekształca je w serię konkretnych zapytań do Bing i Google
           (tzw. fan-out) i dopiero na ich wynikach buduje odpowiedź.
@@ -163,29 +169,29 @@
           <svg class="qflow__paths" id="qflow-paths" aria-hidden="true"></svg>
 
           <div class="qflow__col qflow__col--input">
-            <span class="qflow__col-label">1 · Klient wpisuje do czatu</span>
+            <span class="qflow__col-label" data-i18n="qflow.colInput">1 · Klient wpisuje do czatu</span>
             <div class="qflow-node qflow-node--query" id="qflow-query"></div>
-            <p class="qflow-examples-label">Wypróbuj inne przykładowe pytania:</p>
+            <p class="qflow-examples-label" data-i18n="qflow.examplesLabel">Wypróbuj inne przykładowe pytania:</p>
             <div class="qflow-questions" id="qflow-questions" role="tablist"
-              aria-label="Wybierz pytanie przykładowe"></div>
+              aria-label="Wybierz pytanie przykładowe" data-i18n-attr="aria-label:qflow.questionsAria"></div>
           </div>
 
           <div class="qflow__col qflow__col--models">
-            <span class="qflow__col-label">2 · Model przetwarza pytanie</span>
+            <span class="qflow__col-label" data-i18n="qflow.colModels">2 · Model przetwarza pytanie</span>
             <div class="qflow-node qflow-node--model" id="qflow-model-gpt" data-model="gpt">
               <h3>ChatGPT</h3>
               <p class="qflow-node__sub">GPT-5.5 thinking</p>
-              <span class="qflow-engine qflow-engine--gpt">szuka przez Bing</span>
+              <span class="qflow-engine qflow-engine--gpt" data-i18n="qflow.gptEngine">szuka przez Bing</span>
             </div>
             <div class="qflow-node qflow-node--model" id="qflow-model-gemini" data-model="gemini">
               <h3>Gemini</h3>
               <p class="qflow-node__sub">Gemini 2.5 Flash</p>
-              <span class="qflow-engine qflow-engine--gemini">szuka przez Google</span>
+              <span class="qflow-engine qflow-engine--gemini" data-i18n="qflow.geminiEngine">szuka przez Google</span>
             </div>
           </div>
 
           <div class="qflow__col qflow__col--fanouts">
-            <span class="qflow__col-label">3 · Faktyczne zapytania do wyszukiwarki</span>
+            <span class="qflow__col-label" data-i18n="qflow.colFanouts">3 · Faktyczne zapytania do wyszukiwarki</span>
             <div id="qflow-fanouts"></div>
           </div>
         </div>
@@ -195,28 +201,28 @@
             <span class="qflow-insight__icon" aria-hidden="true">
               <img src="/gpt.png" alt="" loading="lazy" />
             </span>
-            <h3>ChatGPT szuka „urzędowo"</h3>
+            <h3 data-i18n="qflow.insightGptTitle">ChatGPT szuka „urzędowo"</h3>
             <p id="qflow-insight-gpt"></p>
           </div>
           <div class="qflow-insight qflow-insight--gemini">
             <span class="qflow-insight__icon" aria-hidden="true">
               <img src="/gemini.png" alt="" loading="lazy" />
             </span>
-            <h3>Gemini szuka „poradnikowo"</h3>
+            <h3 data-i18n="qflow.insightGeminiTitle">Gemini szuka „poradnikowo"</h3>
             <p id="qflow-insight-gemini"></p>
           </div>
         </div>
 
-        <a class="next-cue" href="#zrodla">Zobacz, jakie źródła wygrywają te wyszukiwania</a>
+        <a class="next-cue" href="#zrodla" data-i18n="qflow.cue">Zobacz, jakie źródła wygrywają te wyszukiwania</a>
       </div>
     </section>
 
     <!-- ======================= S3 - SOURCES MAP ======================= -->
     <section class="section" id="zrodla" data-act="3">
       <div class="section__inner">
-        <p class="eyebrow">3 · Kategoryzacja</p>
-        <h2 class="section-title">Kto dziś odpowiada w imieniu banku?</h2>
-        <p class="section-lead">
+        <p class="eyebrow" data-i18n="sources.eyebrow">3 · Kategoryzacja</p>
+        <h2 class="section-title" data-i18n="sources.title">Kto dziś odpowiada w imieniu banku?</h2>
+        <p class="section-lead" data-i18n="sources.lead">
           Kategoryzacja domen faktycznie pobranych przez modele w naszym researchu
         </p>
 
@@ -235,34 +241,35 @@
           <!-- per-category domain panel injected by src/sections/sourcesMap.js -->
         </div>
 
-        <a class="next-cue" href="#luka">Jak duża jest ta luka?</a>
+        <a class="next-cue" href="#luka" data-i18n="sources.cue">Jak duża jest ta luka?</a>
       </div>
     </section>
 
     <!-- ======================= S4 - VISIBILITY GAP ======================= -->
     <section class="section section--dark" id="luka" data-act="4">
       <div class="section__inner">
-        <p class="eyebrow">4 · Kulminacja</p>
-        <h2 class="section-title">Luka widoczności</h2>
+        <p class="eyebrow" data-i18n="gap.eyebrow">4 · Kulminacja</p>
+        <h2 class="section-title" data-i18n="gap.title">Luka widoczności</h2>
 
-        <div class="cloud-filters" id="cloud-filters" role="group" aria-label="Filtruj frazy">
-          <button type="button" class="chip is-active" data-filter="all">Wszystkie frazy</button>
-          <button type="button" class="chip" data-filter="claim">Pro-pozwowe</button>
-          <button type="button" class="chip" data-filter="neutral">Neutralne / faktograficzne</button>
+        <div class="cloud-filters" id="cloud-filters" role="group" aria-label="Filtruj frazy"
+          data-i18n-attr="aria-label:gap.filtersAria">
+          <button type="button" class="chip is-active" data-filter="all" data-i18n="gap.filterAll">Wszystkie frazy</button>
+          <button type="button" class="chip" data-filter="claim" data-i18n="gap.filterClaim">Pro-pozwowe</button>
+          <button type="button" class="chip" data-filter="neutral" data-i18n="gap.filterNeutral">Neutralne / faktograficzne</button>
         </div>
 
         <div class="cloud" id="cloud"></div>
 
-        <a class="next-cue" href="#zasady">Dobra wiadomość: zasady gry są znane</a>
+        <a class="next-cue" href="#zasady" data-i18n="gap.cue">Dobra wiadomość: zasady gry są znane</a>
       </div>
     </section>
 
     <!-- ======================= S5 - ENGINE RULES ======================= -->
     <section class="section section--tint" id="zasady" data-act="5">
       <div class="section__inner">
-        <p class="eyebrow">5 · Szansa</p>
-        <h2 class="section-title">Silniki AI nagradzają konkretne cechy treści. To dobra wiadomość.</h2>
-        <p class="section-lead">
+        <p class="eyebrow" data-i18n="rules.eyebrow">5 · Szansa</p>
+        <h2 class="section-title" data-i18n="rules.title">Silniki AI nagradzają konkretne cechy treści. To dobra wiadomość.</h2>
+        <p class="section-lead" data-i18n="rules.lead">
           Modele preferują treści wyważone, faktograficzne, ustrukturyzowane, z widocznym
           autorstwem i potwierdzeniem w wielu źródłach. To naturalna przewaga instytucji,
           która ma dane, ekspertów i autorytet, jeśli udostępni je w formacie czytelnym
@@ -272,7 +279,7 @@
         <div class="engines" id="engines"></div>
 
         <div class="common-denominator">
-          <p class="common-denominator__title">Wspólny mianownik wszystkich silników</p>
+          <p class="common-denominator__title" data-i18n="rules.commonTitle">Wspólny mianownik wszystkich silników</p>
           <ul class="common-denominator__list">
             <li>
               <span class="common-denominator__icon" aria-hidden="true">
@@ -281,7 +288,7 @@
                   <path d="M4 4h16M12 20V9M7 14l5-5 5 5" />
                 </svg>
               </span>
-              <span>Bezpośrednia odpowiedź na początku tekstu</span>
+              <span data-i18n="rules.common1">Bezpośrednia odpowiedź na początku tekstu</span>
             </li>
             <li>
               <span class="common-denominator__icon" aria-hidden="true">
@@ -290,7 +297,7 @@
                   <path d="M15 21v-1a4.5 4.5 0 0 0-4.5-4.5h-3A4.5 4.5 0 0 0 3 20v1M9 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM16 10l2 2 4-4.5" />
                 </svg>
               </span>
-              <span>Weryfikowalny autor</span>
+              <span data-i18n="rules.common2">Weryfikowalny autor</span>
             </li>
             <li>
               <span class="common-denominator__icon" aria-hidden="true">
@@ -299,7 +306,7 @@
                   <path d="M3 20h18M6 20v-6M12 20V6M18 20v-10" />
                 </svg>
               </span>
-              <span>Dane zamiast przymiotników</span>
+              <span data-i18n="rules.common3">Dane zamiast przymiotników</span>
             </li>
             <li>
               <span class="common-denominator__icon" aria-hidden="true">
@@ -308,29 +315,30 @@
                   <path d="M12 2.5 21 7.5l-9 5-9-5 9-5zM3 12.25l9 5 9-5M3 17l9 5 9-5" />
                 </svg>
               </span>
-              <span>Spójność stanowiska w wielu źródłach</span>
+              <span data-i18n="rules.common4">Spójność stanowiska w wielu źródłach</span>
             </li>
           </ul>
         </div>
 
-        <a class="next-cue" href="#rekomendacje">Przełóżmy to na plan działania</a>
+        <a class="next-cue" href="#rekomendacje" data-i18n="rules.cue">Przełóżmy to na plan działania</a>
       </div>
     </section>
 
     <!-- ======================= S6 - RECOMMENDATIONS ======================= -->
     <section class="section" id="rekomendacje" data-act="5">
       <div class="section__inner">
-        <p class="eyebrow">5 · Plan działania</p>
-        <h2 class="section-title">Rekomendacje</h2>
-        <p class="section-lead">
+        <p class="eyebrow" data-i18n="recs.eyebrow">5 · Plan działania</p>
+        <h2 class="section-title" data-i18n="recs.title">Rekomendacje</h2>
+        <p class="section-lead" data-i18n="recs.lead">
           Plan działań w podziale na trzy grupy: szybkie zwycięstwa na start (30 dni),
           dłuższe budowanie fundamentu treści (90 dni) oraz najtrudniejsze, długofalowe
           działania w ekosystemie źródeł (6 miesięcy). Każde działanie ma właściciela,
           ocenę wpływu i trudności oraz wyjaśnienie, dlaczego działa.
         </p>
 
-        <div class="owner-filters" id="owner-filters" role="group" aria-label="Filtruj działania po właścicielu">
-          <button type="button" class="chip chip--light is-active" data-owner="all">Wszyscy właściciele</button>
+        <div class="owner-filters" id="owner-filters" role="group" aria-label="Filtruj działania po właścicielu"
+          data-i18n-attr="aria-label:recs.filtersAria">
+          <button type="button" class="chip chip--light is-active" data-owner="all" data-i18n="recs.filterAll">Wszyscy właściciele</button>
           <button type="button" class="chip chip--light" data-owner="IT">IT</button>
           <button type="button" class="chip chip--light" data-owner="Content">Content</button>
           <button type="button" class="chip chip--light" data-owner="PR">PR</button>
@@ -340,7 +348,8 @@
         <div class="recs" id="recs">
           <!-- Master: guidepost timeline 30/90/180 (src/sections/recommendations.js) -->
           <div class="recs__master" id="recs-master" role="tablist"
-            aria-orientation="vertical" aria-label="Działania według horyzontu czasowego"></div>
+            aria-orientation="vertical" aria-label="Działania według horyzontu czasowego"
+            data-i18n-attr="aria-label:recs.masterAria"></div>
 
           <!-- Detail: sticky glass panel; content swapped with a crossfade -->
           <div class="recs__detail-col">
@@ -350,14 +359,14 @@
           </div>
         </div>
 
-        <div class="disclaimer">
+        <div class="disclaimer" data-i18n="recs.disclaimer">
           <strong>Zastrzeżenie:</strong> żadne działanie nie gwarantuje określonej treści
           odpowiedzi AI. Celem jest systematyczne zwiększanie obecności rzetelnego,
           wyważonego stanowiska banku w źródłach, z których korzystają modele. Realizacja
           działań contentowych i PR pozostaje po stronie banku i jego agencji.
         </div>
 
-        <a class="next-cue" href="#kontakt">Porozmawiajmy o wdrożeniu</a>
+        <a class="next-cue" href="#kontakt" data-i18n="recs.cue">Porozmawiajmy o wdrożeniu</a>
       </div>
     </section>
 
@@ -367,32 +376,33 @@
         <div class="closing__logo">
           <img src="/dentons_logo.png" alt="Dentons" />
         </div>
-        <h2 class="section-title">Dentons × Deutsche Bank: rola i następny krok</h2>
-        <p class="section-lead">
+        <h2 class="section-title" data-i18n="closing.title">Dentons × Deutsche Bank: rola i następny krok</h2>
+        <p class="section-lead" data-i18n="closing.lead">
           Dentons projektuje strategię i mierzy jej efekt. Bank i jego agencja
           odpowiadają za wykonanie. Następny krok: warsztat strategiczny.
         </p>
 
         <div class="role-blocks">
           <div class="role-block">
-            <h3>Strategia</h3>
-            <p>Architektura działań contentowych, PR-owych i technicznych oparta
+            <h3 data-i18n="closing.r1.title">Strategia</h3>
+            <p data-i18n="closing.r1.text">Architektura działań contentowych, PR-owych i technicznych oparta
               na mechanice modeli AI.</p>
           </div>
           <div class="role-block">
-            <h3>Insighty</h3>
-            <p>Własny, cyklicznie powtarzany research przestrzeni zapytań
+            <h3 data-i18n="closing.r2.title">Insighty</h3>
+            <p data-i18n="closing.r2.text">Własny, cyklicznie powtarzany research przestrzeni zapytań
               i źródeł.</p>
           </div>
           <div class="role-block">
-            <h3>Nadzór i pomiar</h3>
-            <p>Benchmark promptów oraz raportowanie Share of Answer, Citation Rate
+            <h3 data-i18n="closing.r3.title">Nadzór i pomiar</h3>
+            <p data-i18n="closing.r3.text">Benchmark promptów oraz raportowanie Share of Answer, Citation Rate
               i sentymentu.</p>
           </div>
         </div>
 
         <div class="closing__cta">
-          <a class="btn" href="mailto:daisy@dentons.com?subject=Warsztat%20AI%20Visibility">Umówmy warsztat strategiczny</a>
+          <a class="btn" href="mailto:daisy@dentons.com?subject=Warsztat%20AI%20Visibility"
+            data-i18n="closing.cta">Umówmy warsztat strategiczny</a>
         </div>
       </div>
     </section>
@@ -404,13 +414,13 @@
 
         <div class="footer__col footer__brand">
           <img class="footer__logo" src="/dentons_logo.png" alt="Dentons" />
-          <p>Wizualizacja przygotowana przez zespół<br />Dentons: Innovation &amp; Intelligence.</p>
-          <p class="footer__mail-label">Napisz do nas</p>
+          <p data-i18n="footer.brand">Wizualizacja przygotowana przez zespół<br />Dentons: Innovation &amp; Intelligence.</p>
+          <p class="footer__mail-label" data-i18n="footer.mailLabel">Napisz do nas</p>
           <a class="footer__mail" href="mailto:daisy@dentons.com">daisy@dentons.com</a>
         </div>
 
         <div class="footer__col">
-          <h4 class="footer__heading">Kontakt</h4>
+          <h4 class="footer__heading" data-i18n="footer.contactHeading">Kontakt</h4>
           <div class="footer-contact">
             <strong>Břetislav Šimral</strong>
             <span class="footer-contact__role">Director, Innovation &amp; Intelligence</span>
@@ -424,18 +434,18 @@
         </div>
 
         <div class="footer__col footer__legal">
-          <h4 class="footer__heading">Nota prawna</h4>
-          <p>Materiał demonstracyjny Dentons. Nie stanowi porady prawnej.</p>
-          <p>Materiał nie obiecuje wpływu na treść odpowiedzi generowanych przez modele AI;
+          <h4 class="footer__heading" data-i18n="footer.legalHeading">Nota prawna</h4>
+          <p data-i18n="footer.legal1">Materiał demonstracyjny Dentons. Nie stanowi porady prawnej.</p>
+          <p data-i18n="footer.legal2">Materiał nie obiecuje wpływu na treść odpowiedzi generowanych przez modele AI;
             opisuje działania zwiększające widoczność rzetelnego stanowiska banku w ekosystemie
             źródeł wykorzystywanych przez wyszukiwarki i modele.</p>
-          <p>Dane fan-out i kategoryzacja źródeł: research własny Dentons.</p>
+          <p data-i18n="footer.legal3">Dane fan-out i kategoryzacja źródeł: research własny Dentons.</p>
         </div>
 
       </div>
 
       <div class="footer__bottom">
-        <span>© 2026 Dentons. Wszelkie prawa zastrzeżone.</span>
+        <span data-i18n="footer.copyright">© 2026 Dentons. Wszelkie prawa zastrzeżone.</span>
         <span>Innovation &amp; Intelligence</span>
       </div>
     </div>

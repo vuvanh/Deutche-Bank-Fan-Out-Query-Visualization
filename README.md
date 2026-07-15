@@ -18,6 +18,21 @@ npm run preview   # podgląd builda
 Stack: Vite + vanilla JS, GSAP + ScrollTrigger (animacje). Zero backendu —
 wszystkie dane precomputed.
 
+## Wersje językowe (PL/EN)
+
+Strona ma dwie wersje językowe z przełącznikiem PL|EN w nawigacji. Domyślny
+język: polski; wybór zapisywany w `localStorage('lang')`, zmiana przeładowuje
+stronę (hash URL zostaje). Mechanika w `src/lib/i18n.js`:
+
+- statyczny HTML: polski jest źródłem w `index.html`; elementy tłumaczone mają
+  atrybut `data-i18n` (lub `data-i18n-attr` dla aria-labeli), a angielskie
+  wartości żyją w `src/i18n/en.js` i są wstawiane przed startem sekcji;
+- dane: pola tłumaczone w `src/data/*.json` to obiekty `{"pl", "en"}`
+  rozstrzygane helperem `t()`; stringi renderowane z JS są w słowniku `ui`;
+- **celowo nieprzetłumaczone** (realne dane z researchu, po polsku w obu
+  wersjach): frazy typewritera w hero, pytania przykładowe i zapytania
+  fan-out w S2 oraz frazy chmury w S4.
+
 ## Mapa plików danych
 
 Cała treść danych żyje w `src/data/` i pochodzi z researchu własnego Dentons
