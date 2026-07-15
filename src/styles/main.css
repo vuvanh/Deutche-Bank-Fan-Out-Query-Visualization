@@ -196,29 +196,6 @@ button {
 .next-cue::after { content: "↓"; }
 .next-cue:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-/* ---------- badges / labels ---------- */
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1.5px dashed var(--grey-light);
-  color: var(--ink-muted);
-  background: rgba(255, 255, 255, 0.66);
-}
-
-.badge--illustrative {
-  border-color: var(--purple-light);
-  color: var(--purple-core);
-  background: rgba(160, 94, 181, 0.1);
-}
-
 /* ============================================================
    NAV
    ============================================================ */

@@ -19,10 +19,5 @@
     "tooltipEmpty": "Brak zaobserwowanych domen w tej kategorii.",
     "bankClickTitle": "Tu powinna być narracja banku",
     "bankClickBody": "W pobranych przez modele źródłach nie zaobserwowaliśmy ani jednej domeny banku. Dane, ryzyka i zniuansowane stanowisko nie istnieją w tej przestrzeni."
-  },
-  "matrix": {
-    "axisX": "Trudność wdrożenia →",
-    "axisY": "↑ Wpływ na widoczność w AI",
-    "quadrantQuickWin": "Quick wins"
   }
 }

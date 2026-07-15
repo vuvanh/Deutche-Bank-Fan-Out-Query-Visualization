@@ -15,8 +15,8 @@ npm run build     # statyczny build do dist/
 npm run preview   # podgląd builda
 ```
 
-Stack: Vite + vanilla JS, GSAP + ScrollTrigger (animacje), `d3-hierarchy`
-(wyłącznie layout treemapy). Zero backendu — wszystkie dane precomputed.
+Stack: Vite + vanilla JS, GSAP + ScrollTrigger (animacje). Zero backendu —
+wszystkie dane precomputed.
 
 ## Mapa plików danych
 

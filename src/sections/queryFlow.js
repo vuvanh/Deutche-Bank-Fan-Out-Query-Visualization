@@ -4,9 +4,8 @@ import { svgEl, htmlEl, curvedPath } from '../lib/svg.js';
 /**
  * S2 - query flow: how the customer's chat prompt is rewritten by the model
  * into concrete Bing/Google queries (fan-out). Three columns connected by
- * curved SVG paths (layout modelled on the vis/ prototype, restyled to the
- * brand): user query → AI models → generated search queries. Only queries
- * actually observed in research/report.json are shown.
+ * curved SVG paths: user query → AI models → generated search queries.
+ * Only queries actually observed in Dentons' own research are shown.
  */
 export function initQueryFlow(fanoutData, copy) {
   const stage = document.getElementById('qflow');
