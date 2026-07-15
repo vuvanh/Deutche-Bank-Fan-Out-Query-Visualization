@@ -1,6 +1,6 @@
 {
   "_comment": "Source categories for the S3 donut infographic. domains = unique domains actually retrieved in Dentons' own research (Gemini 'sources' + GPT 'safe_urls'). chartValue = slice size; for zero categories a small visual sliver is used so the absence stays visible - countLabel always shows the real number.",
-  "methodNote": "Dane poglądowe dla przykładowego pytania. Wielkość wycinka = liczba unikalnych domen zaobserwowanych w researchu własnym Dentons (próbka: 3 pytania × 2 modele). Kategorie „Fora i społeczności” oraz „Bank” pokazane symbolicznie; rzeczywiste liczby na etykietach.",
+  "methodNote": "Dane poglądowe dla przykładowego pytania. Wielkość wycinka = liczba unikalnych domen zaobserwowanych w researchu własnym Dentons (próbka: 3 pytania × 2 modele). Kategoria „Bank” pokazana symbolicznie; rzeczywista liczba na etykiecie.",
   "categories": [
     {
       "id": "kancelarie",
@@ -36,16 +36,6 @@
       "chartValue": 2,
       "countLabel": "2 domeny",
       "domains": ["finanse.uokik.gov.pl", "rf.gov.pl"]
-    },
-    {
-      "id": "fora",
-      "label": "Fora i społeczności",
-      "color": "#9e9e9e",
-      "textColor": "#232525",
-      "chartValue": 0.5,
-      "countLabel": "0 domen",
-      "domains": [],
-      "note": "Gemini generuje zapytania typu „forum / opinie”, ale wśród pobranych źródeł nie zaobserwowaliśmy konkretnych domen forów — modele czerpią stamtąd kontekst, cytują jednak źródła autorytatywne."
     },
     {
       "id": "bank",

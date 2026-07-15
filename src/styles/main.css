@@ -2244,20 +2244,6 @@ button {
 
 .footer-contact strong { color: #fff; font-size: 0.92rem; }
 
-.footer-contact__badge {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 1px 8px;
-  border: 1px solid rgba(246, 242, 250, 0.35);
-  border-radius: 999px;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(246, 242, 250, 0.7);
-  vertical-align: 2px;
-}
-
 .footer-contact__role { font-size: 0.78rem; color: var(--ink-on-dark-muted); }
 
 .footer-contact a {
