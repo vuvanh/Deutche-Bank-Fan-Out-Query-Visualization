@@ -1,126 +1,267 @@
 {
-  "_comment": "S6 actions. impact/difficulty are 1-5 numeric translations of the verbal ratings in context/'AI SEO dla Deutsche Bank.md' chapter 9 (roadmap prioritization table) - documented in README. owners limited to IT/Content/PR/Legal per brief.",
+  "_comment": "S6 actions. impact/difficulty are 1-5 numeric translations of the verbal ratings in context/'AI SEO dla Deutsche Bank.md' chapter 9 (roadmap prioritization table) - documented in README. owners limited to IT/Content/PR/Legal per brief. Translatable fields are {pl, en} objects resolved via t().",
   "scale": {
     "impact": "1 = umiarkowany … 5 = krytyczny (wg ocen słownych raportu strategicznego)",
     "difficulty": "1 = bardzo niska … 5 = bardzo wysoka"
   },
   "horizons": [
-    { "id": 30, "label": "30 dni", "name": "Quick wins techniczne", "color": "#f1b434" },
-    { "id": 90, "label": "90 dni", "name": "Fundament contentowy", "color": "#a05eb5" },
-    { "id": 180, "label": "180 dni", "name": "Ekosystem i konsensus", "color": "#702082" }
+    {
+      "id": 30,
+      "label": { "pl": "30 dni", "en": "30 days" },
+      "name": { "pl": "Quick wins techniczne", "en": "Technical quick wins" },
+      "color": "#f1b434"
+    },
+    {
+      "id": 90,
+      "label": { "pl": "90 dni", "en": "90 days" },
+      "name": { "pl": "Fundament contentowy", "en": "Content foundation" },
+      "color": "#a05eb5"
+    },
+    {
+      "id": 180,
+      "label": { "pl": "180 dni", "en": "180 days" },
+      "name": { "pl": "Ekosystem i konsensus", "en": "Ecosystem and consensus" },
+      "color": "#702082"
+    }
   ],
   "actions": [
     {
       "id": "robots-txt",
-      "title": "Otworzyć stronę banku dla wyszukiwarek AI",
+      "title": {
+        "pl": "Otworzyć stronę banku dla wyszukiwarek AI",
+        "en": "Open the bank's website to AI search engines"
+      },
       "impact": 5, "difficulty": 1, "horizon": 30, "quickWin": true,
       "owners": ["IT", "Legal"],
-      "summary": "Audyt techniczny (plik robots.txt, zapora sieciowa WAF): zezwolić botom wyszukiwawczym AI (OAI-SearchBot, PerplexityBot, Claude-SearchBot, ChatGPT-User) na dostęp do witryny; sprawdzić, czy zapora nie blokuje ich bezwiednie. Decyzja o botach treningowych (GPTBot) pozostaje odrębną polityką banku.",
-      "why": "Blokada botów wyszukiwawczych fizycznie usuwa domenę banku ze wszystkich odpowiedzi generowanych na żywo, pozostawiając pole domenom kancelarii. Bez tego kroku żadne inne działanie nie działa."
+      "summary": {
+        "pl": "Audyt techniczny (plik robots.txt, zapora sieciowa WAF): zezwolić botom wyszukiwawczym AI (OAI-SearchBot, PerplexityBot, Claude-SearchBot, ChatGPT-User) na dostęp do witryny; sprawdzić, czy zapora nie blokuje ich bezwiednie. Decyzja o botach treningowych (GPTBot) pozostaje odrębną polityką banku.",
+        "en": "A technical audit (robots.txt file, WAF firewall): allow AI search bots (OAI-SearchBot, PerplexityBot, Claude-SearchBot, ChatGPT-User) to access the site; check whether the firewall blocks them inadvertently. The decision on training bots (GPTBot) remains a separate bank policy."
+      },
+      "why": {
+        "pl": "Blokada botów wyszukiwawczych fizycznie usuwa domenę banku ze wszystkich odpowiedzi generowanych na żywo, pozostawiając pole domenom kancelarii. Bez tego kroku żadne inne działanie nie działa.",
+        "en": "Blocking search bots physically removes the bank's domain from every live-generated answer, leaving the field to law-firm domains. Without this step no other action works."
+      }
     },
     {
       "id": "llms-txt",
-      "title": "Mapa treści banku napisana dla modeli AI",
+      "title": {
+        "pl": "Mapa treści banku napisana dla modeli AI",
+        "en": "A map of the bank's content written for AI models"
+      },
       "impact": 4, "difficulty": 1, "horizon": 30, "quickWin": true,
       "owners": ["IT", "Content"],
-      "summary": "Publikacja plików llms.txt i llms-full.txt: ustrukturyzowany przewodnik po kluczowych merytorycznie podstronach banku w formacie Markdown, umieszczony w katalogu głównym witryny.",
-      "why": "Markdown to natywny format modeli językowych: mniejsze zużycie tokenów, prostsze parsowanie. Skraca drogę maszyny do faktów banku z pominięciem złożonego HTML."
+      "summary": {
+        "pl": "Publikacja plików llms.txt i llms-full.txt: ustrukturyzowany przewodnik po kluczowych merytorycznie podstronach banku w formacie Markdown, umieszczony w katalogu głównym witryny.",
+        "en": "Publishing llms.txt and llms-full.txt files: a structured guide to the bank's key substantive pages in Markdown format, placed in the site's root directory."
+      },
+      "why": {
+        "pl": "Markdown to natywny format modeli językowych: mniejsze zużycie tokenów, prostsze parsowanie. Skraca drogę maszyny do faktów banku z pominięciem złożonego HTML.",
+        "en": "Markdown is the native format of language models: lower token usage, simpler parsing. It shortens the machine's path to the bank's facts, bypassing complex HTML."
+      }
     },
     {
       "id": "explainer-eur-chf",
-      "title": "Pokazać na danych, czym kredyt w euro różni się od franka",
+      "title": {
+        "pl": "Pokazać na danych, czym kredyt w euro różni się od franka",
+        "en": "Show with data how EUR loans differ from CHF loans"
+      },
       "impact": 4, "difficulty": 2.5, "horizon": 30, "quickWin": true,
       "owners": ["Content", "Legal"],
-      "summary": "Tabelaryczne zestawienie twardych danych: odmienne lata udzielania, mniejsza zmienność kursowa, EURIBOR vs LIBOR, rozróżnienia w orzecznictwie. Język analityczny, bez oceniania.",
-      "why": "Przecina mechaniczne zrównywanie spraw EUR z CHF w odpowiedziach modeli. Silniki RAG doskonale ekstrahują tabele jako dane ustrukturyzowane."
+      "summary": {
+        "pl": "Tabelaryczne zestawienie twardych danych: odmienne lata udzielania, mniejsza zmienność kursowa, EURIBOR vs LIBOR, rozróżnienia w orzecznictwie. Język analityczny, bez oceniania.",
+        "en": "A tabular comparison of hard data: different origination years, lower exchange-rate volatility, EURIBOR vs LIBOR, distinctions in case law. Analytical language, no judgment."
+      },
+      "why": {
+        "pl": "Przecina mechaniczne zrównywanie spraw EUR z CHF w odpowiedziach modeli. Silniki RAG doskonale ekstrahują tabele jako dane ustrukturyzowane.",
+        "en": "It cuts through the mechanical equating of EUR cases with CHF cases in model answers. RAG engines extract tables as structured data exceptionally well."
+      }
     },
     {
       "id": "faq-bluf",
-      "title": "FAQ, które odpowiada w pierwszym zdaniu",
+      "title": {
+        "pl": "FAQ, które odpowiada w pierwszym zdaniu",
+        "en": "An FAQ that answers in the first sentence"
+      },
       "impact": 3.5, "difficulty": 2, "horizon": 30, "quickWin": true,
       "owners": ["Content"],
-      "summary": "Przepisanie 10 najczęstszych pytań klientów wg zasady BLUF („odpowiedź na początku”): syntetyczna konkluzja w pierwszych 100 słowach pod każdym nagłówkiem, zero marketingowych wstępów.",
-      "why": "Systemy RAG tną strony na fragmenty ~130–170 słów i odrzucają te, w których odpowiedź nie pada od razu. Perplexity i AI Overviews ekstrahują z początku akapitu."
+      "summary": {
+        "pl": "Przepisanie 10 najczęstszych pytań klientów wg zasady BLUF („odpowiedź na początku”): syntetyczna konkluzja w pierwszych 100 słowach pod każdym nagłówkiem, zero marketingowych wstępów.",
+        "en": "Rewriting the 10 most frequent client questions per the BLUF principle („answer first”): a concise conclusion within the first 100 words under each heading, zero marketing preambles."
+      },
+      "why": {
+        "pl": "Systemy RAG tną strony na fragmenty ~130–170 słów i odrzucają te, w których odpowiedź nie pada od razu. Perplexity i AI Overviews ekstrahują z początku akapitu.",
+        "en": "RAG systems slice pages into ~130–170 word chunks and discard those where the answer does not come right away. Perplexity and AI Overviews extract from the start of a paragraph."
+      }
     },
     {
       "id": "monitoring-tools",
-      "title": "Uruchomienie monitoringu widoczności AI",
+      "title": {
+        "pl": "Stały pomiar, jak często AI widzi bank",
+        "en": "Continuous measurement of how often AI sees the bank"
+      },
       "impact": 2.5, "difficulty": 1.5, "horizon": 30, "quickWin": true,
       "owners": ["IT"],
-      "summary": "Konfiguracja narzędzi klasy Ziptie / Semrush AI Visibility + analiza anomalii CTR w Google Search Console (wysokie impresje, załamany CTR = przejęcie odpowiedzi przez AIO).",
-      "why": "Bez pomiaru nie wiadomo, czy strategia działa. Monitoring od pierwszego dnia daje punkt odniesienia dla wszystkich dalszych działań."
+      "summary": {
+        "pl": "Uruchomienie monitoringu widoczności AI: narzędzia klasy Ziptie / Semrush AI Visibility oraz analiza anomalii CTR w Google Search Console (wysokie impresje przy załamanym CTR = przejęcie odpowiedzi przez AI Overviews).",
+        "en": "Launching AI visibility monitoring: tools like Ziptie / Semrush AI Visibility plus CTR anomaly analysis in Google Search Console (high impressions with collapsed CTR = the answer taken over by AI Overviews)."
+      },
+      "why": {
+        "pl": "Bez pomiaru nie wiadomo, czy strategia działa. Monitoring od pierwszego dnia daje punkt odniesienia dla wszystkich dalszych działań.",
+        "en": "Without measurement there is no way to know the strategy works. Monitoring from day one provides the baseline for everything that follows."
+      }
     },
     {
       "id": "benchmark-prompts",
-      "title": "Benchmark ok. 50 promptów referencyjnych",
+      "title": {
+        "pl": "Wspólna miara postępu: 50 pytań kontrolnych",
+        "en": "A shared measure of progress: 50 control questions"
+      },
       "impact": 3, "difficulty": 1.5, "horizon": 30, "quickWin": true,
       "owners": ["Content", "Legal"],
-      "summary": "Stały zestaw naturalnych pytań konsumenckich (faktograficznych, procesowych, uzasadniających) testowany co miesiąc w głównych modelach.",
-      "why": "To wspólna miara efektu: Share of Answer, Citation Rate i sentyment liczone są zawsze na tym samym zestawie pytań; zmiana wskaźnika oznacza zmianę widoczności, nie zmianę metody."
+      "summary": {
+        "pl": "Benchmark ok. 50 promptów referencyjnych: stały zestaw naturalnych pytań konsumenckich (faktograficznych, procesowych, uzasadniających) testowany co miesiąc w głównych modelach.",
+        "en": "A benchmark of ~50 reference prompts: a fixed set of natural consumer questions (factual, procedural, reasoning) tested monthly across the major models."
+      },
+      "why": {
+        "pl": "To wspólna miara efektu: Share of Answer, Citation Rate i sentyment liczone są zawsze na tym samym zestawie pytań; zmiana wskaźnika oznacza zmianę widoczności, nie zmianę metody.",
+        "en": "It is the shared measure of effect: Share of Answer, Citation Rate and sentiment are always computed on the same question set; a change in the metric means a change in visibility, not a change of method."
+      }
     },
     {
       "id": "content-hub",
-      "title": "Centrum wiedzy o kredytach w euro na stronie banku",
+      "title": {
+        "pl": "Centrum wiedzy o kredytach w euro na stronie banku",
+        "en": "A knowledge hub on EUR loans on the bank's website"
+      },
       "impact": 4, "difficulty": 4, "horizon": 90,
       "owners": ["Content", "PR"],
-      "summary": "Centralny Content Hub (pillar page): dedykowana sekcja porządkująca pojęcia, dane makro, podstawy prawne i ryzyka. Architektura „Entity-First”, bloki po ~150 słów, cytowane źródła (KNF, NBP).",
-      "why": "Buduje autorytet tematyczny domeny banku, najsilniejszy pojedynczy predyktor cytowania w ChatGPT i AI Overviews."
+      "summary": {
+        "pl": "Centralny Content Hub (pillar page): dedykowana sekcja porządkująca pojęcia, dane makro, podstawy prawne i ryzyka. Architektura „Entity-First”, bloki po ~150 słów, cytowane źródła (KNF, NBP).",
+        "en": "A central Content Hub (pillar page): a dedicated section organizing the concepts, macro data, legal grounds and risks. „Entity-First” architecture, ~150-word blocks, cited sources (KNF, NBP)."
+      },
+      "why": {
+        "pl": "Buduje autorytet tematyczny domeny banku, najsilniejszy pojedynczy predyktor cytowania w ChatGPT i AI Overviews.",
+        "en": "It builds the bank domain's topical authority, the single strongest predictor of being cited by ChatGPT and AI Overviews."
+      }
     },
     {
       "id": "schema-claimreview",
-      "title": "Opisać treści tak, by maszyny nie mogły ich źle zrozumieć",
+      "title": {
+        "pl": "Opisać treści tak, by maszyny nie mogły ich źle zrozumieć",
+        "en": "Describe content so machines cannot misread it"
+      },
       "impact": 3.5, "difficulty": 3, "horizon": 90,
       "owners": ["IT"],
-      "summary": "Wdrożenie danych strukturalnych (JSON-LD: FAQPage, Article, ClaimReview) w szablonach witryny; ClaimReview jako podstawa sekcji weryfikacji faktów.",
-      "why": "Dane strukturalne kategoryzują treść dla maszyn i zmniejszają ryzyko błędnej interpretacji; ClaimReview to standard wykorzystywany przez Google do oznaczania weryfikacji faktów."
+      "summary": {
+        "pl": "Wdrożenie danych strukturalnych (JSON-LD: FAQPage, Article, ClaimReview) w szablonach witryny; ClaimReview jako podstawa sekcji weryfikacji faktów.",
+        "en": "Implementing structured data (JSON-LD: FAQPage, Article, ClaimReview) in the site templates; ClaimReview as the basis of the fact-checking section."
+      },
+      "why": {
+        "pl": "Dane strukturalne kategoryzują treść dla maszyn i zmniejszają ryzyko błędnej interpretacji; ClaimReview to standard wykorzystywany przez Google do oznaczania weryfikacji faktów.",
+        "en": "Structured data categorizes content for machines and reduces the risk of misinterpretation; ClaimReview is the standard Google uses to mark fact checks."
+      }
     },
     {
       "id": "digital-pr",
-      "title": "Program publikacji eksperckich w mediach finansowych i prawniczych",
+      "title": {
+        "pl": "Głos ekspertów banku w mediach finansowych i prawniczych",
+        "en": "The bank's experts heard in financial and legal media"
+      },
       "impact": 4, "difficulty": 3.5, "horizon": 90,
       "owners": ["PR"],
-      "summary": "Analizy makroekonomiczne (stabilność EURIBOR, struktura kredytów) w mediach gospodarczych; doktrynalne omówienia wyroków w portalach prawniczych. Fakty i dane, bez konkluzji oceniających.",
-      "why": "Modele krzyżowo weryfikują twierdzenia między domenami. Stanowisko obecne tylko na stronie banku to „opinia odosobniona”; potwierdzone w wielu wiarygodnych źródłach buduje konsensus informacyjny."
+      "summary": {
+        "pl": "Analizy makroekonomiczne (stabilność EURIBOR, struktura kredytów) w mediach gospodarczych; doktrynalne omówienia wyroków w portalach prawniczych. Fakty i dane, bez konkluzji oceniających.",
+        "en": "Macroeconomic analyses (EURIBOR stability, loan structure) in business media; doctrinal case-law commentary in legal portals. Facts and data, no judgmental conclusions."
+      },
+      "why": {
+        "pl": "Modele krzyżowo weryfikują twierdzenia między domenami. Stanowisko obecne tylko na stronie banku to „opinia odosobniona”; potwierdzone w wielu wiarygodnych źródłach buduje konsensus informacyjny.",
+        "en": "Models cross-verify claims across domains. A position present only on the bank's site is an „isolated opinion”; confirmed across many credible sources, it builds informational consensus."
+      }
     },
     {
       "id": "eeat-authorship",
-      "title": "Imienni eksperci zamiast anonimowych treści",
+      "title": {
+        "pl": "Imienni eksperci zamiast anonimowych treści",
+        "en": "Named experts instead of anonymous content"
+      },
       "impact": 3, "difficulty": 3, "horizon": 90,
       "owners": ["Content", "IT"],
-      "summary": "Sygnały autorstwa i eksperckości (E-E-A-T): przypisanie analiz konkretnym ekonomistom i prawnikom banku, czyli biogramy, znaczniki Person/SameAs i widoczne daty aktualizacji po nowych wyrokach.",
-      "why": "Anonimowa treść często nie przechodzi filtrów E-E-A-T przy fuzji odpowiedzi. Modele premiują treści z weryfikowalnym, imiennym autorstwem i aktualną datą."
+      "summary": {
+        "pl": "Sygnały autorstwa i eksperckości (E-E-A-T): przypisanie analiz konkretnym ekonomistom i prawnikom banku, czyli biogramy, znaczniki Person/SameAs i widoczne daty aktualizacji po nowych wyrokach.",
+        "en": "Authorship and expertise signals (E-E-A-T): attributing analyses to the bank's specific economists and lawyers, meaning bios, Person/SameAs markup and visible update dates after new rulings."
+      },
+      "why": {
+        "pl": "Anonimowa treść często nie przechodzi filtrów E-E-A-T przy fuzji odpowiedzi. Modele premiują treści z weryfikowalnym, imiennym autorstwem i aktualną datą.",
+        "en": "Anonymous content often fails E-E-A-T filters during answer fusion. Models reward content with verifiable, named authorship and a current date."
+      }
     },
     {
       "id": "risk-checklist",
-      "title": "Uczciwy rachunek kosztów i ryzyk procesu: „za i przeciw”",
+      "title": {
+        "pl": "Uczciwy rachunek kosztów i ryzyk procesu: „za i przeciw”",
+        "en": "An honest account of litigation costs and risks: „for and against”"
+      },
       "impact": 3, "difficulty": 3, "horizon": 180,
       "owners": ["Content", "Legal"],
-      "summary": "Risk checklist: chłodna, matematyczna lista kontrolna obejmująca opłaty sądowe, czas trwania, zmienność orzecznictwa i scenariusze rozliczeń po stronie klienta i banku.",
-      "why": "Modele (zwłaszcza Claude i Perplexity) premiują treści rzetelnie wyliczające ryzyka obu stron. Wyważona checklista ma większą szansę na cytowanie niż tekst perswazyjny."
+      "summary": {
+        "pl": "Risk checklist: chłodna, matematyczna lista kontrolna obejmująca opłaty sądowe, czas trwania, zmienność orzecznictwa i scenariusze rozliczeń po stronie klienta i banku.",
+        "en": "A risk checklist: a cool, mathematical list covering court fees, duration, case-law volatility and settlement scenarios on both the client's and the bank's side."
+      },
+      "why": {
+        "pl": "Modele (zwłaszcza Claude i Perplexity) premiują treści rzetelnie wyliczające ryzyka obu stron. Wyważona checklista ma większą szansę na cytowanie niż tekst perswazyjny.",
+        "en": "Models (especially Claude and Perplexity) reward content that fairly enumerates both sides' risks. A balanced checklist has a better chance of being cited than persuasive copy."
+      }
     },
     {
       "id": "myths-facts",
-      "title": "Sekcja „Mity vs Fakty” ze znacznikami weryfikacji faktów",
+      "title": {
+        "pl": "„Mity vs Fakty” o kredytach w euro",
+        "en": "„Myths vs Facts” about EUR loans"
+      },
       "impact": 3.5, "difficulty": 3.5, "horizon": 180,
       "owners": ["Content", "Legal"],
-      "summary": "Zestawienie najczęstszych nieścisłości narracyjnych z merytorycznym, obiektywnym sprostowaniem, sygnaturami akt i znacznikiem ClaimReview.",
-      "why": "Daje modelom gotowy, ustrukturyzowany materiał weryfikacyjny w miejscach, gdzie dziś konsensus buduje wyłącznie jedna strona sporu."
+      "summary": {
+        "pl": "Zestawienie najczęstszych nieścisłości narracyjnych z merytorycznym, obiektywnym sprostowaniem, z sygnaturami akt i technicznym znacznikiem weryfikacji faktów (ClaimReview).",
+        "en": "A compilation of the most common narrative inaccuracies with substantive, objective corrections, complete with case numbers and the technical fact-check markup (ClaimReview)."
+      },
+      "why": {
+        "pl": "Daje modelom gotowy, ustrukturyzowany materiał weryfikacyjny w miejscach, gdzie dziś konsensus buduje wyłącznie jedna strona sporu.",
+        "en": "It hands the models ready, structured verification material in places where today only one side of the dispute builds the consensus."
+      }
     },
     {
       "id": "ssr-lcp",
-      "title": "Strona na tyle szybka, by roboty AI zdążyły ją odczytać",
+      "title": {
+        "pl": "Strona na tyle szybka, by roboty AI zdążyły ją odczytać",
+        "en": "A site fast enough for AI crawlers to read in time"
+      },
       "impact": 2.5, "difficulty": 4, "horizon": 180,
       "owners": ["IT"],
-      "summary": "Optymalizacja renderowania (SSR) i szybkości ładowania: treści informacyjne w stabilnym HTML bez ukrywania tekstu za skryptami; czas ładowania poniżej 2 s.",
-      "why": "Crawlery AI mają drastyczne limity czasowe: jeśli nie przetworzą strony w krótkim oknie, ignorują ją mimo wysokiego autorytetu."
+      "summary": {
+        "pl": "Optymalizacja renderowania (SSR) i szybkości ładowania: treści informacyjne w stabilnym HTML bez ukrywania tekstu za skryptami; czas ładowania poniżej 2 s.",
+        "en": "Rendering (SSR) and load-speed optimization: informational content in stable HTML with no text hidden behind scripts; load time under 2 s."
+      },
+      "why": {
+        "pl": "Crawlery AI mają drastyczne limity czasowe: jeśli nie przetworzą strony w krótkim oknie, ignorują ją mimo wysokiego autorytetu.",
+        "en": "AI crawlers run on drastic time limits: if they cannot process a page within a short window, they ignore it despite its high authority."
+      }
     },
     {
       "id": "white-paper",
-      "title": "Wspólny raport o rynku z partnerem branżowym",
+      "title": {
+        "pl": "Wspólny raport o rynku z partnerem branżowym",
+        "en": "A joint market report with an industry partner"
+      },
       "impact": 3.5, "difficulty": 4.5, "horizon": 180,
       "owners": ["PR", "Legal"],
-      "summary": "White paper: zniuansowana analiza rynku kredytów walutowych we współpracy z partnerem branżowym; wersja HTML (executive summary) obok pełnego raportu.",
-      "why": "Publikacje z zewnętrznymi autorytetami zasilają bazy wiedzy modeli długoterminowo i uwiarygadniają neutralność stanowiska; dane wchodzą do pre-treningu kolejnych generacji modeli."
+      "summary": {
+        "pl": "White paper: zniuansowana analiza rynku kredytów walutowych we współpracy z partnerem branżowym; wersja HTML (executive summary) obok pełnego raportu.",
+        "en": "A white paper: a nuanced analysis of the FX-loan market produced with an industry partner; an HTML version (executive summary) alongside the full report."
+      },
+      "why": {
+        "pl": "Publikacje z zewnętrznymi autorytetami zasilają bazy wiedzy modeli długoterminowo i uwiarygadniają neutralność stanowiska; dane wchodzą do pre-treningu kolejnych generacji modeli.",
+        "en": "Publications with external authorities feed the models' knowledge bases long term and lend credibility to the position's neutrality; the data enters the pre-training of future model generations."
+      }
     }
   ]
 }

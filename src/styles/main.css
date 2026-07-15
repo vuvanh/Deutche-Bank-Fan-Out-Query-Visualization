@@ -224,6 +224,36 @@ button {
 
 .nav__logo img { height: 30px; width: auto; }
 
+/* ---------- PL|EN language switch ---------- */
+
+.lang-switch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(246, 242, 250, 0.28);
+  background: rgba(246, 242, 250, 0.06);
+}
+
+.lang-switch__btn {
+  border: 0;
+  background: transparent;
+  color: var(--ink-on-dark-soft);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.lang-switch__btn:hover { color: #fff; }
+
+.lang-switch__btn.is-active {
+  background: var(--gold);
+  color: var(--purple-xdark);
+}
+
 .nav__links {
   display: flex;
   gap: 4px;
@@ -2333,6 +2363,8 @@ button {
   .journey__step::after,
   .journey__step::before { display: none !important; }
   .nav__links { display: none; }
+  /* with the links hidden the switch keeps the right edge of the bar */
+  .lang-switch { margin-left: auto; }
 
   .recs-rail { left: 21px; }
   .recs-group__node { flex-basis: 44px; height: 44px; }

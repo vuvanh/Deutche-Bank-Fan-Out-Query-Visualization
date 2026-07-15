@@ -1,66 +1,118 @@
 {
-  "_comment": "S5 engine columns (3-column infographic). Content condensed from research/search_engine_strategies.md and context/AI SEO dla Deutsche Bank.md. 'meaning' renders as the 'Dla banku' key takeaway (prefix stripped in JS); 'details' feeds the 'Dla zainteresowanych' expander. accent/accentSoft drive the per-model color theme.",
+  "_comment": "S5 engine columns (3-column infographic). Content condensed from research/search_engine_strategies.md and context/AI SEO dla Deutsche Bank.md. 'meaning' renders as the 'Dla banku' key takeaway (prefix stripped in JS); 'details' feeds the 'Dla zainteresowanych' expander. accent/accentSoft drive the per-model color theme. Translatable fields are {pl, en} objects resolved via t().",
   "engines": [
     {
       "id": "google",
       "name": "Google · Gemini · AI Overviews",
-      "sub": "retrieval przez indeks Google",
+      "sub": { "pl": "retrieval przez indeks Google", "en": "retrieval via the Google index" },
       "logo": "/gemini.png",
       "accent": "#00a9e0",
       "accentSoft": "#e8f6fc",
-      "seeks": [
-        "Semantyczne pokrycie tematu: synonimy, encje i kontekst zamiast powtarzania frazy",
-        "Sygnały E-E-A-T: weryfikowalny autor, źródła, odpowiedzialność za treść",
-        "Kompletność mobilna i dane strukturalne (Article, FAQPage)"
-      ],
-      "meaning": "Dla banku: treść musi być kompletna semantycznie i podpisana ekspertem. AI Overviews czerpie głównie ze stron, które już wygrywają w klasycznym wyszukiwaniu.",
-      "detailsLabel": "Dla działu digital/IT",
-      "details": [
-        "Mobile-first indexing: Google ocenia wersję mobilną strony",
-        "Passage ranking: kluczowe akapity 134–167 słów",
-        "Ok. 75% źródeł AI Overviews pochodzi z TOP 12 wyników organicznych (dane zewnętrzne, do weryfikacji)",
-        "Dane strukturalne JSON-LD (Article, FAQPage, ClaimReview) redukują ryzyko błędnej interpretacji treści"
-      ]
+      "seeks": {
+        "pl": [
+          "Semantyczne pokrycie tematu: synonimy, encje i kontekst zamiast powtarzania frazy",
+          "Sygnały E-E-A-T: weryfikowalny autor, źródła, odpowiedzialność za treść",
+          "Kompletność mobilna i dane strukturalne (Article, FAQPage)"
+        ],
+        "en": [
+          "Semantic topic coverage: synonyms, entities and context instead of keyword repetition",
+          "E-E-A-T signals: a verifiable author, sources, accountability for the content",
+          "Mobile completeness and structured data (Article, FAQPage)"
+        ]
+      },
+      "meaning": {
+        "pl": "Dla banku: treść musi być kompletna semantycznie i podpisana ekspertem. AI Overviews czerpie głównie ze stron, które już wygrywają w klasycznym wyszukiwaniu.",
+        "en": "For the bank: content must be semantically complete and signed by an expert. AI Overviews draws mostly on pages that already win in classic search."
+      },
+      "detailsLabel": { "pl": "Dla działu digital/IT", "en": "For the digital/IT team" },
+      "details": {
+        "pl": [
+          "Mobile-first indexing: Google ocenia wersję mobilną strony",
+          "Passage ranking: kluczowe akapity 134–167 słów",
+          "Ok. 75% źródeł AI Overviews pochodzi z TOP 12 wyników organicznych (dane zewnętrzne, do weryfikacji)",
+          "Dane strukturalne JSON-LD (Article, FAQPage, ClaimReview) redukują ryzyko błędnej interpretacji treści"
+        ],
+        "en": [
+          "Mobile-first indexing: Google evaluates the mobile version of the page",
+          "Passage ranking: key paragraphs of 134–167 words",
+          "About 75% of AI Overviews sources come from the TOP 12 organic results (external data, to be verified)",
+          "JSON-LD structured data (Article, FAQPage, ClaimReview) reduces the risk of content misinterpretation"
+        ]
+      }
     },
     {
       "id": "chatgpt",
       "name": "ChatGPT Search · Bing · Copilot",
-      "sub": "retrieval przez indeks Bing",
+      "sub": { "pl": "retrieval przez indeks Bing", "en": "retrieval via the Bing index" },
       "logo": "/gpt.png",
       "accent": "#702082",
       "accentSoft": "#f3ebf7",
-      "seeks": [
-        "Wyraźne dopasowanie słów kluczowych: tytuł, H1/H2, URL, pierwszy akapit",
-        "Autorytet i świeżość domeny: wysoka pozycja w Bing to warunek wejścia",
-        "Strona, która natychmiast zaspokaja intencję pytania (engagement)"
-      ],
-      "meaning": "Dla banku: temat strony musi być nazwany wprost, nie tylko zasugerowany. ChatGPT w pytaniach prawno-finansowych szuka „urzędowo”, więc treść banku musi wyglądać wiarygodnie prawnie.",
-      "detailsLabel": "Dla działu digital/IT",
-      "details": [
-        "ChatGPT Search korzysta z indeksu Bing",
-        "IndexNow przyspiesza odkrywanie aktualizacji treści",
-        "Wg badania Ahrefs (1,4 mln promptów) ok. 88% cytowanych URL-i pochodzi ze standardowych wyników wyszukiwania",
-        "Cytaty pobierane są często z pierwszej 1/3 długości strony (zasada BLUF)"
-      ]
+      "seeks": {
+        "pl": [
+          "Wyraźne dopasowanie słów kluczowych: tytuł, H1/H2, URL, pierwszy akapit",
+          "Autorytet i świeżość domeny: wysoka pozycja w Bing to warunek wejścia",
+          "Strona, która natychmiast zaspokaja intencję pytania (engagement)"
+        ],
+        "en": [
+          "Clear keyword matching: title, H1/H2, URL, first paragraph",
+          "Domain authority and freshness: a high Bing ranking is the entry condition",
+          "A page that immediately satisfies the question's intent (engagement)"
+        ]
+      },
+      "meaning": {
+        "pl": "Dla banku: temat strony musi być nazwany wprost, nie tylko zasugerowany. ChatGPT w pytaniach prawno-finansowych szuka „urzędowo”, więc treść banku musi wyglądać wiarygodnie prawnie.",
+        "en": "For the bank: the page's topic must be named explicitly, not merely implied. In legal-financial questions ChatGPT searches „officially”, so the bank's content must look legally credible."
+      },
+      "detailsLabel": { "pl": "Dla działu digital/IT", "en": "For the digital/IT team" },
+      "details": {
+        "pl": [
+          "ChatGPT Search korzysta z indeksu Bing",
+          "IndexNow przyspiesza odkrywanie aktualizacji treści",
+          "Wg badania Ahrefs (1,4 mln promptów) ok. 88% cytowanych URL-i pochodzi ze standardowych wyników wyszukiwania",
+          "Cytaty pobierane są często z pierwszej 1/3 długości strony (zasada BLUF)"
+        ],
+        "en": [
+          "ChatGPT Search uses the Bing index",
+          "IndexNow speeds up discovery of content updates",
+          "Per an Ahrefs study (1.4M prompts), about 88% of cited URLs come from standard search results",
+          "Citations are often taken from the first third of the page (the BLUF principle)"
+        ]
+      }
     },
     {
       "id": "claude",
       "name": "Claude",
-      "sub": "wyszukiwanie przez API + wiedza z pre-treningu",
+      "sub": { "pl": "wyszukiwanie przez API + wiedza z pre-treningu", "en": "search via API + pre-training knowledge" },
       "logo": "/claude.png",
       "accent": "#f1b434",
       "accentSoft": "#fdf4de",
-      "seeks": [
-        "Kategoryczny obiektywizm: perspektywa „za i przeciw”, przyznawanie niepewności",
-        "Wskazywanie źródeł pierwotnych (regulatorzy, orzecznictwo)",
-        "Spójna, długoterminowa obecność informacji w otwartym internecie"
-      ],
-      "meaning": "Dla banku: język wyważony i analityczny to warunek wejścia; treści perswazyjne i jednostronne są odrzucane. Wyważone stanowisko banku jest tu naturalnie premiowane.",
-      "detailsLabel": "Dla działu digital/IT",
-      "details": [
-        "Filtry odrzucają treści skrajne i nacechowane marketingowo",
-        "Liczy się obecność w publikacjach branżowych i encyklopedycznych zasilających pre-trening, nie tylko bieżący retrieval"
-      ]
+      "seeks": {
+        "pl": [
+          "Kategoryczny obiektywizm: perspektywa „za i przeciw”, przyznawanie niepewności",
+          "Wskazywanie źródeł pierwotnych (regulatorzy, orzecznictwo)",
+          "Spójna, długoterminowa obecność informacji w otwartym internecie"
+        ],
+        "en": [
+          "Categorical objectivity: a „for and against” perspective, admitting uncertainty",
+          "Pointing to primary sources (regulators, case law)",
+          "A consistent, long-term presence of the information on the open web"
+        ]
+      },
+      "meaning": {
+        "pl": "Dla banku: język wyważony i analityczny to warunek wejścia; treści perswazyjne i jednostronne są odrzucane. Wyważone stanowisko banku jest tu naturalnie premiowane.",
+        "en": "For the bank: balanced, analytical language is the entry condition; persuasive, one-sided content is rejected. The bank's balanced position is naturally rewarded here."
+      },
+      "detailsLabel": { "pl": "Dla działu digital/IT", "en": "For the digital/IT team" },
+      "details": {
+        "pl": [
+          "Filtry odrzucają treści skrajne i nacechowane marketingowo",
+          "Liczy się obecność w publikacjach branżowych i encyklopedycznych zasilających pre-trening, nie tylko bieżący retrieval"
+        ],
+        "en": [
+          "Filters reject extreme and marketing-heavy content",
+          "What counts is presence in industry and encyclopedic publications that feed pre-training, not just live retrieval"
+        ]
+      }
     }
   ]
 }

@@ -1,14 +1,17 @@
 {
-  "_comment": "Source categories for the S3 donut infographic. domains = unique domains actually retrieved in Dentons' own research (Gemini 'sources' + GPT 'safe_urls'). chartValue = slice size; for zero categories a small visual sliver is used so the absence stays visible - countLabel always shows the real number.",
-  "methodNote": "Dane poglądowe dla przykładowego pytania. Wielkość wycinka = liczba unikalnych domen zaobserwowanych w researchu własnym Dentons (próbka: 3 pytania × 2 modele). Kategoria „Bank” pokazana symbolicznie; rzeczywista liczba na etykiecie.",
+  "_comment": "Source categories for the S3 donut infographic. domains = unique domains actually retrieved in Dentons' own research (Gemini 'sources' + GPT 'safe_urls'). chartValue = slice size; for zero categories a small visual sliver is used so the absence stays visible - countLabel always shows the real number. Translatable fields are {pl, en} objects resolved via t().",
+  "methodNote": {
+    "pl": "Dane poglądowe dla przykładowego pytania. Wielkość wycinka = liczba unikalnych domen zaobserwowanych w researchu własnym Dentons (próbka: 3 pytania × 2 modele). Kategoria „Bank” pokazana symbolicznie; rzeczywista liczba na etykiecie.",
+    "en": "Illustrative data for one example question. Slice size = number of unique domains observed in Dentons' own research (sample: 3 questions × 2 models). The „Bank” category is shown symbolically; the real number is on the label."
+  },
   "categories": [
     {
       "id": "kancelarie",
-      "label": "Kancelarie i serwisy odszkodowawcze",
+      "label": { "pl": "Kancelarie i serwisy odszkodowawcze", "en": "Law firms and claims services" },
       "color": "#d32f2f",
       "textColor": "#ffffff",
       "chartValue": 23,
-      "countLabel": "23 domeny",
+      "countLabel": { "pl": "23 domeny", "en": "23 domains" },
       "domains": [
         "votum-sa.pl", "bochenekiwspolnicy.pl", "kancelariamadejczyk.biz",
         "basiewiczkasprzyk.pl", "ostaszewskikredytyfrankowe.pl", "cst-kancelaria.pl",
@@ -21,32 +24,35 @@
     },
     {
       "id": "media",
-      "label": "Media i portale",
+      "label": { "pl": "Media i portale", "en": "Media and portals" },
       "color": "#9c27b0",
       "textColor": "#ffffff",
       "chartValue": 4,
-      "countLabel": "4 domeny",
+      "countLabel": { "pl": "4 domeny", "en": "4 domains" },
       "domains": ["onet.pl", "tvn24.pl", "prawo.pl", "youtube.com"]
     },
     {
       "id": "regulatorzy",
-      "label": "Regulatorzy i instytucje",
+      "label": { "pl": "Regulatorzy i instytucje", "en": "Regulators and institutions" },
       "color": "#0288d1",
       "textColor": "#ffffff",
       "chartValue": 2,
-      "countLabel": "2 domeny",
+      "countLabel": { "pl": "2 domeny", "en": "2 domains" },
       "domains": ["finanse.uokik.gov.pl", "rf.gov.pl"]
     },
     {
       "id": "bank",
-      "label": "Bank",
+      "label": { "pl": "Bank", "en": "The bank" },
       "color": "#fbc02d",
       "textColor": "#3c1053",
       "chartValue": 0.35,
-      "countLabel": "0 domen",
+      "countLabel": { "pl": "0 domen", "en": "0 domains" },
       "calloutLabel": "0",
       "domains": [],
-      "emptyMessage": "0 domen banku zaobserwowanych w pobranych źródłach. To jest luka widoczności."
+      "emptyMessage": {
+        "pl": "0 domen banku zaobserwowanych w pobranych źródłach. To jest luka widoczności.",
+        "en": "0 bank domains observed among the retrieved sources. This is the visibility gap."
+      }
     }
   ]
 }

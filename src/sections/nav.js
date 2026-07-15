@@ -1,8 +1,9 @@
 import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/motion.js';
+import { lang, setLang, ui } from '../lib/i18n.js';
 
 /**
  * Sticky nav: narrative progress bar (Dentons arrow traveling along the
- * track) + active anchor highlighting.
+ * track), active anchor highlighting and the PL|EN language switch.
  */
 export function initNav() {
   const fill = document.getElementById('progress-fill');
@@ -14,6 +15,19 @@ export function initNav() {
     event.preventDefault();
     window.location.replace(window.location.pathname + window.location.search);
   });
+
+  /* language switch: persist choice + reload (hash survives, so the reader
+     lands back in the same section, now in the other language) */
+  const langSwitch = document.getElementById('lang-switch');
+  if (langSwitch) {
+    langSwitch.setAttribute('aria-label', ui.switchAria);
+    langSwitch.querySelectorAll('.lang-switch__btn').forEach((btn) => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+  }
 
   /* progress along the whole narrative */
   const update = () => {

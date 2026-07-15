@@ -1,10 +1,16 @@
 {
-  "_comment": "Microcopy rendered by JS (strings that live next to data-driven visuals). Static section copy lives in index.html - both are content files editable without touching logic.",
+  "_comment": "Microcopy rendered by JS (strings that live next to data-driven visuals). Static section copy lives in index.html - both are content files editable without touching logic. Translatable fields are {pl, en} objects resolved via t() from src/lib/i18n.js; heroPromptPhrases stay Polish by design (real user queries).",
   "fanout": {
-    "centerLabel": "Pytanie klienta",
+    "centerLabel": { "pl": "Pytanie klienta", "en": "The client's question" },
     "insights": {
-      "gpt": "ChatGPT szuka „urzędowo”: kieruje własne zapytania ku UOKiK, Rzecznikowi Finansowemu i orzecznictwu TSUE. Aby być widocznym w tej przestrzeni, treść banku musi wyglądać wiarygodnie prawnie: z autorami, źródłami i sygnaturami.",
-      "gemini": "Gemini szuka „poradnikowo”: pyta o wady i zalety, koszty, skutki i opinie. Te wyszukiwania wygrywają dziś treści kancelarii i serwisów odszkodowawczych. To drugie, odrębne pole optymalizacji. Ta sama strona nie wygra obu automatycznie."
+      "gpt": {
+        "pl": "ChatGPT szuka „urzędowo”: kieruje własne zapytania ku UOKiK, Rzecznikowi Finansowemu i orzecznictwu TSUE. Aby być widocznym w tej przestrzeni, treść banku musi wyglądać wiarygodnie prawnie: z autorami, źródłami i sygnaturami.",
+        "en": "ChatGPT searches „officially”: it points its own queries at the consumer protection office (UOKiK), the Financial Ombudsman and CJEU case law. To be visible in that space, the bank's content must look legally credible: with authors, sources and case numbers."
+      },
+      "gemini": {
+        "pl": "Gemini szuka „poradnikowo”: pyta o wady i zalety, koszty, skutki i opinie. Te wyszukiwania wygrywają dziś treści kancelarii i serwisów odszkodowawczych. To drugie, odrębne pole optymalizacji. Ta sama strona nie wygra obu automatycznie.",
+        "en": "Gemini searches „like a guidebook”: it asks about pros and cons, costs, consequences and opinions. Today those searches are won by law-firm and claims-service content. It is a second, separate optimization field. The same page will not win both automatically."
+      }
     }
   },
   "heroPromptPhrases": [
@@ -16,8 +22,17 @@
     "Ugoda czy proces z bankiem w sprawach Euro?"
   ],
   "treemap": {
-    "tooltipEmpty": "Brak zaobserwowanych domen w tej kategorii.",
-    "bankClickTitle": "Tu powinna być narracja banku",
-    "bankClickBody": "W pobranych przez modele źródłach nie zaobserwowaliśmy ani jednej domeny banku. Dane, ryzyka i zniuansowane stanowisko nie istnieją w tej przestrzeni."
+    "tooltipEmpty": {
+      "pl": "Brak zaobserwowanych domen w tej kategorii.",
+      "en": "No domains observed in this category."
+    },
+    "bankClickTitle": {
+      "pl": "Tu powinna być narracja banku",
+      "en": "The bank's narrative should be here"
+    },
+    "bankClickBody": {
+      "pl": "W pobranych przez modele źródłach nie zaobserwowaliśmy ani jednej domeny banku. Dane, ryzyka i zniuansowane stanowisko nie istnieją w tej przestrzeni.",
+      "en": "Among the sources retrieved by the models we did not observe a single bank domain. The data, the risks and the nuanced position do not exist in this space."
+    }
   }
 }

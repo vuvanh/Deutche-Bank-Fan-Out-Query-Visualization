@@ -1,5 +1,6 @@
 import { gsap, prefersReducedMotion } from '../lib/motion.js';
 import { htmlEl } from '../lib/svg.js';
+import { t, ui, formatRating } from '../lib/i18n.js';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -122,7 +123,7 @@ function meter(label, value) {
   const wrap = htmlEl('div', 'recs-meter');
   const head = htmlEl('div', 'recs-meter__head');
   head.appendChild(htmlEl('span', 'recs-meter__label', label));
-  head.appendChild(htmlEl('span', 'recs-meter__value', `${String(value).replace('.', ',')} / 5`));
+  head.appendChild(htmlEl('span', 'recs-meter__value', `${formatRating(value)} / 5`));
   wrap.appendChild(head);
   const track = htmlEl('div', 'recs-meter__track');
   const fill = htmlEl('div', 'recs-meter__fill');
@@ -169,12 +170,12 @@ export function initRecommendations(recData) {
     const head = htmlEl('header', 'recs-group__head');
     const node = htmlEl('span', 'recs-group__node');
     node.setAttribute('aria-hidden', 'true');
-    node.appendChild(htmlEl('strong', '', horizon.label.split(' ')[0]));
-    node.appendChild(htmlEl('small', '', 'dni'));
+    node.appendChild(htmlEl('strong', '', String(horizon.id)));
+    node.appendChild(htmlEl('small', '', ui.days));
     head.appendChild(node);
     const headText = htmlEl('div', 'recs-group__head-text');
-    headText.appendChild(htmlEl('h3', 'recs-group__name', horizon.name));
-    headText.appendChild(htmlEl('p', 'recs-group__label', `Horyzont: ${horizon.label}`));
+    headText.appendChild(htmlEl('h3', 'recs-group__name', t(horizon.name)));
+    headText.appendChild(htmlEl('p', 'recs-group__label', `${ui.horizon}: ${t(horizon.label)}`));
     head.appendChild(headText);
     group.appendChild(head);
 
@@ -192,9 +193,9 @@ export function initRecommendations(recData) {
       row.appendChild(chip);
 
       const body = htmlEl('span', 'recs-item__body');
-      body.appendChild(htmlEl('span', 'recs-item__title', action.title));
+      body.appendChild(htmlEl('span', 'recs-item__title', t(action.title)));
       const meta = htmlEl('span', 'recs-item__meta');
-      if (action.quickWin) meta.appendChild(htmlEl('span', 'recs-item__qw', 'Quick win'));
+      if (action.quickWin) meta.appendChild(htmlEl('span', 'recs-item__qw', ui.quickWin));
       meta.appendChild(htmlEl('span', 'recs-item__owners', action.owners.join(' · ')));
       body.appendChild(meta);
       row.appendChild(body);
@@ -228,45 +229,46 @@ export function initRecommendations(recData) {
 
     const top = htmlEl('div', 'recs-detail-card__top');
     const badges = htmlEl('div', 'recs-detail-card__badges');
-    badges.appendChild(htmlEl('span', 'recs-badge recs-badge--horizon', `${horizon.label} · ${horizon.name}`));
-    if (action.quickWin) badges.appendChild(htmlEl('span', 'recs-badge recs-badge--qw', 'Quick win'));
+    badges.appendChild(htmlEl('span', 'recs-badge recs-badge--horizon',
+      `${t(horizon.label)} · ${t(horizon.name)}`));
+    if (action.quickWin) badges.appendChild(htmlEl('span', 'recs-badge recs-badge--qw', ui.quickWin));
     top.appendChild(badges);
     const index = recData.actions.findIndex((a) => a.id === action.id) + 1;
     top.appendChild(htmlEl('span', 'recs-detail-card__count',
-      `Działanie ${String(index).padStart(2, '0')} / ${recData.actions.length}`));
+      ui.action(String(index).padStart(2, '0'), recData.actions.length)));
     card.appendChild(top);
 
     const hero = htmlEl('div', 'recs-detail-card__hero');
     const heroIcon = htmlEl('span', 'recs-detail-card__icon');
     heroIcon.appendChild(actionIcon(action.id));
     hero.appendChild(heroIcon);
-    hero.appendChild(htmlEl('h3', 'recs-detail-card__title', action.title));
+    hero.appendChild(htmlEl('h3', 'recs-detail-card__title', t(action.title)));
     card.appendChild(hero);
 
     const facts = htmlEl('div', 'recs-detail-card__facts');
     const owners = htmlEl('div', 'recs-facts-block');
-    owners.appendChild(htmlEl('span', 'recs-facts-block__label', 'Właściciele'));
+    owners.appendChild(htmlEl('span', 'recs-facts-block__label', ui.owners));
     const tags = htmlEl('div', 'recs-facts-block__tags');
     for (const owner of action.owners) tags.appendChild(ownerTag(owner));
     owners.appendChild(tags);
     facts.appendChild(owners);
     const meters = htmlEl('div', 'recs-facts-block recs-facts-block--meters');
-    meters.appendChild(meter('Wpływ', action.impact));
-    meters.appendChild(meter('Trudność', action.difficulty));
+    meters.appendChild(meter(ui.impact, action.impact));
+    meters.appendChild(meter(ui.difficulty, action.difficulty));
     facts.appendChild(meters);
     card.appendChild(facts);
 
     const summary = htmlEl('div', 'recs-detail-card__summary');
-    summary.appendChild(htmlEl('span', 'recs-facts-block__label', 'Co robimy'));
-    summary.appendChild(htmlEl('p', '', action.summary));
+    summary.appendChild(htmlEl('span', 'recs-facts-block__label', ui.whatWeDo));
+    summary.appendChild(htmlEl('p', '', t(action.summary)));
     card.appendChild(summary);
 
     const why = htmlEl('div', 'recs-why');
     const whyHead = htmlEl('div', 'recs-why__head');
     whyHead.appendChild(svgIcon(SPARKLE_PATHS.map((d) => ({ d, cls: 'sparkle' })), { className: 'recs-why__icon' }));
-    whyHead.appendChild(htmlEl('strong', '', 'Dlaczego to działa · mechanika AI'));
+    whyHead.appendChild(htmlEl('strong', '', ui.whyTitle));
     why.appendChild(whyHead);
-    why.appendChild(htmlEl('p', '', action.why));
+    why.appendChild(htmlEl('p', '', t(action.why)));
     card.appendChild(why);
 
     return card;

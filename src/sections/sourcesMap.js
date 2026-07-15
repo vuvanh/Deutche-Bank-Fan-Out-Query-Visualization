@@ -1,5 +1,6 @@
 import { gsap, prefersReducedMotion } from '../lib/motion.js';
 import { svgEl, htmlEl } from '../lib/svg.js';
+import { t, ui } from '../lib/i18n.js';
 
 /**
  * S3 - donut infographic of source categories actually retrieved in the
@@ -45,7 +46,7 @@ export function initSourcesMap(sourcesData, copy) {
   const domainsPanel = document.getElementById('donut-domains');
   if (!container || !centerBox || !legend) return;
 
-  note.textContent = sourcesData.methodNote;
+  note.textContent = t(sourcesData.methodNote);
 
   const categories = sourcesData.categories;
   const total = categories.reduce((sum, c) => sum + c.chartValue, 0);
@@ -55,7 +56,7 @@ export function initSourcesMap(sourcesData, copy) {
   const svg = svgEl('svg', {
     viewBox: `0 0 ${SIZE} ${SIZE}`,
     role: 'img',
-    'aria-label': 'Wykres kołowy: kategorie domen pobranych przez modele AI',
+    'aria-label': ui.donutAria,
   });
 
   const slicesGroup = svgEl('g', { class: 'donut__slices' });
@@ -95,7 +96,7 @@ export function initSourcesMap(sourcesData, copy) {
       class: 'donut-hit',
       d: arcPath(Math.max(R_INNER - 10, 0), R_OUTER + EXPLODE + 10, a0, a1),
       tabindex: '0',
-      'aria-label': `${cat.label}: ${cat.countLabel}`,
+      'aria-label': `${t(cat.label)}: ${t(cat.countLabel)}`,
     });
     hit.dataset.category = cat.id;
     hitGroup.appendChild(hit);
@@ -149,26 +150,22 @@ export function initSourcesMap(sourcesData, copy) {
     const big = htmlEl('span', 'donut-center__value', String(
       categories.reduce((sum, c) => sum + c.domains.length, 0),
     ));
-    const caption = htmlEl('span', 'donut-center__caption',
-      'unikalnych domen pobranych przez modele');
-    const hint = htmlEl('span', 'donut-center__hint',
-      'kliknij kategorię, aby zobaczyć domeny');
+    const caption = htmlEl('span', 'donut-center__caption', ui.donutCaption);
+    const hint = htmlEl('span', 'donut-center__hint', ui.donutHint);
     centerBox.append(big, caption, hint);
   }
 
   function renderCenterFor(cat) {
     centerBox.innerHTML = '';
-    const name = htmlEl('span', 'donut-center__name', cat.label);
+    const name = htmlEl('span', 'donut-center__name', t(cat.label));
     name.style.color = cat.color;
     const value = htmlEl('span', 'donut-center__value donut-center__value--sm',
-      cat.countLabel);
+      t(cat.countLabel));
     centerBox.append(name, value);
 
     const detail = cat.id === 'bank'
-      ? (cat.emptyMessage ?? copy.treemap.bankClickBody)
-      : cat.status === 'DO_UZUPELNIENIA'
-        ? (cat.note ?? copy.treemap.tooltipEmpty)
-        : null;
+      ? t(cat.emptyMessage ?? copy.treemap.bankClickBody)
+      : null;
     if (detail) centerBox.appendChild(htmlEl('span', 'donut-center__note', detail));
   }
 
@@ -187,8 +184,8 @@ export function initSourcesMap(sourcesData, copy) {
 
     const swatch = htmlEl('i');
     swatch.style.background = cat.color;
-    const label = htmlEl('span', 'donut-legend__label', cat.label);
-    const count = htmlEl('span', 'donut-legend__count', cat.countLabel);
+    const label = htmlEl('span', 'donut-legend__label', t(cat.label));
+    const count = htmlEl('span', 'donut-legend__count', t(cat.countLabel));
     item.append(swatch, label, count);
     legend.appendChild(item);
     legendItems.set(cat.id, item);
@@ -209,8 +206,8 @@ export function initSourcesMap(sourcesData, copy) {
     const head = htmlEl('div', 'donut-domains__head');
     const swatch = htmlEl('i');
     swatch.style.background = cat.color;
-    const title = htmlEl('h3', 'donut-domains__title', cat.label);
-    const count = htmlEl('span', 'donut-domains__count', cat.countLabel);
+    const title = htmlEl('h3', 'donut-domains__title', t(cat.label));
+    const count = htmlEl('span', 'donut-domains__count', t(cat.countLabel));
     head.append(swatch, title, count);
     domainsPanel.appendChild(head);
 
@@ -230,8 +227,8 @@ export function initSourcesMap(sourcesData, copy) {
       domainsPanel.appendChild(list);
     } else {
       const message = cat.id === 'bank'
-        ? (cat.emptyMessage ?? copy.treemap.bankClickBody)
-        : (cat.note ?? copy.treemap.tooltipEmpty);
+        ? t(cat.emptyMessage ?? copy.treemap.bankClickBody)
+        : t(cat.note ?? copy.treemap.tooltipEmpty);
       const empty = htmlEl('p', 'donut-domains__empty', message);
       domainsPanel.appendChild(empty);
       items = [empty];

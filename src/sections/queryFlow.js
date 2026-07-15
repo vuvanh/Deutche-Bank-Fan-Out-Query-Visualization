@@ -1,5 +1,6 @@
 import { gsap, prefersReducedMotion } from '../lib/motion.js';
 import { svgEl, htmlEl, curvedPath } from '../lib/svg.js';
+import { t, ui } from '../lib/i18n.js';
 
 /**
  * S2 - query flow: how the customer's chat prompt is rewritten by the model
@@ -22,8 +23,8 @@ export function initQueryFlow(fanoutData, copy) {
 
   const insightGpt = document.getElementById('qflow-insight-gpt');
   const insightGemini = document.getElementById('qflow-insight-gemini');
-  if (insightGpt) insightGpt.textContent = copy.fanout.insights.gpt;
-  if (insightGemini) insightGemini.textContent = copy.fanout.insights.gemini;
+  if (insightGpt) insightGpt.textContent = t(copy.fanout.insights.gpt);
+  if (insightGemini) insightGemini.textContent = t(copy.fanout.insights.gemini);
 
   // only questions with observed fan-outs make sense in the flow
   const questions = fanoutData.questions.filter((q) =>
@@ -63,7 +64,7 @@ export function initQueryFlow(fanoutData, copy) {
     const question = activeQuestion();
 
     queryNode.innerHTML = '';
-    queryNode.appendChild(htmlEl('small', '', copy.fanout.centerLabel));
+    queryNode.appendChild(htmlEl('small', '', t(copy.fanout.centerLabel)));
     queryNode.appendChild(document.createTextNode(`„${question.label}”`));
 
     fanoutsBox.innerHTML = '';
@@ -76,7 +77,7 @@ export function initQueryFlow(fanoutData, copy) {
       const group = htmlEl('div', `qflow-group qflow-group--${modelId}`);
       const engine = modelId === 'gpt' ? 'Bing' : 'Google';
       group.appendChild(htmlEl('span', 'qflow-group__label',
-        `${fanoutData.models[modelId].label} → zapytania do ${engine}`));
+        ui.queriesTo(fanoutData.models[modelId].label, engine)));
 
       model.queries.forEach((query, i) => {
         // each query links to a live search for that exact phrase in the
@@ -87,11 +88,11 @@ export function initQueryFlow(fanoutData, copy) {
           : `https://www.google.com/search?q=${encodeURIComponent(query.text)}`;
         node.target = '_blank';
         node.rel = 'noopener noreferrer';
-        node.title = `Otwórz to zapytanie w ${engine}`;
+        node.title = ui.openQueryIn(engine);
         node.appendChild(document.createTextNode(`„${query.text}”`));
         node.appendChild(htmlEl('span',
           `source-tag source-tag--${query.sourceType}`,
-          fanoutData.sourceTypes[query.sourceType] ?? query.sourceType));
+          t(fanoutData.sourceTypes[query.sourceType]) ?? query.sourceType));
         node.dataset.model = modelId;
         node.dataset.key = `fo-${modelId}-${i}`;
         group.appendChild(node);

@@ -1,5 +1,6 @@
 import { gsap, prefersReducedMotion } from '../lib/motion.js';
 import { htmlEl } from '../lib/svg.js';
+import { t, ui } from '../lib/i18n.js';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -50,17 +51,17 @@ export function initEngines(enginesData) {
     logo.appendChild(img);
     const headText = htmlEl('div', 'engine-card__head-text');
     headText.appendChild(htmlEl('h3', '', engine.name));
-    headText.appendChild(htmlEl('p', 'engine-sub', engine.sub));
+    headText.appendChild(htmlEl('p', 'engine-sub', t(engine.sub)));
     head.append(logo, headText);
     card.appendChild(head);
 
     const seeksLabel = htmlEl('span', 'engine-card__label');
     seeksLabel.appendChild(icon('engine-card__label-icon', EYE));
-    seeksLabel.appendChild(document.createTextNode('Co premiuje ten silnik'));
+    seeksLabel.appendChild(document.createTextNode(ui.engineSeeks));
     card.appendChild(seeksLabel);
 
     const list = htmlEl('ul', 'engine-list');
-    for (const point of engine.seeks) {
+    for (const point of t(engine.seeks)) {
       const item = htmlEl('li');
       item.appendChild(icon('engine-list__check', CHECK));
       item.appendChild(htmlEl('span', '', point));
@@ -72,8 +73,9 @@ export function initEngines(enginesData) {
     const bulb = htmlEl('span', 'engine-meaning__bulb');
     bulb.appendChild(icon('engine-meaning__icon', BULB));
     const takeawayBody = htmlEl('div', 'engine-meaning__body');
-    takeawayBody.appendChild(htmlEl('span', 'engine-meaning__label', 'Dla banku'));
-    takeawayBody.appendChild(htmlEl('p', '', engine.meaning.replace(/^Dla banku:\s*/, '')));
+    takeawayBody.appendChild(htmlEl('span', 'engine-meaning__label', ui.engineForBank));
+    takeawayBody.appendChild(htmlEl('p', '',
+      t(engine.meaning).replace(/^(Dla banku|For the bank):\s*/, '')));
     takeaway.append(bulb, takeawayBody);
     card.appendChild(takeaway);
 
@@ -82,13 +84,13 @@ export function initEngines(enginesData) {
     toggle.type = 'button';
     toggle.className = 'engine-more__toggle';
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.appendChild(htmlEl('span', '', 'Dla zainteresowanych'));
+    toggle.appendChild(htmlEl('span', '', ui.engineMore));
     toggle.appendChild(icon('engine-more__arrow', CHEVRON));
     const body = htmlEl('div', 'engine-more__body');
     const inner = htmlEl('div', 'engine-more__inner');
-    inner.appendChild(htmlEl('span', 'engine-more__label', engine.detailsLabel));
+    inner.appendChild(htmlEl('span', 'engine-more__label', t(engine.detailsLabel)));
     const factList = htmlEl('ul', 'engine-more__list');
-    for (const fact of engine.details) factList.appendChild(htmlEl('li', '', fact));
+    for (const fact of t(engine.details)) factList.appendChild(htmlEl('li', '', fact));
     inner.appendChild(factList);
     body.appendChild(inner);
     toggle.addEventListener('click', () => {

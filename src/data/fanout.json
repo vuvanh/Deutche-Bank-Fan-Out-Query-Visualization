@@ -5,12 +5,12 @@
     "gemini": { "label": "Gemini", "sub": "Gemini 2.5 Flash · przez indeks Google" }
   },
   "sourceTypes": {
-    "regulator": "Regulator / instytucja",
-    "orzecznictwo": "Orzecznictwo / TSUE",
-    "poradnik": "Poradnik / serwis komercyjny",
-    "kancelarie": "Kancelarie / odszkodowania",
-    "fora": "Fora / opinie",
-    "media": "Media"
+    "regulator": { "pl": "Regulator / instytucja", "en": "Regulator / institution" },
+    "orzecznictwo": { "pl": "Orzecznictwo / TSUE", "en": "Case law / CJEU" },
+    "poradnik": { "pl": "Poradnik / serwis komercyjny", "en": "Guide / commercial site" },
+    "kancelarie": { "pl": "Kancelarie / odszkodowania", "en": "Law firms / claims" },
+    "fora": { "pl": "Fora / opinie", "en": "Forums / opinions" },
+    "media": { "pl": "Media", "en": "Media" }
   },
   "questions": [
     {
