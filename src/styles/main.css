@@ -2203,10 +2203,10 @@ button {
 .footer__heading {
   margin: 0 0 18px;
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: rgba(246, 242, 250, 0.55);
 }
 
 .footer__logo { height: 30px; width: auto; margin-bottom: 16px; }
@@ -2218,65 +2218,55 @@ button {
   color: var(--ink-on-dark-muted);
 }
 
-.footer__mail {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
+.footer__brand p.footer__mail-label {
+  margin-top: 20px;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--gold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 242, 250, 0.55);
+}
+
+.footer__mail {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 700;
+  color: #fff;
   text-decoration: none;
 }
 
-.footer__mail svg { width: 18px; height: 18px; flex: 0 0 auto; }
-
 .footer__mail:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-/* contact cards: icon disc + name / role / email */
-.footer-contact { display: flex; gap: 14px; align-items: flex-start; }
+/* contact entries: name / role / email */
+.footer-contact { display: flex; flex-direction: column; gap: 2px; }
 
 .footer-contact + .footer-contact { margin-top: 20px; }
 
-.footer-contact__icon {
-  flex: 0 0 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(246, 242, 250, 0.07);
-  border: 1px solid rgba(246, 242, 250, 0.18);
-  color: var(--gold);
-}
-
-.footer-contact__icon svg { width: 18px; height: 18px; }
-
-.footer-contact__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-
-.footer-contact__body strong { color: #fff; font-size: 0.92rem; }
+.footer-contact strong { color: #fff; font-size: 0.92rem; }
 
 .footer-contact__badge {
   display: inline-block;
   margin-left: 6px;
   padding: 1px 8px;
-  border: 1px solid var(--gold);
+  border: 1px solid rgba(246, 242, 250, 0.35);
   border-radius: 999px;
   font-size: 0.6rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: rgba(246, 242, 250, 0.7);
   vertical-align: 2px;
 }
 
 .footer-contact__role { font-size: 0.78rem; color: var(--ink-on-dark-muted); }
 
-.footer-contact__body a {
+.footer-contact a {
   font-size: 0.82rem;
   color: var(--ink-on-dark-soft);
   text-decoration: none;
 }
 
-.footer-contact__body a:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.footer-contact a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
 .footer__legal p {
   margin: 0 0 12px;
