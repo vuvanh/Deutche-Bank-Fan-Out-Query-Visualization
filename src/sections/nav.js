@@ -9,6 +9,12 @@ export function initNav() {
   const arrow = document.getElementById('progress-arrow');
   const links = [...document.querySelectorAll('.nav__links a')];
 
+  /* logo = hard reset: reload without the hash, back at the very top */
+  document.querySelector('.nav__logo')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.location.replace(window.location.pathname + window.location.search);
+  });
+
   /* progress along the whole narrative */
   const update = () => {
     const doc = document.documentElement;

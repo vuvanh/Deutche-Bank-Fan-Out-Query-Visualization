@@ -12,23 +12,23 @@
   "actions": [
     {
       "id": "robots-txt",
-      "title": "Audyt dostępności technicznej: robots.txt + WAF",
+      "title": "Otworzyć stronę banku dla wyszukiwarek AI",
       "impact": 5, "difficulty": 1, "horizon": 30, "quickWin": true,
       "owners": ["IT", "Legal"],
-      "summary": "Zezwolić botom wyszukiwawczym AI (OAI-SearchBot, PerplexityBot, Claude-SearchBot, ChatGPT-User) na dostęp do witryny; sprawdzić, czy zapora (np. Cloudflare) nie blokuje ich bezwiednie. Decyzja o botach treningowych (GPTBot) pozostaje odrębną polityką banku.",
+      "summary": "Audyt techniczny (plik robots.txt, zapora sieciowa WAF): zezwolić botom wyszukiwawczym AI (OAI-SearchBot, PerplexityBot, Claude-SearchBot, ChatGPT-User) na dostęp do witryny; sprawdzić, czy zapora nie blokuje ich bezwiednie. Decyzja o botach treningowych (GPTBot) pozostaje odrębną polityką banku.",
       "why": "Blokada botów wyszukiwawczych fizycznie usuwa domenę banku ze wszystkich odpowiedzi generowanych na żywo, pozostawiając pole domenom kancelarii. Bez tego kroku żadne inne działanie nie działa."
     },
     {
       "id": "llms-txt",
-      "title": "Publikacja plików llms.txt i llms-full.txt",
+      "title": "Mapa treści banku napisana dla modeli AI",
       "impact": 4, "difficulty": 1, "horizon": 30, "quickWin": true,
       "owners": ["IT", "Content"],
-      "summary": "Ustrukturyzowany przewodnik po kluczowych merytorycznie podstronach banku w formacie Markdown, umieszczony w katalogu głównym witryny.",
+      "summary": "Publikacja plików llms.txt i llms-full.txt: ustrukturyzowany przewodnik po kluczowych merytorycznie podstronach banku w formacie Markdown, umieszczony w katalogu głównym witryny.",
       "why": "Markdown to natywny format modeli językowych: mniejsze zużycie tokenów, prostsze parsowanie. Skraca drogę maszyny do faktów banku z pominięciem złożonego HTML."
     },
     {
       "id": "explainer-eur-chf",
-      "title": "Explainer „Kredyt EUR vs CHF: różnice” oparty na danych",
+      "title": "Pokazać na danych, czym kredyt w euro różni się od franka",
       "impact": 4, "difficulty": 2.5, "horizon": 30, "quickWin": true,
       "owners": ["Content", "Legal"],
       "summary": "Tabelaryczne zestawienie twardych danych: odmienne lata udzielania, mniejsza zmienność kursowa, EURIBOR vs LIBOR, rozróżnienia w orzecznictwie. Język analityczny, bez oceniania.",
@@ -36,10 +36,10 @@
     },
     {
       "id": "faq-bluf",
-      "title": "Przepisanie FAQ wg zasady „odpowiedź na początku” (BLUF)",
+      "title": "FAQ, które odpowiada w pierwszym zdaniu",
       "impact": 3.5, "difficulty": 2, "horizon": 30, "quickWin": true,
       "owners": ["Content"],
-      "summary": "10 najczęstszych pytań klientów: syntetyczna konkluzja w pierwszych 100 słowach pod każdym nagłówkiem, zero marketingowych wstępów.",
+      "summary": "Przepisanie 10 najczęstszych pytań klientów wg zasady BLUF („odpowiedź na początku”): syntetyczna konkluzja w pierwszych 100 słowach pod każdym nagłówkiem, zero marketingowych wstępów.",
       "why": "Systemy RAG tną strony na fragmenty ~130–170 słów i odrzucają te, w których odpowiedź nie pada od razu. Perplexity i AI Overviews ekstrahują z początku akapitu."
     },
     {
@@ -60,18 +60,18 @@
     },
     {
       "id": "content-hub",
-      "title": "Centralny Content Hub o kredytach w euro",
+      "title": "Centrum wiedzy o kredytach w euro na stronie banku",
       "impact": 4, "difficulty": 4, "horizon": 90,
       "owners": ["Content", "PR"],
-      "summary": "Dedykowana sekcja (pillar page) porządkująca pojęcia, dane makro, podstawy prawne i ryzyka. Architektura „Entity-First”, bloki po ~150 słów, cytowane źródła (KNF, NBP).",
+      "summary": "Centralny Content Hub (pillar page): dedykowana sekcja porządkująca pojęcia, dane makro, podstawy prawne i ryzyka. Architektura „Entity-First”, bloki po ~150 słów, cytowane źródła (KNF, NBP).",
       "why": "Buduje autorytet tematyczny domeny banku, najsilniejszy pojedynczy predyktor cytowania w ChatGPT i AI Overviews."
     },
     {
       "id": "schema-claimreview",
-      "title": "Dane strukturalne: FAQPage, Article, ClaimReview",
+      "title": "Opisać treści tak, by maszyny nie mogły ich źle zrozumieć",
       "impact": 3.5, "difficulty": 3, "horizon": 90,
       "owners": ["IT"],
-      "summary": "Wdrożenie JSON-LD w szablonach witryny; ClaimReview jako podstawa sekcji weryfikacji faktów.",
+      "summary": "Wdrożenie danych strukturalnych (JSON-LD: FAQPage, Article, ClaimReview) w szablonach witryny; ClaimReview jako podstawa sekcji weryfikacji faktów.",
       "why": "Dane strukturalne kategoryzują treść dla maszyn i zmniejszają ryzyko błędnej interpretacji; ClaimReview to standard wykorzystywany przez Google do oznaczania weryfikacji faktów."
     },
     {
@@ -84,18 +84,18 @@
     },
     {
       "id": "eeat-authorship",
-      "title": "Sygnały autorstwa i eksperckości (E-E-A-T)",
+      "title": "Imienni eksperci zamiast anonimowych treści",
       "impact": 3, "difficulty": 3, "horizon": 90,
       "owners": ["Content", "IT"],
-      "summary": "Przypisanie analiz konkretnym ekonomistom i prawnikom banku: biogramy, znaczniki Person/SameAs, widoczne daty aktualizacji po nowych wyrokach.",
+      "summary": "Sygnały autorstwa i eksperckości (E-E-A-T): przypisanie analiz konkretnym ekonomistom i prawnikom banku, czyli biogramy, znaczniki Person/SameAs i widoczne daty aktualizacji po nowych wyrokach.",
       "why": "Anonimowa treść często nie przechodzi filtrów E-E-A-T przy fuzji odpowiedzi. Modele premiują treści z weryfikowalnym, imiennym autorstwem i aktualną datą."
     },
     {
       "id": "risk-checklist",
-      "title": "Risk checklist: koszty i niepewności procesu, uczciwie „za i przeciw”",
+      "title": "Uczciwy rachunek kosztów i ryzyk procesu: „za i przeciw”",
       "impact": 3, "difficulty": 3, "horizon": 180,
       "owners": ["Content", "Legal"],
-      "summary": "Chłodna, matematyczna lista kontrolna: opłaty sądowe, czas trwania, zmienność orzecznictwa, scenariusze rozliczeń po stronie klienta i banku.",
+      "summary": "Risk checklist: chłodna, matematyczna lista kontrolna obejmująca opłaty sądowe, czas trwania, zmienność orzecznictwa i scenariusze rozliczeń po stronie klienta i banku.",
       "why": "Modele (zwłaszcza Claude i Perplexity) premiują treści rzetelnie wyliczające ryzyka obu stron. Wyważona checklista ma większą szansę na cytowanie niż tekst perswazyjny."
     },
     {
@@ -108,18 +108,18 @@
     },
     {
       "id": "ssr-lcp",
-      "title": "Optymalizacja renderowania (SSR) i szybkości ładowania",
+      "title": "Strona na tyle szybka, by roboty AI zdążyły ją odczytać",
       "impact": 2.5, "difficulty": 4, "horizon": 180,
       "owners": ["IT"],
-      "summary": "Treści informacyjne w stabilnym HTML bez ukrywania tekstu za skryptami; czas ładowania poniżej 2 s.",
+      "summary": "Optymalizacja renderowania (SSR) i szybkości ładowania: treści informacyjne w stabilnym HTML bez ukrywania tekstu za skryptami; czas ładowania poniżej 2 s.",
       "why": "Crawlery AI mają drastyczne limity czasowe: jeśli nie przetworzą strony w krótkim oknie, ignorują ją mimo wysokiego autorytetu."
     },
     {
       "id": "white-paper",
-      "title": "White paper z partnerem branżowym",
+      "title": "Wspólny raport o rynku z partnerem branżowym",
       "impact": 3.5, "difficulty": 4.5, "horizon": 180,
       "owners": ["PR", "Legal"],
-      "summary": "Zniuansowana analiza rynku kredytów walutowych we współpracy z partnerem branżowym; wersja HTML (executive summary) obok pełnego raportu.",
+      "summary": "White paper: zniuansowana analiza rynku kredytów walutowych we współpracy z partnerem branżowym; wersja HTML (executive summary) obok pełnego raportu.",
       "why": "Publikacje z zewnętrznymi autorytetami zasilają bazy wiedzy modeli długoterminowo i uwiarygadniają neutralność stanowiska; dane wchodzą do pre-treningu kolejnych generacji modeli."
     }
   ]

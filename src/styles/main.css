@@ -727,11 +727,27 @@ button {
    S2 - QUERY FLOW (fan-out: prompt → model → search queries)
    ============================================================ */
 
+/* example questions live inside column 1, under the typed query */
+.qflow-examples-label {
+  margin: 22px 0 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-on-dark-muted);
+}
+
 .qflow-questions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 36px;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.qflow-questions .chip {
+  font-size: 0.78rem;
+  padding: 7px 13px;
+  text-align: left;
 }
 
 .chip {
@@ -2161,7 +2177,10 @@ button {
    S8 - CLOSING
    ============================================================ */
 
-.closing { padding-bottom: 60px; }
+/* tighten the S6 → closing seam (the default 2×96px read as a hole) */
+#rekomendacje.section { padding-bottom: 40px; }
+
+.closing { padding-top: 72px; padding-bottom: 60px; }
 
 .closing__logo img { height: 44px; margin-bottom: 30px; }
 
